@@ -489,7 +489,7 @@ class TFGPT2MainLayer(tf.keras.layers.Layer):
                 if self.config.add_cross_attention and encoder_hidden_states is not None:
                     all_cross_attentions = all_cross_attentions + (outputs[3],)
 
-        hidden_states = self.ln_f(hidden_states)
+        # hidden_states = self.ln_f(hidden_states)
 
         hidden_states = tf.reshape(hidden_states, output_shape)
         # Add last hidden state
