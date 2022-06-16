@@ -328,6 +328,7 @@ jobs:
           nvidia-smi
 
       - name: Environment
+        working-directory: /workspace/transformers
         run: |
           python utils/print_env.py
 
