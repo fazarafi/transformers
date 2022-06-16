@@ -113,7 +113,7 @@ jobs:
       matrix:
         folders: ${{ fromJson(needs.setup.outputs.matrix) }}
         machine_type: [single-gpu]
-    runs-on: [self-hosted, docker-gpu, '${{ matrix.machine_type }}']
+    runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
       image: huggingface/transformers-all-latest-gpu
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
@@ -197,7 +197,7 @@ jobs:
       matrix:
         folders: ${{ fromJson(needs.setup.outputs.matrix) }}
         machine_type: [multi-gpu]
-    runs-on: [self-hosted, docker-gpu, '${{ matrix.machine_type }}']
+    runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
       image: huggingface/transformers-all-latest-gpu
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
@@ -285,7 +285,7 @@ jobs:
       fail-fast: false
       matrix:
         machine_type: [single-gpu]
-    runs-on: [self-hosted, docker-gpu, '${{ matrix.machine_type }}']
+    runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
       image: huggingface/transformers-pytorch-deepspeed-latest-gpu
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
@@ -363,7 +363,7 @@ jobs:
       fail-fast: false
       matrix:
         machine_type: [multi-gpu]
-    runs-on: [self-hosted, docker-gpu, '${{ matrix.machine_type }}']
+    runs-on: ${{ format('{0}-{1}', matrix.machine_type, 'docker') }}
     container:
       image: huggingface/transformers-pytorch-deepspeed-latest-gpu
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
@@ -484,7 +484,7 @@ jobs:
           CI_SLACK_CHANNEL_ID: ${{ secrets.CI_SLACK_CHANNEL_ID }}
           CI_SLACK_CHANNEL_ID_DAILY: ${{ secrets.CI_SLACK_CHANNEL_ID_DAILY }}
           CI_SLACK_CHANNEL_DUMMY_TESTS: ${{ secrets.CI_SLACK_CHANNEL_DUMMY_TESTS }}
-          CI_SLACK_REPORT_CHANNEL_ID: ${{ secrets.CI_SLACK_CHANNEL_ID }}
+          CI_SLACK_REPORT_CHANNEL_ID: ${{ secrets.CI_SLACK_CHANNEL_DUMMY_TESTS }}
           CI_EVENT: push
           CI_TITLE_PUSH: ${{ github.event.head_commit.message }}
           CI_TITLE_WORKFLOW_RUN: ${{ github.event.workflow_run.head_commit.message }}
