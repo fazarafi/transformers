@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - test_push_ci_on_workflow_run_part_2
+      - test_push_ci_on_workflow_run_part_3
       - push-ci
       - ci_*
       - ci-*
