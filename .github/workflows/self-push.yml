@@ -35,6 +35,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
@@ -121,6 +122,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
@@ -205,6 +207,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
@@ -238,6 +241,7 @@ jobs:
         # For folders like `models/bert`, set an env. var. (`matrix_folders`) to `models_bert`, which will be used to
         # set the artifact folder names (because the character `/` is not allowed).
         run: |
+          echo $0
           echo "${{ matrix.folders }}"
           echo "${{ fromJson(needs.setup.outputs.test_map)[matrix.folders] }}"
           matrix_folders=${{ matrix.folders }}
@@ -293,6 +297,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
@@ -371,6 +376,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
@@ -448,6 +454,7 @@ jobs:
       - name: Prepare custom environment variables
         shell: bash
         run: |
+          echo $0
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
           CI_BRANCH_WORKFLOW_RUN=${{ github.event.workflow_run.head_branch }}
