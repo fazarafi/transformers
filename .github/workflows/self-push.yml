@@ -32,6 +32,7 @@ jobs:
       test_map: ${{ steps.set-matrix.outputs.test_map }}
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
@@ -117,6 +118,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
@@ -200,6 +202,7 @@ jobs:
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
@@ -287,6 +290,7 @@ jobs:
       options: --gpus 0 --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
@@ -364,6 +368,7 @@ jobs:
       options: --gpus all --shm-size "16gb" --ipc host -v /mnt/cache/.cache/huggingface:/mnt/cache/
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
@@ -440,6 +445,7 @@ jobs:
     ]
     steps:
       - name: Prepare custom environment variables
+        shell: bash
         run: |
           CI_BRANCH_PUSH=${{ github.event.ref }}
           CI_BRANCH_PUSH=${CI_BRANCH_PUSH/'refs/heads/'/''}
