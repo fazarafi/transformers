@@ -552,6 +552,8 @@ BART_START_DOCSTRING = r"""
 BART_GENERATION_EXAMPLE = r"""
     Summarization example:
 
+
+    # TODO Faza refer for modify the model
     ```python
     >>> from transformers import BartTokenizer, BartForConditionalGeneration
 
