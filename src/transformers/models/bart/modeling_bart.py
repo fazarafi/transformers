@@ -34,7 +34,7 @@ from ...modeling_outputs import (
     Seq2SeqQuestionAnsweringModelOutput,
     Seq2SeqSequenceClassifierOutput,
 )
-from ...modeling_utils import PreTrainedModel
+from ...modeling_utils import PreTrainedModel # TODO Faza investigate dalem sini
 from ...utils import (
     add_code_sample_docstrings,
     add_end_docstrings,
@@ -566,7 +566,8 @@ BART_GENERATION_EXAMPLE = r"""
     ...     "scheduled to be affected by the shutoffs which were expected to last through at least midday tomorrow."
     ... )
     >>> inputs = tokenizer([ARTICLE_TO_SUMMARIZE], max_length=1024, return_tensors="pt")
-
+    
+    # TODO Faza investigate the num_beams
     >>> # Generate Summary
     >>> summary_ids = model.generate(inputs["input_ids"], num_beams=2, min_length=0, max_length=20)
     >>> tokenizer.batch_decode(summary_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
