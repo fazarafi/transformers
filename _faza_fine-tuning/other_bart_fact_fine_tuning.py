@@ -1,13 +1,13 @@
 # Code source: https://github.com/francoisstamant/Fine-tuning-for-text-summarization/blob/main/text_summarization.ipynb
 
-!pip install ohmeow-blurr -q
-!pip install bert-score -q
+# pip install ohmeow-blurr -q
+# pip install bert-score -q
 
 import pandas as pd
-from fastai.text.all import *
+# from fastai.text.all import *
 from transformers import *
-from blurr.data.all import *
-from blurr.modeling.all import *
+# from blurr.data.all import *
+# from blurr.modeling.all import *
 
 '''
 Preparation

@@ -24,6 +24,10 @@ import torch
 from .generation_beam_constraints import Constraint, ConstraintListState
 from .utils import add_start_docstrings
 
+from fact_factcc.factcc_caller_model import FactccCaller
+from fact_summac.summac_caller import classify as summac_cls
+from fact_feqa.feqa_caller import classify as feqa_cls
+from fact_0_general.model_baseline_evaluator import BaselineScorer
 
 PROCESS_INPUTS_DOCSTRING = r"""
     Args:
@@ -115,7 +119,6 @@ class BeamScorer(ABC):
         **kwargs
     ) -> torch.LongTensor:
         raise NotImplementedError("This is an abstract method.")
-
 
 class BeamSearchScorer(BeamScorer):
     r"""
@@ -233,7 +236,6 @@ class BeamSearchScorer(BeamScorer):
         next_beam_tokens = torch.zeros((batch_size, self.group_size), dtype=next_tokens.dtype, device=device)
         next_beam_indices = torch.zeros((batch_size, self.group_size), dtype=next_indices.dtype, device=device)
 
-        # TODO Faza beam search disini
         for batch_idx, beam_hyp in enumerate(self._beam_hyps):
             if self._done[batch_idx]:
                 if self.num_beams < len(beam_hyp):
@@ -333,8 +335,6 @@ class BeamSearchScorer(BeamScorer):
         best_scores = torch.zeros(batch_size * self.num_beam_hyps_to_keep, device=self.device, dtype=torch.float32)
 
         # retrieve best hypotheses
-        # TODO Faza rank hypotheses based on factuality
-        print("[DEBUG FT] beam_hyps: " + str(self._beam_hyps))
         for i, beam_hyp in enumerate(self._beam_hyps):
             sorted_hyps = sorted(beam_hyp.beams, key=lambda x: x[0])
             for j in range(self.num_beam_hyps_to_keep):
@@ -890,3 +890,380 @@ class BeamHypotheses:
             cur_score = best_sum_logprobs / cur_len**self.length_penalty
             ret = self.worst_score >= cur_score
             return ret
+
+
+
+class FaithfulnessBeamSearchScorer(BeamScorer):
+    r"""
+    [`BeamScorer`] implementing standard beam search decoding.
+
+    Adapted in part from [Facebook's XLM beam search
+    code](https://github.com/facebookresearch/XLM/blob/9e6f6814d17be4fe5b15f2e6c43eb2b2d76daeb4/src/model/transformer.py#L529).
+
+    Reference for the diverse beam search algorithm and implementation [Ashwin Kalyan's DBS
+    implementation](https://github.com/ashwinkalyan/dbs/blob/master/dbs/beam_utils.lua)
+
+    Args:
+        batch_size (`int`):
+            Batch Size of `input_ids` for which standard beam search decoding is run in parallel.
+        max_length (`int`):
+            The maximum length of the sequence to be generated.
+        num_beams (`int`):
+            Number of beams for beam search.
+        device (`torch.device`):
+            Defines the device type (*e.g.*, `"cpu"` or `"cuda"`) on which this instance of `BeamSearchScorer` will be
+            allocated.
+        length_penalty (`float`, *optional*, defaults to 1.0):
+            Exponential penalty to the length. 1.0 means no penalty. Set to values < 1.0 in order to encourage the
+            model to generate shorter sequences, to a value > 1.0 in order to encourage the model to produce longer
+            sequences.
+        do_early_stopping (`bool`, *optional*, defaults to `False`):
+            Whether to stop the beam search when at least `num_beams` sentences are finished per batch or not.
+        num_beam_hyps_to_keep (`int`, *optional*, defaults to 1):
+            The number of beam hypotheses that shall be returned upon calling
+            [`~transformer.BeamSearchScorer.finalize`].
+        num_beam_groups (`int`):
+            Number of groups to divide `num_beams` into in order to ensure diversity among different groups of beams.
+            See [this paper](https://arxiv.org/pdf/1610.02424.pdf) for more details.
+    """
+
+    def __init__(
+        self,
+        batch_size: int,
+        num_beams: int,
+        device: torch.device,
+        length_penalty: Optional[float] = 1.0,
+        do_early_stopping: Optional[bool] = False,
+        num_beam_hyps_to_keep: Optional[int] = 1,
+        num_beam_groups: Optional[int] = 1,
+        **kwargs,
+    ):
+        self.num_beams = num_beams
+        self.device = device
+        self.length_penalty = length_penalty
+        self.do_early_stopping = do_early_stopping
+        self.num_beam_hyps_to_keep = num_beam_hyps_to_keep
+        self.num_beam_groups = num_beam_groups
+        self.group_size = self.num_beams // self.num_beam_groups
+
+        self._is_init = False
+        self._beam_hyps = [
+            BeamHypotheses(
+                num_beams=self.num_beams,
+                length_penalty=self.length_penalty,
+                early_stopping=self.do_early_stopping,
+            )
+            for _ in range(batch_size)
+        ]
+        self._done = torch.tensor([False for _ in range(batch_size)], dtype=torch.bool, device=self.device)
+
+        if not isinstance(num_beams, int) or num_beams <= 1:
+            raise ValueError(
+                f"`num_beams` has to be an integer strictly greater than 1, but is {num_beams}. For `num_beams` == 1,"
+                " one should make use of `greedy_search` instead."
+            )
+
+        if not isinstance(num_beam_groups, int) or (num_beam_groups > num_beams) or (num_beams % num_beam_groups != 0):
+            raise ValueError(
+                "`num_beam_groups` has to be an integer smaller or equal than `num_beams` and `num_beams` has to be"
+                f" divisible by `num_beam_groups`, but is {num_beam_groups} with `num_beams` being {num_beams}."
+            )
+
+        if "max_length" in kwargs:
+            warnings.warn(
+                "Passing `max_length` to BeamSearchScorer is deprecated and has no effect. "
+                "`max_length` should be passed directly to `beam_search(...)`, `beam_sample(...)`"
+                ", or `group_beam_search(...)`."
+            )
+
+        # TODO Faza weights
+        self.weights = None
+
+    @property
+    def is_done(self) -> bool:
+        return self._done.all()
+
+    def process(
+        self,
+        input_ids: torch.LongTensor,
+        next_scores: torch.FloatTensor,
+        next_tokens: torch.LongTensor,
+        next_indices: torch.LongTensor,
+        pad_token_id: Optional[int] = None,
+        eos_token_id: Optional[int] = None,
+        beam_indices: Optional[torch.LongTensor] = None,
+    ) -> Tuple[torch.Tensor]:
+        cur_len = input_ids.shape[-1]
+        batch_size = len(self._beam_hyps)
+        if not (batch_size == (input_ids.shape[0] // self.group_size)):
+            if self.num_beam_groups > 1:
+                raise ValueError(
+                    f"A group beam size of {input_ids.shape[0]} is used as the input, but a group beam "
+                    f"size of {self.group_size} is expected by the beam scorer."
+                )
+            else:
+                raise ValueError(
+                    f"A beam size of {input_ids.shape[0]} is used as the input, but a beam size of "
+                    f"{self.group_size} is expected by the beam scorer."
+                )
+
+        device = input_ids.device
+        next_beam_scores = torch.zeros((batch_size, self.group_size), dtype=next_scores.dtype, device=device)
+        next_beam_tokens = torch.zeros((batch_size, self.group_size), dtype=next_tokens.dtype, device=device)
+        next_beam_indices = torch.zeros((batch_size, self.group_size), dtype=next_indices.dtype, device=device)
+
+        feqa_scorer = BaselineScorer(model="feqa")
+        
+        # TODO Faza beam search disini
+        # input_ids.xyz -> source document
+        # hypotheses -> beam nya
+        print(str(input_ids))
+        for batch_idx, beam_hyp in enumerate(self._beam_hyps):
+            if self._done[batch_idx]:
+                if self.num_beams < len(beam_hyp):
+                    raise ValueError(f"Batch can only be done if at least {self.num_beams} beams have been generated")
+                if eos_token_id is None or pad_token_id is None:
+                    raise ValueError("Generated beams >= num_beams -> eos_token_id and pad_token have to be defined")
+                # pad the batch
+                next_beam_scores[batch_idx, :] = 0
+                next_beam_tokens[batch_idx, :] = pad_token_id
+                next_beam_indices[batch_idx, :] = 0
+                continue
+
+            # next tokens for this sentence
+            beam_idx = 0
+            for beam_token_rank, (next_token, next_score, next_index) in enumerate(
+                zip(next_tokens[batch_idx], next_scores[batch_idx], next_indices[batch_idx])
+            ):
+                batch_beam_idx = batch_idx * self.group_size + next_index
+                # add to generated hypotheses if end of sentence
+                if (eos_token_id is not None) and (next_token.item() == eos_token_id):
+                    # if beam_token does not belong to top num_beams tokens, it should not be added
+                    is_beam_token_worse_than_top_num_beams = beam_token_rank >= self.group_size
+                    if is_beam_token_worse_than_top_num_beams:
+                        continue
+                    if beam_indices is not None:
+                        beam_index = beam_indices[batch_beam_idx]
+                        beam_index = beam_index + (next_index,)
+                    else:
+                        beam_index = None
+
+                    beam_hyp.add(
+                        input_ids[batch_beam_idx].clone(),
+                        next_score.item(),
+                        beam_indices=beam_index,
+                    )
+                else:
+                    # add next predicted token since it is not eos_token
+                    next_beam_scores[batch_idx, beam_idx] = next_score
+                    next_beam_tokens[batch_idx, beam_idx] = next_token
+                    next_beam_indices[batch_idx, beam_idx] = batch_beam_idx
+                    beam_idx += 1
+
+                # once the beam for next step is full, don't add more tokens to it.
+                if beam_idx == self.group_size:
+                    break
+
+            if beam_idx < self.group_size:
+                raise ValueError(
+                    f"At most {self.group_size} tokens in {next_tokens[batch_idx]} can be equal to `eos_token_id:"
+                    f" {eos_token_id}`. Make sure {next_tokens[batch_idx]} are corrected."
+                )
+
+            # Check if we are done so that we can save a pad step if all(done)
+            self._done[batch_idx] = self._done[batch_idx] or beam_hyp.is_done(
+                next_scores[batch_idx].max().item(), cur_len
+            )
+
+        return UserDict(
+            {
+                "next_beam_scores": next_beam_scores.view(-1),
+                "next_beam_tokens": next_beam_tokens.view(-1),
+                "next_beam_indices": next_beam_indices.view(-1),
+            }
+        )
+
+    def finalize(
+        self,
+        input_ids: torch.LongTensor,
+        final_beam_scores: torch.FloatTensor,
+        final_beam_tokens: torch.LongTensor,
+        final_beam_indices: torch.LongTensor,
+        max_length: int,
+        pad_token_id: Optional[int] = None,
+        eos_token_id: Optional[int] = None,
+        beam_indices: Optional[torch.LongTensor] = None,
+    ) -> Tuple[torch.LongTensor]:
+        batch_size = len(self._beam_hyps)
+
+        # finalize all open beam hypotheses and add to generated hypotheses
+        for batch_idx, beam_hyp in enumerate(self._beam_hyps):
+            if self._done[batch_idx]:
+                continue
+
+            # all open beam hypotheses are added to the beam hypothesis
+            # beam hypothesis class automatically keeps the best beams
+            for beam_id in range(self.num_beams):
+                batch_beam_idx = batch_idx * self.num_beams + beam_id
+                final_score = final_beam_scores[batch_beam_idx].item()
+                final_tokens = input_ids[batch_beam_idx]
+                beam_index = beam_indices[batch_beam_idx] if beam_indices is not None else None
+                beam_hyp.add(final_tokens, final_score, beam_indices=beam_index)
+
+        # select the best hypotheses
+        sent_lengths = input_ids.new(batch_size * self.num_beam_hyps_to_keep)
+        best = []
+        best_indices = []
+        best_scores = torch.zeros(batch_size * self.num_beam_hyps_to_keep, device=self.device, dtype=torch.float32)
+
+        # retrieve best hypotheses
+        # TODO Faza rank hypotheses based on factuality
+        print("[DEBUG FT] beam_hyps: " + str(self._beam_hyps))
+        print("[DEBUG FT] input_ids: " + str(input_ids))
+        for i, beam_hyp in enumerate(self._beam_hyps):
+
+            '''
+            (START) FACT CALCULATION
+            '''
+            for i in range(len(hypotheses[b])):
+                logger.info("[DEBUG FT] Factual evaluation " + str(i+1) + " of " + str(len(hypotheses[b])))
+                el = hypotheses[b][i]
+                score, pred = el
+                
+                docs_hypo = self.convert_id_to_text(batch.src[0])
+                summary_hypo = self.convert_id_to_text(pred)
+
+                final_score = 0
+                # logger.info("[DEBUG FT] hypotheses[b][+1][1]: "+str(hypotheses[b][i][1]))
+                # logger.info("[DEBUG FT] hypotheses[b][-1][1]: "+str(hypotheses[b][i-1][1]))
+                
+                if (i>7):
+                    logger.info("[DEBUG FT] SKIPPP ke "+str(i+1))
+                    final_score = hypotheses[b][i-1][2]
+                # if ((i > 0)  and (torch.equal(hypotheses[b][i][1], hypotheses[b][i-1][1]))):
+                #     final_score = hypotheses[b][i-1][2]
+                #     logger.info("[DEBUG FT] SAMAAA " + str(factcc_score)+" ke "+str(i+1))
+                else:
+                    start_ms = int(round(time.time() * 1000))
+                    
+                    # factcc_score = factcc_cls(docs_hypo, summary_hypo)
+                    # factcc_score = factcc_scorer.classify(docs_hypo, summary_hypo)
+                    model_1_ms = int(round(time.time() * 1000))
+
+                    # summac_score = summac_cls(docs_hypo, summary_hypo)
+                    model_2_ms = int(round(time.time() * 1000))
+
+                    # feqa_score = feqa_cls(docs_hypo, summary_hypo)
+                    feqa_score = feqa_scorer.score([docs_hypo], [summary_hypo])['scores'][0]
+                    model_3_ms = int(round(time.time() * 1000))
+
+                    # logger.info("[DEBUG FT] FACTCC: " + str(factcc_score))
+                    # logger.info("in "+ str(model_1_ms-start_ms) +" ms\n")
+                    # logger.info("[DEBUG FT] SUMMAC: " + str(summac_score))
+                    # logger.info("in "+ str(model_2_ms-model_1_ms) +" ms\n")
+                    logger.info("[DEBUG FT] FEQA: " + str(feqa_score))
+                    logger.info("in "+ str(model_3_ms-model_2_ms) +" ms\n")
+                    
+                    self.weights['factcc'] = 
+                    self.weights['feqa'] = 
+                    self.weights['summac'] = 
+
+                    final_score = (self.weights['factcc'] *factcc_score + self.weights['summac'] * summac_score + self.weights['feqa'] * feqa_score)/
+                        (self.weights['factcc'] + self.weights['summac'] + self.weights['feqa'] )
+                    # final_score = (factcc_score + summac_score)/2
+                    # final_score = (summac_score + feqa_score)/2
+                    # final_score = (factcc_score + feqa_score)/2
+                    # final_score = factcc_score
+                    final_score = feqa_score
+                    # final_score = summac_score
+                
+                logger.info("[DEBUG FT] Final SCORE: " + str(final_score))
+                new_tup = list(el)
+                new_tup.append(final_score)
+                el = tuple(new_tup)
+                hypotheses[b][i] = el
+
+            # logger.info("[DEBUG FT] hypotheses[b]: " + str(hypotheses[b]))
+            best_hyp = sorted(
+                hypotheses[b], key=lambda x: x[2], reverse=True)
+            logger.info("[DEBUG FT] best_hyp[0]: " + str(best_hyp[0]))
+            score, pred, fact = best_hyp[0]
+
+            '''
+            (END) FACT CALCULATION
+            '''
+            
+
+            sorted_hyps = sorted(beam_hyp.beams, key=lambda x: x[0])
+            for j in range(self.num_beam_hyps_to_keep):
+                best_hyp_tuple = sorted_hyps.pop()
+                best_score = best_hyp_tuple[0]
+                best_hyp = best_hyp_tuple[1]
+                best_index = best_hyp_tuple[2]
+                sent_lengths[self.num_beam_hyps_to_keep * i + j] = len(best_hyp)
+
+                # append hyp to lists
+                best.append(best_hyp)
+
+                # append indices to list
+                best_indices.append(best_index)
+
+                best_scores[i * self.num_beam_hyps_to_keep + j] = best_score
+
+        # prepare for adding eos
+        sent_lengths_max = sent_lengths.max().item() + 1
+        sent_max_len = min(sent_lengths_max, max_length) if max_length is not None else sent_lengths_max
+        decoded: torch.LongTensor = input_ids.new(batch_size * self.num_beam_hyps_to_keep, sent_max_len)
+
+        if len(best_indices) > 0 and best_indices[0] is not None:
+            indices: torch.LongTensor = input_ids.new(batch_size * self.num_beam_hyps_to_keep, sent_max_len)
+        else:
+            indices = None
+
+        # shorter batches are padded if needed
+        if sent_lengths.min().item() != sent_lengths.max().item():
+            assert pad_token_id is not None, "`pad_token_id` has to be defined"
+            decoded.fill_(pad_token_id)
+
+        if indices is not None:
+            indices.fill_(-1)
+
+        # fill with hypotheses and eos_token_id if the latter fits in
+        for i, (hypo, best_idx) in enumerate(zip(best, best_indices)):
+            decoded[i, : sent_lengths[i]] = hypo
+
+            if indices is not None:
+                indices[i, : len(best_idx)] = torch.tensor(best_idx)
+
+            if sent_lengths[i] < sent_max_len:
+                decoded[i, sent_lengths[i]] = eos_token_id
+
+        return UserDict(
+            {
+                "sequences": decoded,
+                "sequence_scores": best_scores,
+                "beam_indices": indices,
+            }
+        )
+
+    def convert_id_to_text(self, token_ids):
+        # Convert token_ids to text for factual consistency scoring
+        text = self.vocab.convert_ids_to_tokens([int(n) for n in token_ids])
+        text = ' '.join(text).replace(' ##','')
+        text = text.replace('[unused0]', '').replace('[unused3]', '').replace('[PAD]', '').replace('[unused1]', '').replace(r' +', ' ').replace(' [unused2] ', '<q>').replace('[unused2]', '').strip()
+        
+        return text
+
+    def update_weight(self, error):
+        for metric in self.weights.keys():
+            # loss function
+            w = self.weights[metric]
+
+
+            # gold summary error
+            # hypo_error - 
+
+            self.weights[metric] = error
+
+
+        self.weights = []
