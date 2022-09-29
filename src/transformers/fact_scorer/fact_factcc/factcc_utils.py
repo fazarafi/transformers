@@ -25,7 +25,7 @@ import sys
 from io import open
 
 from scipy.stats import pearsonr, spearmanr
-# from sklearn.metrics import f1_score, balanced_accuracy_score, accuracy_score
+from sklearn.metrics import f1_score, balanced_accuracy_score, accuracy_score
 
 logger = logging.getLogger(__name__)
 
@@ -83,6 +83,10 @@ class DataProcessor(object):
         """Gets a collection of `InputExample`s for the dev set."""
         raise NotImplementedError()
 
+    def get_dev_examples_bulk(self, documents, summaries):
+        """Gets a collection of `InputExample`s for the dev set."""
+        raise NotImplementedError()
+
     def get_labels(self):
         """Gets the list of labels for this data set."""
         raise NotImplementedError()
@@ -108,42 +112,6 @@ class DataProcessor(object):
                 lines.append(json.loads(line))
         return lines
 
-
-# class FactCCGeneratedProcessor(DataProcessor):
-#     """Processor for the generated FactCC data set."""
-
-#     def get_train_examples(self, data_dir):
-#         """See base class."""
-#         return self._create_examples(
-#             self._read_json(os.path.join(data_dir, "data-train.jsonl")), "train")
-
-#     def get_dev_examples(self, data_dir):
-#         """See base class."""
-#         return self._create_examples(
-#             self._read_json(os.path.join(data_dir, "data-dev.jsonl")), "dev")
-
-#     def get_labels(self):
-#         """See base class."""
-#         return ["CORRECT", "INCORRECT"]
-
-#     def _create_examples(self, lines, set_type):
-#         """Creates examples for the training and dev sets."""
-#         examples = []
-#         for example in lines:
-#             guid = example["id"]
-#             text_a = example["text"]
-#             text_b = example["claim"]
-#             label = example["label"]
-#             extraction_span = example["extraction_span"]
-#             augmentation_span = example["augmentation_span"]
-
-#             examples.append(
-#                 InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label,
-#                              extraction_span=extraction_span, augmentation_span=augmentation_span))
-#         return examples
-
-
-# TODO Faza kerjain di class ini
 class FactCCManualProcessor(DataProcessor):
     """Processor for the WNLI data set (GLUE version)."""
 
@@ -155,6 +123,10 @@ class FactCCManualProcessor(DataProcessor):
     def get_dev_examples(self, document, summary):
         """See base class."""
         return self._create_examples(document, summary, "dev")
+
+    def get_dev_examples_bulk(self, documents, summaries):
+        """See base class."""
+        return self._create_examples_bulk(documents, summaries, "dev")
 
     def get_labels(self):
         """See base class."""
@@ -170,6 +142,17 @@ class FactCCManualProcessor(DataProcessor):
             label="CORRECT") # dummy, not used
         )
         
+        return examples
+
+    def _create_examples_bulk(self, documents, summaries, set_type):
+        """Creates examples for the training and dev sets."""
+        examples = []
+        for (i, (document, summary)) in enumerate(zip(documents, summaries)):
+            guid = str(i)
+            text_a = document
+            text_b = summary
+            label = "CORRECT"  # dummy, not used
+            examples.append(InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
         return examples
 
 
@@ -356,7 +339,7 @@ def _truncate_seq_pair(tokens_a, tokens_b, max_length):
 def simple_accuracy(preds, labels):
     return (preds == labels).mean()
 
-# TODO Faza remove
+# TODO Faza uncomment
 # def acc_and_f1(preds, labels):
 #     acc = simple_accuracy(preds, labels)
 #     f1 = f1_score(y_true=labels, y_pred=preds)
@@ -376,24 +359,24 @@ def pearson_and_spearman(preds, labels):
         "corr": (pearson_corr + spearman_corr) / 2,
     }
 
-# TODO Faza remove
-# def complex_metric(preds, labels, prefix=""):
-#     logger.info("[FT DEBUG]: "+str(preds))
-#     logger.info("[FT DEBUG]: "+str(labels))
-#     return {
-#         prefix + "bacc": balanced_accuracy_score(y_true=labels, y_pred=preds),
-#         prefix + "f1":   f1_score(y_true=labels, y_pred=preds, average="micro")
-#     }
+# TODO Faza uncomment
+def complex_metric(preds, labels, prefix=""):
+    logger.info("[FT DEBUG]: "+str(preds))
+    logger.info("[FT DEBUG]: "+str(labels))
+    return {
+        prefix + "bacc": balanced_accuracy_score(y_true=labels, y_pred=preds),
+        prefix + "f1":   f1_score(y_true=labels, y_pred=preds, average="micro")
+    }
 
 
-# def compute_metrics(task_name, preds, labels, prefix=""):
-#     assert len(preds) == len(labels)
-#     if task_name == "factcc_generated":
-#         return complex_metric(preds, labels, prefix)
-#     elif task_name == "factcc_annotated":
-#         return complex_metric(preds, labels, prefix)
-#     else:
-#         raise KeyError(task_name)
+def compute_metrics(task_name, preds, labels, prefix=""):
+    assert len(preds) == len(labels)
+    if task_name == "factcc_generated":
+        return complex_metric(preds, labels, prefix)
+    elif task_name == "factcc_annotated":
+        return complex_metric(preds, labels, prefix)
+    else:
+        raise KeyError(task_name)
 
 processors = {
     # "factcc_generated": FactCCGeneratedProcessor,

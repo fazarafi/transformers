@@ -1,7 +1,6 @@
 import torch
 import numpy as np
 import datasets
-import datasets
 
 import sys
 sys.path.insert(0, "/home/lr/faza.thirafi/raid/repository-kenkyuu-models/transformers/src")
@@ -45,21 +44,44 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 encoder_max_length = 256  # demo
 decoder_max_length = 64
 
-# data = datasets.load_dataset("wiki_lingua", name=language, split="train[:2000]")
-train_data = datasets.load_dataset("xsum", name=language, split="train[:2000]")
-test_data = datasets.load_dataset("xsum", name=language, split="test")
-valid_data = datasets.load_dataset("xsum", name=language, split="validation")
+data = datasets.load_dataset("wiki_lingua", name=language, split="train[:2000]")
+
+# Take a look at the data
+# for k, v in data["article"][0].items():
+    # print(k)
+    # print(v)
 
 
-# Take a look at the adata
+def flatten(example):
+    return {
+        "document": example["article"]["document"],
+        "summary": example["article"]["summary"],
+    }
 
-train_dataset = train_data.map(remove_columns=["id"])
-test_dataset = test_data.map(remove_columns=["id"])
-valid_dataset = valid_data.map(remove_columns=["id"])
 
-train_data_txt = train_dataset
-test_data_txt = test_dataset
-validation_data_txt = valid_dataset
+def list2samples(example):
+    documents = []
+    summaries = []
+    for sample in zip(example["document"], example["summary"]):
+        if len(sample[0]) > 0:
+            documents += sample[0]
+            summaries += sample[1]
+    return {"document": documents, "summary": summaries}
+
+# print("[DEBUG] before all: ", data[0])
+
+dataset = data.map(flatten, remove_columns=["article", "url"])
+# print("[DEBUG] after flatten: ", dataset[0])
+
+dataset = dataset.map(list2samples, batched=True)
+
+# print("[DEBUG] after list2samples: ", dataset[0])
+
+train_data_txt, validation_data_txt = dataset.train_test_split(test_size=0.1).values()
+
+print("[DEBUG FT] FINAL TRAIN: ", train_data_txt[:2])
+print("[DEBUG FT] FINAL VAL: ", validation_data_txt[:2])
+exit()
 
 
 def batch_tokenize_preprocess(batch, tokenizer, max_source_length, max_target_length):
@@ -171,11 +193,11 @@ trainer = Seq2SeqTrainer(
 
 if WANDB_INTEGRATION:
     wandb_run = wandb.init(
-        project="bart_xsum",
+        project="bart_wiki_lingua",
         config={
             "per_device_train_batch_size": training_args.per_device_train_batch_size,
             "learning_rate": training_args.learning_rate,
-            "dataset": "xsum " + language,
+            "dataset": "wiki_lingua " + language,
         },
     )
 
@@ -185,7 +207,7 @@ if WANDB_INTEGRATION:
 
 print("[DEBUG FT] START EVALUATING")
 
-# trainer.evaluate()
+trainer.evaluate()
 
 '''
 Fine-tuning
@@ -194,7 +216,7 @@ Fine-tuning
 #%%wandb
 # uncomment to display Wandb charts
 
-# trainer.train()
+trainer.train()
 
 '''
 Re-evaluate
@@ -230,7 +252,6 @@ test_samples = validation_data_txt.select(range(16))
 
 summaries_before_tuning = generate_summary(test_samples, model_before_tuning)[1]
 summaries_after_tuning = generate_summary(test_samples, model)[1]
-
 print("BEFORE")
 print(str(summaries_before_tuning))
 print("AFTER")
@@ -252,8 +273,3 @@ print("DONE")
 # )
 # print("\nSource documents:\n")
 # print(tabulate(list(enumerate(test_samples["document"])), headers=["Id", "Document"]))
-
-
-# model
-model_name = "sshleifer/distilbart-xsum-12-3"
-model_before_tuning = AutoModelForSeq2SeqLM.from_pretrained(model_name)

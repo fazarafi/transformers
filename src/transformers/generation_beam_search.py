@@ -24,10 +24,13 @@ import torch
 from .generation_beam_constraints import Constraint, ConstraintListState
 from .utils import add_start_docstrings
 
-from fact_factcc.factcc_caller_model import FactccCaller
-from fact_summac.summac_caller import classify as summac_cls
-from fact_feqa.feqa_caller import classify as feqa_cls
-from fact_0_general.model_baseline_evaluator import BaselineScorer
+from torch.nn import BCEWithLogitsLoss, CrossEntropyLoss, MSELoss
+
+# from .fact_factcc.factcc_caller_model import FactccCaller
+# from .fact_summac.summac_caller import classify as summac_cls
+# from .fact_feqa.feqa_caller import classify as feqa_cls
+# from .fact_0_general.model_baseline_evaluator import BaselineScorer
+
 
 PROCESS_INPUTS_DOCSTRING = r"""
     Args:
@@ -218,6 +221,7 @@ class BeamSearchScorer(BeamScorer):
         beam_indices: Optional[torch.LongTensor] = None,
     ) -> Tuple[torch.Tensor]:
         cur_len = input_ids.shape[-1]
+        print("[DEBUG FT] cur_len: ", cur_len)
         batch_size = len(self._beam_hyps)
         if not (batch_size == (input_ids.shape[0] // self.group_size)):
             if self.num_beam_groups > 1:
@@ -312,6 +316,7 @@ class BeamSearchScorer(BeamScorer):
         eos_token_id: Optional[int] = None,
         beam_indices: Optional[torch.LongTensor] = None,
     ) -> Tuple[torch.LongTensor]:
+        print("[DEBUG FT] finalize beam")
         batch_size = len(self._beam_hyps)
 
         # finalize all open beam hypotheses and add to generated hypotheses
@@ -893,7 +898,7 @@ class BeamHypotheses:
 
 
 
-class FaithfulnessBeamSearchScorer(BeamScorer):
+class FactBeamSearchScorer(BeamScorer):
     r"""
     [`BeamScorer`] implementing standard beam search decoding.
 
@@ -1012,7 +1017,7 @@ class FaithfulnessBeamSearchScorer(BeamScorer):
         next_beam_tokens = torch.zeros((batch_size, self.group_size), dtype=next_tokens.dtype, device=device)
         next_beam_indices = torch.zeros((batch_size, self.group_size), dtype=next_indices.dtype, device=device)
 
-        feqa_scorer = BaselineScorer(model="feqa")
+        # feqa_scorer = BaselineScorer(model="feqa")
         
         # TODO Faza beam search disini
         # input_ids.xyz -> source document
@@ -1122,76 +1127,75 @@ class FaithfulnessBeamSearchScorer(BeamScorer):
         print("[DEBUG FT] input_ids: " + str(input_ids))
         for i, beam_hyp in enumerate(self._beam_hyps):
 
-            '''
-            (START) FACT CALCULATION
-            '''
-            for i in range(len(hypotheses[b])):
-                logger.info("[DEBUG FT] Factual evaluation " + str(i+1) + " of " + str(len(hypotheses[b])))
-                el = hypotheses[b][i]
-                score, pred = el
+            # '''
+            # (START) FACT CALCULATION
+            # '''
+            # for i in range(len(hypotheses[b])):
+            #     logger.info("[DEBUG FT] Factual evaluation " + str(i+1) + " of " + str(len(hypotheses[b])))
+            #     el = hypotheses[b][i]
+            #     score, pred = el
                 
-                docs_hypo = self.convert_id_to_text(batch.src[0])
-                summary_hypo = self.convert_id_to_text(pred)
+            #     docs_hypo = self.convert_id_to_text(batch.src[0])
+            #     summary_hypo = self.convert_id_to_text(pred)
 
-                final_score = 0
-                # logger.info("[DEBUG FT] hypotheses[b][+1][1]: "+str(hypotheses[b][i][1]))
-                # logger.info("[DEBUG FT] hypotheses[b][-1][1]: "+str(hypotheses[b][i-1][1]))
+            #     final_score = 0
+            #     # logger.info("[DEBUG FT] hypotheses[b][+1][1]: "+str(hypotheses[b][i][1]))
+            #     # logger.info("[DEBUG FT] hypotheses[b][-1][1]: "+str(hypotheses[b][i-1][1]))
                 
-                if (i>7):
-                    logger.info("[DEBUG FT] SKIPPP ke "+str(i+1))
-                    final_score = hypotheses[b][i-1][2]
-                # if ((i > 0)  and (torch.equal(hypotheses[b][i][1], hypotheses[b][i-1][1]))):
-                #     final_score = hypotheses[b][i-1][2]
-                #     logger.info("[DEBUG FT] SAMAAA " + str(factcc_score)+" ke "+str(i+1))
-                else:
-                    start_ms = int(round(time.time() * 1000))
+            #     if (i>7):
+            #         logger.info("[DEBUG FT] SKIPPP ke "+str(i+1))
+            #         final_score = hypotheses[b][i-1][2]
+            #     # if ((i > 0)  and (torch.equal(hypotheses[b][i][1], hypotheses[b][i-1][1]))):
+            #     #     final_score = hypotheses[b][i-1][2]
+            #     #     logger.info("[DEBUG FT] SAMAAA " + str(factcc_score)+" ke "+str(i+1))
+            #     else:
+            #         start_ms = int(round(time.time() * 1000))
                     
-                    # factcc_score = factcc_cls(docs_hypo, summary_hypo)
-                    # factcc_score = factcc_scorer.classify(docs_hypo, summary_hypo)
-                    model_1_ms = int(round(time.time() * 1000))
+            #         # factcc_score = factcc_cls(docs_hypo, summary_hypo)
+            #         # factcc_score = factcc_scorer.classify(docs_hypo, summary_hypo)
+            #         model_1_ms = int(round(time.time() * 1000))
 
-                    # summac_score = summac_cls(docs_hypo, summary_hypo)
-                    model_2_ms = int(round(time.time() * 1000))
+            #         # summac_score = summac_cls(docs_hypo, summary_hypo)
+            #         model_2_ms = int(round(time.time() * 1000))
 
-                    # feqa_score = feqa_cls(docs_hypo, summary_hypo)
-                    feqa_score = feqa_scorer.score([docs_hypo], [summary_hypo])['scores'][0]
-                    model_3_ms = int(round(time.time() * 1000))
+            #         # feqa_score = feqa_cls(docs_hypo, summary_hypo)
+            #         feqa_score = feqa_scorer.score([docs_hypo], [summary_hypo])['scores'][0]
+            #         model_3_ms = int(round(time.time() * 1000))
 
-                    # logger.info("[DEBUG FT] FACTCC: " + str(factcc_score))
-                    # logger.info("in "+ str(model_1_ms-start_ms) +" ms\n")
-                    # logger.info("[DEBUG FT] SUMMAC: " + str(summac_score))
-                    # logger.info("in "+ str(model_2_ms-model_1_ms) +" ms\n")
-                    logger.info("[DEBUG FT] FEQA: " + str(feqa_score))
-                    logger.info("in "+ str(model_3_ms-model_2_ms) +" ms\n")
+            #         # logger.info("[DEBUG FT] FACTCC: " + str(factcc_score))
+            #         # logger.info("in "+ str(model_1_ms-start_ms) +" ms\n")
+            #         # logger.info("[DEBUG FT] SUMMAC: " + str(summac_score))
+            #         # logger.info("in "+ str(model_2_ms-model_1_ms) +" ms\n")
+            #         logger.info("[DEBUG FT] FEQA: " + str(feqa_score))
+            #         logger.info("in "+ str(model_3_ms-model_2_ms) +" ms\n")
                     
-                    self.weights['factcc'] = 
-                    self.weights['feqa'] = 
-                    self.weights['summac'] = 
+            #         self.weights['factcc'] = 1
+            #         self.weights['feqa'] = 1
+            #         self.weights['summac'] = 1
 
-                    final_score = (self.weights['factcc'] *factcc_score + self.weights['summac'] * summac_score + self.weights['feqa'] * feqa_score)/
-                        (self.weights['factcc'] + self.weights['summac'] + self.weights['feqa'] )
-                    # final_score = (factcc_score + summac_score)/2
-                    # final_score = (summac_score + feqa_score)/2
-                    # final_score = (factcc_score + feqa_score)/2
-                    # final_score = factcc_score
-                    final_score = feqa_score
-                    # final_score = summac_score
+            #         final_score = (self.weights['factcc'] *factcc_score + self.weights['summac'] * summac_score + self.weights['feqa'] * feqa_score)/(self.weights['factcc'] + self.weights['summac'] + self.weights['feqa'] )
+            #         # final_score = (factcc_score + summac_score)/2
+            #         # final_score = (summac_score + feqa_score)/2
+            #         # final_score = (factcc_score + feqa_score)/2
+            #         # final_score = factcc_score
+            #         final_score = feqa_score
+            #         # final_score = summac_score
                 
-                logger.info("[DEBUG FT] Final SCORE: " + str(final_score))
-                new_tup = list(el)
-                new_tup.append(final_score)
-                el = tuple(new_tup)
-                hypotheses[b][i] = el
+            #     logger.info("[DEBUG FT] Final SCORE: " + str(final_score))
+            #     new_tup = list(el)
+            #     new_tup.append(final_score)
+            #     el = tuple(new_tup)
+            #     hypotheses[b][i] = el
 
-            # logger.info("[DEBUG FT] hypotheses[b]: " + str(hypotheses[b]))
-            best_hyp = sorted(
-                hypotheses[b], key=lambda x: x[2], reverse=True)
-            logger.info("[DEBUG FT] best_hyp[0]: " + str(best_hyp[0]))
-            score, pred, fact = best_hyp[0]
+            # # logger.info("[DEBUG FT] hypotheses[b]: " + str(hypotheses[b]))
+            # best_hyp = sorted(
+            #     hypotheses[b], key=lambda x: x[2], reverse=True)
+            # logger.info("[DEBUG FT] best_hyp[0]: " + str(best_hyp[0]))
+            # score, pred, fact = best_hyp[0]
 
-            '''
-            (END) FACT CALCULATION
-            '''
+            # '''
+            # (END) FACT CALCULATION
+            # '''
             
 
             sorted_hyps = sorted(beam_hyp.beams, key=lambda x: x[0])
@@ -1254,14 +1258,19 @@ class FaithfulnessBeamSearchScorer(BeamScorer):
         
         return text
 
-    def update_weight(self, error):
+    def update_weight(self, document, gold_summary, hypo_summary):
+        loss_fct = CrossEntropyLoss()
+        loss = loss_fct(logits.view(-1, self.config.vocab_size), labels.view(-1))
+
         for metric in self.weights.keys():
             # loss function
             w = self.weights[metric]
+            gold_score = summac_cls(document, gold_summary)
+            hypo_score = summac_cls(document, hypo_summary)
 
-
+            loss = loss_fct(hypo_score, gold_score)
             # gold summary error
-            # hypo_error - 
+            # hypo_error -
 
             self.weights[metric] = error
 

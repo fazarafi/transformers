@@ -1,5 +1,5 @@
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
-import nltk, fact_summac.utils_misc as utils_misc, numpy as np, torch, os, json
+import nltk, fact_scorer.fact_summac.utils_misc as utils_misc, numpy as np, torch, os, json
 
 model_map = {
     "snli-base": {"model_card": "boychaboy/SNLI_roberta-base", "entailment_idx": 0, "contradiction_idx": 2},

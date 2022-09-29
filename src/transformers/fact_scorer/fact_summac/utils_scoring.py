@@ -1,5 +1,5 @@
 import torch, time, numpy as np
-import fact_summac.utils_misc
+import fact_scorer.fact_summac.utils_misc
 
 class ScorerWrapper:
     def __init__(self, scorers, scoring_method="logsum", max_batch_size=100, use_caching=False):

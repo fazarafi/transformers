@@ -34,7 +34,7 @@ from ...modeling_outputs import (
     Seq2SeqQuestionAnsweringModelOutput,
     Seq2SeqSequenceClassifierOutput,
 )
-from ...modeling_utils import PreTrainedModel # TODO Faza investigate dalem sini
+from ...modeling_utils import PreTrainedModel # TODO FT investigate dalem sini
 from ...utils import (
     add_code_sample_docstrings,
     add_end_docstrings,
@@ -352,6 +352,7 @@ class BartEncoderLayer(nn.Module):
         return outputs
 
 
+# TODO FT modify in decoder
 class BartDecoderLayer(nn.Module):
     def __init__(self, config: BartConfig):
         super().__init__()
@@ -553,7 +554,7 @@ BART_GENERATION_EXAMPLE = r"""
     Summarization example:
 
 
-    # TODO Faza refer for modify the model
+    # TODO FT refer for modify the model
     ```python
     >>> from transformers import BartTokenizer, BartForConditionalGeneration
 
@@ -567,7 +568,7 @@ BART_GENERATION_EXAMPLE = r"""
     ... )
     >>> inputs = tokenizer([ARTICLE_TO_SUMMARIZE], max_length=1024, return_tensors="pt")
     
-    # TODO Faza investigate the num_beams
+    # TODO FT investigate the num_beams
     >>> # Generate Summary
     >>> summary_ids = model.generate(inputs["input_ids"], num_beams=2, min_length=0, max_length=20)
     >>> tokenizer.batch_decode(summary_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
@@ -1097,7 +1098,7 @@ class BartDecoder(BartPretrainedModel):
                     None,
                 )
             else:
-
+                # TODO FT cek disini untuk decoding
                 layer_outputs = decoder_layer(
                     hidden_states,
                     attention_mask=attention_mask,
@@ -1274,7 +1275,7 @@ class BartModel(BartPretrainedModel):
     "The BART Model with a language modeling head. Can be used for summarization.", BART_START_DOCSTRING
 )
 
-# TODO Faza disini yuk
+# TODO FT disini yuk
 class BartForConditionalGeneration(BartPretrainedModel):
     base_model_prefix = "model"
     _keys_to_ignore_on_load_missing = [r"final_logits_bias", r"lm_head.weight"]

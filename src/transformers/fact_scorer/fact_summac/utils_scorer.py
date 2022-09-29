@@ -1,4 +1,4 @@
-import fact_summac.utils_misc, sklearn
+import fact_scorer.fact_summac.utils_misc, sklearn
 import numpy as np
 
 # Choosing threshold
