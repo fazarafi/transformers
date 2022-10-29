@@ -221,7 +221,6 @@ class BeamSearchScorer(BeamScorer):
         beam_indices: Optional[torch.LongTensor] = None,
     ) -> Tuple[torch.Tensor]:
         cur_len = input_ids.shape[-1]
-        print("[DEBUG FT] cur_len: ", cur_len)
         batch_size = len(self._beam_hyps)
         if not (batch_size == (input_ids.shape[0] // self.group_size)):
             if self.num_beam_groups > 1:
@@ -1022,7 +1021,7 @@ class FactBeamSearchScorer(BeamScorer):
         # TODO Faza beam search disini
         # input_ids.xyz -> source document
         # hypotheses -> beam nya
-        print(str(input_ids))
+        
         for batch_idx, beam_hyp in enumerate(self._beam_hyps):
             if self._done[batch_idx]:
                 if self.num_beams < len(beam_hyp):
@@ -1079,7 +1078,7 @@ class FactBeamSearchScorer(BeamScorer):
             self._done[batch_idx] = self._done[batch_idx] or beam_hyp.is_done(
                 next_scores[batch_idx].max().item(), cur_len
             )
-
+            print("self._beam_hyps: ", self._beam_hyps[0].length_penalty)
         return UserDict(
             {
                 "next_beam_scores": next_beam_scores.view(-1),
@@ -1126,78 +1125,6 @@ class FactBeamSearchScorer(BeamScorer):
         print("[DEBUG FT] beam_hyps: " + str(self._beam_hyps))
         print("[DEBUG FT] input_ids: " + str(input_ids))
         for i, beam_hyp in enumerate(self._beam_hyps):
-
-            # '''
-            # (START) FACT CALCULATION
-            # '''
-            # for i in range(len(hypotheses[b])):
-            #     logger.info("[DEBUG FT] Factual evaluation " + str(i+1) + " of " + str(len(hypotheses[b])))
-            #     el = hypotheses[b][i]
-            #     score, pred = el
-                
-            #     docs_hypo = self.convert_id_to_text(batch.src[0])
-            #     summary_hypo = self.convert_id_to_text(pred)
-
-            #     final_score = 0
-            #     # logger.info("[DEBUG FT] hypotheses[b][+1][1]: "+str(hypotheses[b][i][1]))
-            #     # logger.info("[DEBUG FT] hypotheses[b][-1][1]: "+str(hypotheses[b][i-1][1]))
-                
-            #     if (i>7):
-            #         logger.info("[DEBUG FT] SKIPPP ke "+str(i+1))
-            #         final_score = hypotheses[b][i-1][2]
-            #     # if ((i > 0)  and (torch.equal(hypotheses[b][i][1], hypotheses[b][i-1][1]))):
-            #     #     final_score = hypotheses[b][i-1][2]
-            #     #     logger.info("[DEBUG FT] SAMAAA " + str(factcc_score)+" ke "+str(i+1))
-            #     else:
-            #         start_ms = int(round(time.time() * 1000))
-                    
-            #         # factcc_score = factcc_cls(docs_hypo, summary_hypo)
-            #         # factcc_score = factcc_scorer.classify(docs_hypo, summary_hypo)
-            #         model_1_ms = int(round(time.time() * 1000))
-
-            #         # summac_score = summac_cls(docs_hypo, summary_hypo)
-            #         model_2_ms = int(round(time.time() * 1000))
-
-            #         # feqa_score = feqa_cls(docs_hypo, summary_hypo)
-            #         feqa_score = feqa_scorer.score([docs_hypo], [summary_hypo])['scores'][0]
-            #         model_3_ms = int(round(time.time() * 1000))
-
-            #         # logger.info("[DEBUG FT] FACTCC: " + str(factcc_score))
-            #         # logger.info("in "+ str(model_1_ms-start_ms) +" ms\n")
-            #         # logger.info("[DEBUG FT] SUMMAC: " + str(summac_score))
-            #         # logger.info("in "+ str(model_2_ms-model_1_ms) +" ms\n")
-            #         logger.info("[DEBUG FT] FEQA: " + str(feqa_score))
-            #         logger.info("in "+ str(model_3_ms-model_2_ms) +" ms\n")
-                    
-            #         self.weights['factcc'] = 1
-            #         self.weights['feqa'] = 1
-            #         self.weights['summac'] = 1
-
-            #         final_score = (self.weights['factcc'] *factcc_score + self.weights['summac'] * summac_score + self.weights['feqa'] * feqa_score)/(self.weights['factcc'] + self.weights['summac'] + self.weights['feqa'] )
-            #         # final_score = (factcc_score + summac_score)/2
-            #         # final_score = (summac_score + feqa_score)/2
-            #         # final_score = (factcc_score + feqa_score)/2
-            #         # final_score = factcc_score
-            #         final_score = feqa_score
-            #         # final_score = summac_score
-                
-            #     logger.info("[DEBUG FT] Final SCORE: " + str(final_score))
-            #     new_tup = list(el)
-            #     new_tup.append(final_score)
-            #     el = tuple(new_tup)
-            #     hypotheses[b][i] = el
-
-            # # logger.info("[DEBUG FT] hypotheses[b]: " + str(hypotheses[b]))
-            # best_hyp = sorted(
-            #     hypotheses[b], key=lambda x: x[2], reverse=True)
-            # logger.info("[DEBUG FT] best_hyp[0]: " + str(best_hyp[0]))
-            # score, pred, fact = best_hyp[0]
-
-            # '''
-            # (END) FACT CALCULATION
-            # '''
-            
-
             sorted_hyps = sorted(beam_hyp.beams, key=lambda x: x[0])
             for j in range(self.num_beam_hyps_to_keep):
                 best_hyp_tuple = sorted_hyps.pop()
