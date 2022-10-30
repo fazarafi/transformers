@@ -3862,25 +3862,25 @@ class GenerationMixin:
         # TODO FT fill the path and log_probs
         
         new_paths = []
-        expansions = topk_ids[0]
-        for (lp, path), dec_ou, ds0 in zip(log_probs paths, dec_out):
+        # expansions = topk_ids[0]
+        # for (lp, path), dec_ou, ds0 in zip(log_probs paths, dec_out):
             
-            if path[-1].eq(self.end_token):
-                the_path = torch.cat((path, torch.tensor([self.end_token], device=device)))
-                new_paths.append((lp, the_path, ds))
-                continue
+        #     if path[-1].eq(self.end_token):
+        #         the_path = torch.cat((path, torch.tensor([self.end_token], device=device)))
+        #         new_paths.append((lp, the_path, ds))
+        #         continue
 
-            tok_prob = self.expand_topk_log_probs[0]
+        #     tok_prob = self.expand_topk_log_probs[0]
             
-            # print(tok_prob)
-            # print(expansions)
-            for new_tok, tp in zip(expansions, tok_prob):
-                new_tok = new_tok.view(1)
-                new_paths.append((lp + tp.item(), 
-                    torch.cat([path, new_tok], -1),
-                    ['none']))
+        #     # print(tok_prob)
+        #     # print(expansions)
+        #     for new_tok, tp in zip(expansions, tok_prob):
+        #         new_tok = new_tok.view(1)
+        #         new_paths.append((lp + tp.item(), 
+        #             torch.cat([path, new_tok], -1),
+        #             ['none']))
         
-        paths = new_paths
+        # paths = new_paths
         
         return paths, params, input_ids, model_kwargs
 
