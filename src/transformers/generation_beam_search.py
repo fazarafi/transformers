@@ -1078,7 +1078,6 @@ class FactBeamSearchScorer(BeamScorer):
             self._done[batch_idx] = self._done[batch_idx] or beam_hyp.is_done(
                 next_scores[batch_idx].max().item(), cur_len
             )
-            print("self._beam_hyps: ", self._beam_hyps[0].length_penalty)
         return UserDict(
             {
                 "next_beam_scores": next_beam_scores.view(-1),

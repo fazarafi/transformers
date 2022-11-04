@@ -1531,7 +1531,7 @@ class GenerationMixin:
                 **model_kwargs,
             )
 
-    def generate_custom_beam(
+    def generate_beam_expansion(
         self,
         inputs: Optional[torch.Tensor] = None,
         max_length: Optional[int] = None,
@@ -1633,6 +1633,7 @@ class GenerationMixin:
                 inputs_tensor, pad_token_id, eos_token_id
             )
 
+        print("FT inputs_tensor.device", inputs_tensor.device)
         if self.config.is_encoder_decoder and "encoder_outputs" not in model_kwargs:
             # if model is encoder decoder encoder_outputs are created
             # and added to `model_kwargs`
@@ -2609,8 +2610,9 @@ class GenerationMixin:
             print("cur_len : ", cur_len)
             # for ins in input_ids:
             #     print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
-
+            print("beam_scorer.is_done: ", beam_scorer.is_done)
             if beam_scorer.is_done or stopping_criteria(input_ids, scores):
+                print("LAST input_ids: ", input_ids)
                 if not synced_gpus:
                     break
                 else:
@@ -3692,6 +3694,9 @@ class GenerationMixin:
         params["batch_size"] = len(beam_scorer._beam_hyps)
         params["num_beams"] = beam_scorer.num_beams
 
+        print("params[batch_size]: ", params["batch_size"])
+        print("params[num_beams]: ", params["num_beams"])
+
         batch_beam_size, params["cur_len"] = input_ids.shape
 
         if params["num_beams"] * params["batch_size"] != batch_beam_size:
@@ -3728,8 +3733,6 @@ class GenerationMixin:
         self,
         params,
         paths,
-        input_ids: torch.LongTensor,
-        beam_scorer: BeamScorer,
         logits_processor: Optional[LogitsProcessorList] = None,
         stopping_criteria: Optional[StoppingCriteriaList] = None,
         max_length: Optional[int] = None,
@@ -3747,12 +3750,13 @@ class GenerationMixin:
         # This was previously under loop
         print('curlen ', params["cur_len"])
 
+        # to be removed, for debugging only
         tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-xsum-12-3")
 
         if synced_gpus:
             # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
             # The following logic allows an early break if all peers finished generating their sequence
-            this_peer_finished_flag = torch.tensor(0.0 if params["this_peer_finished"] else 1.0).to(input_ids.device)
+            this_peer_finished_flag = torch.tensor(0.0 if params["this_peer_finished"] else 1.0).to(params["input_ids"].device)
             # send 0.0 if we finished, 1.0 otherwise
             dist.all_reduce(this_peer_finished_flag, op=dist.ReduceOp.SUM)
             # did all peers finish? the reduced sum will be 0.0 then
@@ -3760,7 +3764,7 @@ class GenerationMixin:
                 # TODO FT finish procedure
                 print("SELESAI")
 
-        model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
+        model_inputs = self.prepare_inputs_for_generation(params["input_ids"], **model_kwargs)
         
         # TODO FT fix after removeing loop?
         outputs = self(
@@ -3784,7 +3788,7 @@ class GenerationMixin:
             next_token_logits, dim=-1
         )  # (batch_size * params["num_beams"], vocab_size)
 
-        next_token_scores_processed = logits_processor(input_ids, next_token_scores)
+        next_token_scores_processed = logits_processor(params["input_ids"], next_token_scores)
         next_token_scores = next_token_scores_processed + params["beam_scores"][:, None].expand_as(next_token_scores)
 
         # Store scores, attentions and hidden_states when required
@@ -3816,10 +3820,9 @@ class GenerationMixin:
         next_indices = torch_int_div(next_tokens, vocab_size)
         next_tokens = next_tokens % vocab_size
 
-        # TODO Faza investigate the beams search process here
         # stateless
-        beam_outputs = beam_scorer.process(
-            input_ids,
+        beam_outputs = params["beam_scorer"].process(
+            params["input_ids"],
             next_token_scores,
             next_tokens,
             next_indices,
@@ -3832,7 +3835,7 @@ class GenerationMixin:
         beam_next_tokens = beam_outputs["next_beam_tokens"]
         beam_idx = beam_outputs["next_beam_indices"]
 
-        input_ids = torch.cat([input_ids[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
+        params["input_ids"] = torch.cat([params["input_ids"][beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
 
         model_kwargs = self._update_model_kwargs_for_generation(
             outputs, model_kwargs, is_encoder_decoder=self.config.is_encoder_decoder
@@ -3843,46 +3846,36 @@ class GenerationMixin:
         if return_dict_in_generate and output_scores:
             params["beam_indices"] = tuple((params["beam_indices"][beam_idx[i]] + (beam_idx[i],) for i in range(len(params["beam_indices"]))))
 
-        for ins in input_ids:
-            print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
+        # for ins in input_ids:
+        #     print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
 
         # increase cur_len
         params["cur_len"] = params["cur_len"] + 1
+        
+        log_probs = params["beam_scores"]
+        new_paths = []
+        expansions = beam_next_tokens
+        for (lp, path), new_tok, tp in zip(paths, expansions, log_probs):
+            # TODO if end of token
+            new_tok = new_tok.view(1)
+            new_paths.append((lp + tp.item(), 
+                torch.cat([path, new_tok], -1)))
 
-        if beam_scorer.is_done or stopping_criteria(input_ids, params["scores"]):
+        # print("habis kelar: ", new_paths)
+        paths = new_paths
+
+        # print("[DEBUG FT]: ", tokenizer.decode(params["input_ids"][0], skip_special_tokens=True))
+        if params["beam_scorer"].is_done or stopping_criteria(params["input_ids"], params["scores"]):
+            for ins in params["input_ids"]:
+                print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
+
             if not synced_gpus:
-                return "TODO FT"
+                params["this_peer_finished"] = True
+                return paths, params, model_kwargs
             else:
                 params["this_peer_finished"] = True
-
-        log_probs = params["beam_scores"]
-
-        print("log_probs: ", log_probs)
-
-        # TODO FT fill the path and log_probs
         
-        new_paths = []
-        # expansions = topk_ids[0]
-        # for (lp, path), dec_ou, ds0 in zip(log_probs paths, dec_out):
-            
-        #     if path[-1].eq(self.end_token):
-        #         the_path = torch.cat((path, torch.tensor([self.end_token], device=device)))
-        #         new_paths.append((lp, the_path, ds))
-        #         continue
-
-        #     tok_prob = self.expand_topk_log_probs[0]
-            
-        #     # print(tok_prob)
-        #     # print(expansions)
-        #     for new_tok, tp in zip(expansions, tok_prob):
-        #         new_tok = new_tok.view(1)
-        #         new_paths.append((lp + tp.item(), 
-        #             torch.cat([path, new_tok], -1),
-        #             ['none']))
-        
-        # paths = new_paths
-        
-        return paths, params, input_ids, model_kwargs
+        return paths, params, model_kwargs
 
     def finalize_beam_search_expand_single(
         params,

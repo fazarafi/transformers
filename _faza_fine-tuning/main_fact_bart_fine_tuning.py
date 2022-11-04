@@ -16,7 +16,9 @@ from tabulate import tabulate
 import nltk
 import os
 import argparse
+# import spacy
 
+# spacy.prefer_gpu()
 
 def generate_summary(test_samples, model):
     inputs = tokenizer(
@@ -83,8 +85,8 @@ def batch_tokenize_preprocess(batch, tokenizer, max_source_length, max_target_le
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-visible_gpus', default='-1', type=str)
-parser.add_argument('-gpu_ranks', default='-1', type=str)
+parser.add_argument('-visible_gpus', default='0', type=str)
+parser.add_argument('-gpu_ranks', default='0', type=str)
 
 args = parser.parse_args()
 
@@ -105,11 +107,14 @@ model_name = "sshleifer/distilbart-xsum-12-3"
 # if language == "french":
 #     model_name = "moussaKam/barthez-orangesum-abstract"
 
+print("dev ",device)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 # Set model parameters or use the default
-# print(model.config)
+print("torch ", torch.cuda.is_available())
+
+model.to(device)
 
 # tokenization
 encoder_max_length = 256  # demo
@@ -182,7 +187,7 @@ Evaluation, GenerationExample
 
 model_before_tuning = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-test_samples = validation_data_txt.select(range(16))
+test_samples = validation_data_txt.select(range(100))
 
 train_samples = train_data_txt.select(range(100))
 
@@ -201,12 +206,18 @@ inputs = tokenizer(
     max_length=encoder_max_length,
     return_tensors="pt",
 )
+
+
+print("dev model 2: ", model.device)
 input_ids = inputs.input_ids.to(model.device)
 # print(len(input_ids), "  ", input_ids)
 attention_mask = inputs.attention_mask.to(model.device)
-# result = model.generate_custom_beam(input_ids, attention_mask=attention_mask)
+# result = model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
 result = model.generate(input_ids, attention_mask=attention_mask)
-# print("RESULT: ", result)
+print("RESULT: ")
+for res in result:
+    print(tokenizer.decode(res, skip_special_tokens=True))
+
 print("^ RESULT")
 
 
