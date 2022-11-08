@@ -102,10 +102,9 @@ device_id = 0 if device == "cuda" else -1
 
 
 
-
-model_name = "sshleifer/distilbart-xsum-12-3"
-# if language == "french":
-#     model_name = "moussaKam/barthez-orangesum-abstract"
+model_name = "facebook/bart-large-cnn"
+# model_name = "facebook/bart-large-xsum"
+# model_name_2 = "sshleifer/distilbart-xsum-12-3"
 
 print("dev ",device)
 model = AutoModelForSeq2SeqLM.from_pretrained(model_name)

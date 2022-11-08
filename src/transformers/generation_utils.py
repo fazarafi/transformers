@@ -1633,7 +1633,6 @@ class GenerationMixin:
                 inputs_tensor, pad_token_id, eos_token_id
             )
 
-        print("FT inputs_tensor.device", inputs_tensor.device)
         if self.config.is_encoder_decoder and "encoder_outputs" not in model_kwargs:
             # if model is encoder decoder encoder_outputs are created
             # and added to `model_kwargs`
@@ -3695,8 +3694,7 @@ class GenerationMixin:
         params["num_beams"] = beam_scorer.num_beams
 
         print("params[batch_size]: ", params["batch_size"])
-        print("params[num_beams]: ", params["num_beams"])
-
+        
         batch_beam_size, params["cur_len"] = input_ids.shape
 
         if params["num_beams"] * params["batch_size"] != batch_beam_size:
@@ -3747,16 +3745,20 @@ class GenerationMixin:
     ):
         # TODO FT make comments/README
         
-        # This was previously under loop
         print('curlen ', params["cur_len"])
-
-        # to be removed, for debugging only
+        # TODO FT to be removed, for debugging only
         tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-xsum-12-3")
 
+        filled_paths = paths.copy()
+        beams = []
+        for lp, path in filled_paths:
+            beams.append(path.unsqueeze(0))
+        input_path = torch.cat(beams, dim=0)
+        
         if synced_gpus:
             # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
             # The following logic allows an early break if all peers finished generating their sequence
-            this_peer_finished_flag = torch.tensor(0.0 if params["this_peer_finished"] else 1.0).to(params["input_ids"].device)
+            this_peer_finished_flag = torch.tensor(0.0 if params["this_peer_finished"] else 1.0).to(input_path.device)
             # send 0.0 if we finished, 1.0 otherwise
             dist.all_reduce(this_peer_finished_flag, op=dist.ReduceOp.SUM)
             # did all peers finish? the reduced sum will be 0.0 then
@@ -3764,7 +3766,7 @@ class GenerationMixin:
                 # TODO FT finish procedure
                 print("SELESAI")
 
-        model_inputs = self.prepare_inputs_for_generation(params["input_ids"], **model_kwargs)
+        model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
         
         # TODO FT fix after removeing loop?
         outputs = self(
@@ -3788,7 +3790,7 @@ class GenerationMixin:
             next_token_logits, dim=-1
         )  # (batch_size * params["num_beams"], vocab_size)
 
-        next_token_scores_processed = logits_processor(params["input_ids"], next_token_scores)
+        next_token_scores_processed = logits_processor(input_path, next_token_scores)
         next_token_scores = next_token_scores_processed + params["beam_scores"][:, None].expand_as(next_token_scores)
 
         # Store scores, attentions and hidden_states when required
@@ -3822,7 +3824,7 @@ class GenerationMixin:
 
         # stateless
         beam_outputs = params["beam_scorer"].process(
-            params["input_ids"],
+            input_path,
             next_token_scores,
             next_tokens,
             next_indices,
@@ -3835,7 +3837,8 @@ class GenerationMixin:
         beam_next_tokens = beam_outputs["next_beam_tokens"]
         beam_idx = beam_outputs["next_beam_indices"]
 
-        params["input_ids"] = torch.cat([params["input_ids"][beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
+        input_path = torch.cat([input_path[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
+        # TODO FT tiruin yg simpelnya
 
         model_kwargs = self._update_model_kwargs_for_generation(
             outputs, model_kwargs, is_encoder_decoder=self.config.is_encoder_decoder
@@ -3864,9 +3867,8 @@ class GenerationMixin:
         # print("habis kelar: ", new_paths)
         paths = new_paths
 
-        # print("[DEBUG FT]: ", tokenizer.decode(params["input_ids"][0], skip_special_tokens=True))
-        if params["beam_scorer"].is_done or stopping_criteria(params["input_ids"], params["scores"]):
-            for ins in params["input_ids"]:
+        if params["beam_scorer"].is_done or stopping_criteria(input_path, params["scores"]):
+            for ins in input_path:
                 print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
 
             if not synced_gpus:
