@@ -96,35 +96,26 @@ args.world_size = len(args.gpu_ranks)
 os.environ["CUDA_VISIBLE_DEVICES"] = args.visible_gpus
 
 device = "cpu" if args.visible_gpus == '-1' else "cuda"
-device_id = 0 if device == "cuda" else -1
+device_id = 1 if device == "cuda" else -1
 
     
 
 
 
-model_name = "facebook/bart-large-cnn"
-# model_name = "facebook/bart-large-xsum"
 # model_name_2 = "sshleifer/distilbart-xsum-12-3"
 
 print("dev ",device)
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-
-# Set model parameters or use the default
-print("torch ", torch.cuda.is_available())
-
-model.to(device)
 
 # tokenization
 encoder_max_length = 256  # demo
 decoder_max_length = 64
-dataset_name = 'cnn_dailymail'
-
-# print(train_data[:3])
-
-# Take a look at the adata
+dataset_name = 'xsum'
+model_name = "facebook/bart-large-xsum"
 
 if (dataset_name=='xsum'):
+    model_name = "facebook/bart-large-xsum"
+    
+
     language = 'english'
     train_data = datasets.load_dataset(dataset_name, name=language, split="train[:2000]")
     test_data = datasets.load_dataset(dataset_name, name=language, split="test")
@@ -143,6 +134,8 @@ if (dataset_name=='xsum'):
 
 
 elif (dataset_name=='cnn_dailymail'):
+    model_name = "facebook/bart-large-cnn"
+    
     language = '3.0.0'
     train_data = datasets.load_dataset(dataset_name, name=language, split="train[:2000]")
     test_data = datasets.load_dataset(dataset_name, name=language, split="test")
@@ -160,6 +153,13 @@ elif (dataset_name=='cnn_dailymail'):
     test_data_txt = test_dataset
     validation_data_txt = valid_dataset
 
+model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+# Set model parameters or use the default
+print("torch ", torch.cuda.is_available())
+
+model.to(device)
 
 train_data = train_data_txt.map(
     lambda batch: batch_tokenize_preprocess(
@@ -180,13 +180,11 @@ validation_data = validation_data_txt.map(
 # Borrowed from https://github.com/huggingface/transformers/blob/master/examples/seq2seq/run_summarization.py
 # nltk.download("punkt", quiet=True)
 
-'''
-Evaluation, GenerationExample
-'''
 
-model_before_tuning = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 
-test_samples = validation_data_txt.select(range(100))
+
+
+test_samples = validation_data_txt.select(range(3))
 
 train_samples = train_data_txt.select(range(100))
 
@@ -197,7 +195,6 @@ train_samples = train_data_txt.select(range(100))
 #     print(dat)
 
 
-# print("input: ", test_samples["document"][:1])
 inputs = tokenizer(
     test_samples["document"],
     padding="max_length",
@@ -207,26 +204,18 @@ inputs = tokenizer(
 )
 
 
+
 print("dev model 2: ", model.device)
 input_ids = inputs.input_ids.to(model.device)
 # print(len(input_ids), "  ", input_ids)
 attention_mask = inputs.attention_mask.to(model.device)
 # result = model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
-result = model.generate(input_ids, attention_mask=attention_mask)
+result = model.generate(input_ids, num_beams=2, attention_mask=attention_mask)
 print("RESULT: ")
 for res in result:
     print(tokenizer.decode(res, skip_special_tokens=True))
 
 print("^ RESULT")
-
-
-
-
-
-
-
-
-
 
 
 

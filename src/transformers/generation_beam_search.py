@@ -1119,12 +1119,20 @@ class FactBeamSearchScorer(BeamScorer):
         best_indices = []
         best_scores = torch.zeros(batch_size * self.num_beam_hyps_to_keep, device=self.device, dtype=torch.float32)
 
+        original_decoded = []
+        original_best_scores = []
+        original_indices = []
+        
         # retrieve best hypotheses
         # TODO Faza rank hypotheses based on factuality
-        print("[DEBUG FT] beam_hyps: " + str(self._beam_hyps))
-        print("[DEBUG FT] input_ids: " + str(input_ids))
+        # print("[DEBUG FT] beam_hyps: " + str(self._beam_hyps))
+        # print("[DEBUG FT] input_ids: " + str(input_ids))
         for i, beam_hyp in enumerate(self._beam_hyps):
+            
+            original_decoded.append(beam_hyp.beams)
+            # print("beam hyp ke-",i,": ",beam_hyp)
             sorted_hyps = sorted(beam_hyp.beams, key=lambda x: x[0])
+
             for j in range(self.num_beam_hyps_to_keep):
                 best_hyp_tuple = sorted_hyps.pop()
                 best_score = best_hyp_tuple[0]
@@ -1173,6 +1181,10 @@ class FactBeamSearchScorer(BeamScorer):
                 "sequences": decoded,
                 "sequence_scores": best_scores,
                 "beam_indices": indices,
+                "original_sequences": original_decoded,
+                "original_sequence_scores": original_best_scores,
+                "original_beam_indices": original_indices,
+
             }
         )
 
