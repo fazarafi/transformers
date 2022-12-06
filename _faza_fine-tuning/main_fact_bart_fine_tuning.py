@@ -16,11 +16,14 @@ from tabulate import tabulate
 import nltk
 import os
 import argparse
+from math import log
 # import spacy
 
 # spacy.prefer_gpu()
 
-def generate_summary(test_samples, model):
+from rouge import Rouge
+
+def generate_summary(test_samples, summ_model):
     inputs = tokenizer(
         test_samples["document"],
         padding="max_length",
@@ -28,10 +31,10 @@ def generate_summary(test_samples, model):
         max_length=encoder_max_length,
         return_tensors="pt",
     )
-    input_ids = inputs.input_ids.to(model.device)
-    attention_mask = inputs.attention_mask.to(model.device)
-    print("BEAM SINGLE: ", model.generate_custom_beam(input_ids, attention_mask=attention_mask))
-    outputs = model.generate(input_ids, attention_mask=attention_mask)
+    input_ids = inputs.input_ids.to(summ_model.device)
+    attention_mask = inputs.attention_mask.to(summ_model.device)
+    print("BEAM SINGLE: ", summ_model.generate_custom_beam(input_ids, attention_mask=attention_mask))
+    outputs = summ_model.generate(input_ids, attention_mask=attention_mask)
     output_str = tokenizer.batch_decode(outputs, skip_special_tokens=True)
     return outputs, output_str
 
@@ -81,7 +84,38 @@ def batch_tokenize_preprocess(batch, tokenizer, max_source_length, max_target_le
     return batch
 
 
+def beam_search_expand_single_bart(summ_model, summ_paths, beam_size, input_params, **model_kwargs):
+    updated_summ_paths, return_params, model_kwargs = summ_model.beam_search_expand_single(
+        input_params,
+        summ_paths,
+        logits_processor=input_params["logits_processor"],
+        stopping_criteria=input_params["stopping_criteria"],
+        pad_token_id=input_params["pad_token_id"],
+        eos_token_id=input_params["eos_token_id"],
+        output_scores=input_params["output_scores"],
+        return_dict_in_generate=input_params["return_dict_in_generate"],
+        synced_gpus=input_params["synced_gpus"],
+        **model_kwargs,
+    )
 
+    return updated_summ_paths, return_params, model_kwargs
+
+def finalize_beam_search_expand_single_bart(summ_model, params):
+    result = summ_model.finalize_beam_search_expand_single(
+        params["beam_scorer"],
+        params["input_ids"],
+        params["beam_scores"],
+        params["next_tokens"],
+        params["next_indices"],
+        params["pad_token_id"],
+        params["eos_token_id"],
+        params["stopping_criteria"],
+        params["beam_indices"],
+        params["return_dict_in_generate"],
+        params["output_scores"]
+    )
+
+    return result
 
 
 parser = argparse.ArgumentParser()
@@ -97,8 +131,6 @@ os.environ["CUDA_VISIBLE_DEVICES"] = args.visible_gpus
 
 device = "cpu" if args.visible_gpus == '-1' else "cuda"
 device_id = 1 if device == "cuda" else -1
-
-    
 
 
 
@@ -126,7 +158,6 @@ if (dataset_name=='xsum'):
     valid_dataset = valid_data.map(remove_columns=["id"])
 
     # print(train_dataset[:3])
-    
 
     train_data_txt = train_dataset
     test_data_txt = test_dataset
@@ -153,13 +184,13 @@ elif (dataset_name=='cnn_dailymail'):
     test_data_txt = test_dataset
     validation_data_txt = valid_dataset
 
-model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+summ_model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-# Set model parameters or use the default
+# Set summ_model parameters or use the default
 print("torch ", torch.cuda.is_available())
 
-model.to(device)
+summ_model.to(device)
 
 train_data = train_data_txt.map(
     lambda batch: batch_tokenize_preprocess(
@@ -181,12 +212,12 @@ validation_data = validation_data_txt.map(
 # nltk.download("punkt", quiet=True)
 
 
+rouge = Rouge()
 
 
 
-test_samples = validation_data_txt.select(range(3))
-
-train_samples = train_data_txt.select(range(100))
+test_samples = validation_data_txt.select(range(10))
+summaries = test_samples["summary"]
 
 # print("len::: ", len(train_samples))
 
@@ -205,25 +236,110 @@ inputs = tokenizer(
 
 
 
-print("dev model 2: ", model.device)
-input_ids = inputs.input_ids.to(model.device)
-# print(len(input_ids), "  ", input_ids)
-attention_mask = inputs.attention_mask.to(model.device)
-# result = model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
-result = model.generate(input_ids, num_beams=2, attention_mask=attention_mask)
-print("RESULT: ")
+print("dev summ_model 2: ", summ_model.device)
+input_ids = inputs.input_ids.to(summ_model.device)
+attention_mask = inputs.attention_mask.to(summ_model.device)
+# # result = summ_model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
+num_beams = 3
+beam_size = num_beams
+result, results_ori = summ_model.generate(input_ids, num_beams=num_beams, attention_mask=attention_mask)
+# print("RESULT: ")
+result_str = []
 for res in result:
-    print(tokenizer.decode(res, skip_special_tokens=True))
+    res_str = tokenizer.decode(res, skip_special_tokens=True)
+    result_str.append(res_str)
 
-print("^ RESULT")
+# print("RESULT 2")
+
+
+# ori_seqs = [[] for _ in range(num_beams)]
+
+# for i, result_ori in enumerate(results_ori):
+#     ori_beam = []
+#     for bm in range(num_beams):
+#         ori_seqs[bm].append(tokenizer.decode(result_ori[bm][1], skip_special_tokens=True))
+
+
+# scores = rouge.get_scores(result_str, summaries, avg=True)
+# print("BEST Rouge scores: ", scores)
+
+# print("ORIGINAL SEQS =>")
+# print(ori_seqs)
+# for i, ori_seq in enumerate(ori_seqs):
+#     scores = rouge.get_scores(ori_seq, summaries, avg=True)
+#     print(i, ". Rouge: ", scores)
 
 
 
-# summaries_before_tuning = generate_summary(test_samples, model_before_tuning)[1]
-# summaries_after_tuning = generate_summary(test_samples, model)[1]
+inputs = tokenizer(
+    test_samples["document"],
+    padding="max_length",
+    truncation=True,
+    max_length=encoder_max_length,
+    return_tensors="pt",
+)
 
-# print("BEFORE")
-# print(str(summaries_before_tuning))
-# print("AFTER")
-# print(str(summaries_after_tuning))
-# print("DONE")
+print("dev summ_model 2: ", summ_model.device)
+input_ids = inputs.input_ids.to(summ_model.device)
+attention_mask = inputs.attention_mask.to(summ_model.device)
+# result = summ_model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
+num_beams = 3
+result, results_ori = summ_model.generate(input_ids, num_beams=num_beams, attention_mask=attention_mask)
+
+### TEST WITH SINGLE BEAM EXPANSION
+max_pred_len = 150
+src_input_ids = input_ids
+params, model_kwargs = summ_model.generate_beam_expansion(
+    src_input_ids, num_beams=beam_size, attention_mask=attention_mask
+)
+
+summ_paths = []
+for input_id in params["input_ids"]:
+    summ_paths.append((
+        log(1.0),
+        torch.tensor(
+            [input_id],
+            dtype=torch.long,
+            device=device
+        )
+    ))
+
+batch_size = params['batch_size']
+
+for step in range(max_pred_len):
+    new_all_paths, params, model_kwargs = \
+            beam_search_expand_single_bart(summ_model, summ_paths, beam_size, params, **model_kwargs)
+
+    if (params['this_peer_finished']):
+        sequence_output = finalize_beam_search_expand_single_bart(summ_model, params)
+
+        last_path = []
+        for ori_seq in sequence_output["original_sequences"]:
+            for ori in ori_seq:
+                last_path.append((ori[0], ori[1]))
+                # print(convert_ids_to_text(bart_tokenizer, ori[1]))
+        
+        new_all_paths = last_path
+        summ_paths = new_all_paths
+        break
+    
+    total_summ_paths = []
+    for idx in range(batch_size):
+        new_paths = new_all_paths[idx*beam_size : (idx+1)*beam_size]
+        summ_paths = new_paths # summ_paths = sorted(new_paths, reverse=True, key=lambda x: x[1][0])
+        summ_paths = summ_paths[:beam_size]
+        total_summ_paths = total_summ_paths + summ_paths
+        
+    summ_paths = total_summ_paths
+
+summ_result = {}
+for idx in range(beam_size):
+    summ_result[idx] = []
+    for idy in range(batch_size):
+        id = idx * beam_size + idy
+        path_str = tokenizer.decode(summ_paths[id][1], skip_special_tokens=True)
+        summ_result[idx].append(path_str)
+
+for i in range(beam_size):
+    scores = rouge.get_scores(summ_result[i], summaries, avg=True)
+    print("Yg ke -", i, ": ", scores)

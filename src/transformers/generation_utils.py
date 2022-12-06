@@ -1844,7 +1844,12 @@ class GenerationMixin:
                 synced_gpus=synced_gpus,
                 **model_kwargs,
             )
-            
+            # print("BEAM PARAMS: ", beam_params)[]
+            # print("----------")
+            # print("reg PARAMS: ", params)
+            # print("=================")
+            # print("all params: ", {**beam_params, **params})
+            # exit()
             return {**beam_params, **params}, model_kwargs
 
     def greedy_search(
@@ -2512,7 +2517,7 @@ class GenerationMixin:
         this_peer_finished = False  # used by synced_gpus only
 
         # TODO FT remove after debug
-        tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-xsum-12-3")
+        tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-xsum")
 
         while True:
             if synced_gpus:
@@ -2527,14 +2532,18 @@ class GenerationMixin:
 
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
 
-            # TODO FT this is where the model is used
+            # print("BS model_inputs: ", model_inputs)
+            # print("BS output_attentions: ", output_attentions)
+            # print("BS output_hidden_states: ", output_hidden_states)
             outputs = self(
                 **model_inputs,
                 return_dict=True,
                 output_attentions=output_attentions,
                 output_hidden_states=output_hidden_states,
             )
-            
+            # print("BS OUTPUT: ", outputs)
+            # exit()
+
             if synced_gpus and this_peer_finished:
                 cur_len = cur_len + 1
                 continue  # don't waste resources running the code we don't need
@@ -2612,23 +2621,23 @@ class GenerationMixin:
             cur_len = cur_len + 1
 
             
-            for i, ins in enumerate(input_ids):
-                print("batch ", int(i/num_beams)+1,": ", tokenizer.decode(ins, skip_special_tokens=True))
+            # for i, ins in enumerate(input_ids):
+            #     print("batch ", int(i/num_beams)+1,": ", tokenizer.decode(ins, skip_special_tokens=True))
 
-            print("beam_scorer.is_done: ", beam_scorer.is_done)
+            # print("beam_scorer.is_done: ", beam_scorer.is_done)
             if beam_scorer.is_done or stopping_criteria(input_ids, scores):
-                print("LAST input_ids: ", input_ids)
+                # print("LAST input_ids: ", input_ids)
                 if not synced_gpus:
                     break
                 else:
                     this_peer_finished = True
 
-        print("LAST: ")
-        for i, (ins,bs) in enumerate(zip(input_ids, beam_scores)):
-            print('.')
-            print("batch ", int(i/num_beams)+1,": ",)
-            print(tokenizer.decode(ins, skip_special_tokens=True))
-            print("beam sc ", bs)
+        # # print("LAST: ")
+        # for i, (ins,bs) in enumerate(zip(input_ids, beam_scores)):
+        #     print('.')
+        #     print("batch ", int(i/num_beams)+1,": ",)
+        #     print(tokenizer.decode(ins, skip_special_tokens=True))
+        #     print("beam sc ", bs)
 
 
         sequence_outputs = beam_scorer.finalize(
@@ -2642,9 +2651,9 @@ class GenerationMixin:
             beam_indices=beam_indices,
         )
         
-        print("seq_outputs: ")
-        for i, ins in enumerate(sequence_outputs['sequences']):
-            print("batch ", i,": ", tokenizer.decode(ins, skip_special_tokens=True))
+        # print("seq_outputs: ")
+        # for i, ins in enumerate(sequence_outputs['sequences']):
+        #     print("batch ", i,": ", tokenizer.decode(ins, skip_special_tokens=True))
             
 
 
@@ -2674,7 +2683,8 @@ class GenerationMixin:
                     hidden_states=decoder_hidden_states,
                 )
         else:
-            return sequence_outputs["sequences"]
+            # print("AAAA")
+            return sequence_outputs["sequences"], sequence_outputs["original_sequences"]
     
     def beam_sample(
         self,
@@ -3767,8 +3777,7 @@ class GenerationMixin:
         
         print('curlen ', params["cur_len"])
         # TODO FT to be removed, for debugging only
-        tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-xsum-12-3")
-
+        
         filled_paths = paths.copy()
         beams = []
         for lp, path in filled_paths:
@@ -3787,7 +3796,9 @@ class GenerationMixin:
                 print("SELESAI")
 
         model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
-        
+        # print("EXP model_inputs: ", model_inputs)
+        # print("EXP output_attentions ", params["output_attentions"])
+        # print("EXP output_hidden_states: ", params["output_hidden_states"])
         # TODO FT fix after removeing loop?
         outputs = self(
             **model_inputs,
@@ -3795,7 +3806,8 @@ class GenerationMixin:
             output_attentions=params["output_attentions"],
             output_hidden_states=params["output_hidden_states"],
         )
-        
+        # print("EXP OUTPUT: ", outputs)
+        # exit()
         if synced_gpus and params["this_peer_finished"]:
             params["cur_len"] = params["cur_len"] + 1
             return "TODO FT"
