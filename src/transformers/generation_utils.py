@@ -1846,7 +1846,8 @@ class GenerationMixin:
             )
             # print("BEAM PARAMS: ", beam_params)[]
             # print("----------")
-            # print("reg PARAMS: ", params)
+            print("reg PARAMS: ", params)
+            
             # print("=================")
             # print("all params: ", {**beam_params, **params})
             # exit()
@@ -2532,7 +2533,7 @@ class GenerationMixin:
 
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
 
-            # print("BS model_inputs: ", model_inputs)
+            print("BS model_inputs: ", model_inputs)
             # print("BS output_attentions: ", output_attentions)
             # print("BS output_hidden_states: ", output_hidden_states)
             outputs = self(
@@ -2541,7 +2542,7 @@ class GenerationMixin:
                 output_attentions=output_attentions,
                 output_hidden_states=output_hidden_states,
             )
-            # print("BS OUTPUT: ", outputs)
+            print("BS OUTPUT: ", outputs)
             # exit()
 
             if synced_gpus and this_peer_finished:
@@ -3796,7 +3797,7 @@ class GenerationMixin:
                 print("SELESAI")
 
         model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
-        # print("EXP model_inputs: ", model_inputs)
+        print("EXP model_inputs: ", model_inputs)
         # print("EXP output_attentions ", params["output_attentions"])
         # print("EXP output_hidden_states: ", params["output_hidden_states"])
         # TODO FT fix after removeing loop?
@@ -3806,8 +3807,8 @@ class GenerationMixin:
             output_attentions=params["output_attentions"],
             output_hidden_states=params["output_hidden_states"],
         )
-        # print("EXP OUTPUT: ", outputs)
-        # exit()
+        print("EXP OUTPUT: ", outputs)
+        exit()
         if synced_gpus and params["this_peer_finished"]:
             params["cur_len"] = params["cur_len"] + 1
             return "TODO FT"

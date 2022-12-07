@@ -216,7 +216,7 @@ rouge = Rouge()
 
 
 
-test_samples = validation_data_txt.select(range(10))
+test_samples = validation_data_txt.select(range(3))
 summaries = test_samples["summary"]
 
 # print("len::: ", len(train_samples))
@@ -252,14 +252,16 @@ for res in result:
 # print("RESULT 2")
 
 
-# ori_seqs = [[] for _ in range(num_beams)]
+ori_seqs = [[] for _ in range(num_beams)]
 
-# for i, result_ori in enumerate(results_ori):
-#     ori_beam = []
-#     for bm in range(num_beams):
-#         ori_seqs[bm].append(tokenizer.decode(result_ori[bm][1], skip_special_tokens=True))
+for i, result_ori in enumerate(results_ori):
+    ori_beam = []
+    for bm in range(num_beams):
+        ori_seqs[bm].append(tokenizer.decode(result_ori[bm][1], skip_special_tokens=True))
 
-
+print("========")
+print("SEQ OUT 1 ori_seqs: ", ori_seqs)
+print("========")
 # scores = rouge.get_scores(result_str, summaries, avg=True)
 # print("BEST Rouge scores: ", scores)
 
@@ -313,11 +315,15 @@ for step in range(max_pred_len):
     if (params['this_peer_finished']):
         sequence_output = finalize_beam_search_expand_single_bart(summ_model, params)
 
+        print("****************")
+        print("SEQ OUT 2 BEAM: ")
+
         last_path = []
         for ori_seq in sequence_output["original_sequences"]:
             for ori in ori_seq:
                 last_path.append((ori[0], ori[1]))
-                # print(convert_ids_to_text(bart_tokenizer, ori[1]))
+                print(tokenizer.decode(ori[1], skip_special_tokens=True) )
+        print("****************")
         
         new_all_paths = last_path
         summ_paths = new_all_paths
