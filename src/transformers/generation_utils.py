@@ -1532,6 +1532,7 @@ class GenerationMixin:
                 **model_kwargs,
             )
 
+    @torch.no_grad()
     def generate_beam_expansion(
         self,
         inputs: Optional[torch.Tensor] = None,
@@ -2533,17 +2534,20 @@ class GenerationMixin:
 
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
 
-            print("BS model_inputs: ", model_inputs)
-            # print("BS output_attentions: ", output_attentions)
-            # print("BS output_hidden_states: ", output_hidden_states)
+            # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
+            if cur_len < 5:
+                print("BSFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
+            
+            
             outputs = self(
                 **model_inputs,
                 return_dict=True,
                 output_attentions=output_attentions,
                 output_hidden_states=output_hidden_states,
             )
-            print("BS OUTPUT: ", outputs)
-            # exit()
+            # print("BSFT OUTPUT: ", outputs.keys())
+            if cur_len < 5:
+                print("BSFT OUTPUT: ", outputs['logits'])
 
             if synced_gpus and this_peer_finished:
                 cur_len = cur_len + 1
@@ -2605,6 +2609,9 @@ class GenerationMixin:
             beam_next_tokens = beam_outputs["next_beam_tokens"]
             beam_idx = beam_outputs["next_beam_indices"]
 
+            print("BSFT beam_scores ", beam_scores)
+            print("BSFT beam_scores ", beam_scores.grad_fn)
+
             input_ids = torch.cat([input_ids[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
 
             model_kwargs = self._update_model_kwargs_for_generation(
@@ -2613,10 +2620,12 @@ class GenerationMixin:
             if model_kwargs["past"] is not None:
                 model_kwargs["past"] = self._reorder_cache(model_kwargs["past"], beam_idx)
 
+            # print("BSFT model_kwargs: ", model_kwargs["past"])
+
             if return_dict_in_generate and output_scores:
                 beam_indices = tuple((beam_indices[beam_idx[i]] + (beam_idx[i],) for i in range(len(beam_indices))))
 
-            print("cur_len : ", cur_len)
+            print("curlen ", cur_len)
             
             # increase cur_len
             cur_len = cur_len + 1
@@ -3678,6 +3687,7 @@ class GenerationMixin:
         else:
             return sequence_outputs["sequences"]
 
+    @torch.no_grad()
     def init_beam_search_expand_single(
         self,
         input_ids: torch.LongTensor,
@@ -3758,6 +3768,7 @@ class GenerationMixin:
         return params, model_kwargs
 
     
+    @torch.no_grad()
     def beam_search_expand_single(
         self,
         params,
@@ -3797,18 +3808,24 @@ class GenerationMixin:
                 print("SELESAI")
 
         model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
-        print("EXP model_inputs: ", model_inputs)
-        # print("EXP output_attentions ", params["output_attentions"])
-        # print("EXP output_hidden_states: ", params["output_hidden_states"])
-        # TODO FT fix after removeing loop?
+        
+        # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
+        if params["cur_len"] < 5:
+            print("EXPFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
+        
+        # print("EXPFT output_attentions ", params["output_attentions"])
+        # print("EXPFT output_hidden_states: ", params["output_hidden_states"])
+        
         outputs = self(
             **model_inputs,
             return_dict=True,
             output_attentions=params["output_attentions"],
             output_hidden_states=params["output_hidden_states"],
         )
-        print("EXP OUTPUT: ", outputs)
-        exit()
+        # odict_keys(['logits', 'past_key_values', 'encoder_last_hidden_state'])
+        if params["cur_len"] < 5:
+            print("EXPFT OUTPUT: ", outputs['logits'])
+        # exit()
         if synced_gpus and params["this_peer_finished"]:
             params["cur_len"] = params["cur_len"] + 1
             return "TODO FT"
@@ -3870,6 +3887,9 @@ class GenerationMixin:
         beam_next_tokens = beam_outputs["next_beam_tokens"]
         beam_idx = beam_outputs["next_beam_indices"]
 
+        print("EXPFT beam_scores ", params["beam_scores"])
+        print("EXPFT beam_scores grad_fn ", params["beam_scores"].grad_fn)
+
         input_path = torch.cat([input_path[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
         # TODO FT tiruin yg simpelnya
 
@@ -3882,6 +3902,7 @@ class GenerationMixin:
         if return_dict_in_generate and output_scores:
             params["beam_indices"] = tuple((params["beam_indices"][beam_idx[ix]] + (beam_idx[i],) for i in range(len(params["beam_indices"]))))
 
+        # print("EXPFT model_kwargs: ", model_kwargs["past"])
         # for i, ins in enumerate(input_path):
         #     print("batch ", int(i/params["num_beams"])+1,": ", tokenizer.decode(ins, skip_special_tokens=True))
 
@@ -3912,6 +3933,7 @@ class GenerationMixin:
         
         return paths, params, model_kwargs
 
+    @torch.no_grad()
     def finalize_beam_search_expand_single(
         params,
         beam_scorer,

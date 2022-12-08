@@ -4,7 +4,7 @@ import datasets
 import datasets
 
 import sys
-sys.path.insert(0, "/home/lr/faza.thirafi/raid/repository-kenkyuu-models/transformers/src")
+sys.path.insert(0, "/home/lr/faza.thirafi/raid/repository-kenkyuu-models/pg-transformers/src")
 
 from transformers import (
     AutoModelForSeq2SeqLM,
@@ -254,13 +254,18 @@ for res in result:
 
 ori_seqs = [[] for _ in range(num_beams)]
 
+print("========")
+print("SEQ OUT 1 BSFT ori_seqs:")
+print("---")
 for i, result_ori in enumerate(results_ori):
     ori_beam = []
     for bm in range(num_beams):
-        ori_seqs[bm].append(tokenizer.decode(result_ori[bm][1], skip_special_tokens=True))
+        text_dec = tokenizer.decode(result_ori[bm][1], skip_special_tokens=True)
+        ori_seqs[bm].append(text_dec)
+        print(text_dec)
+    print("---")
 
-print("========")
-print("SEQ OUT 1 ori_seqs: ", ori_seqs)
+
 print("========")
 # scores = rouge.get_scores(result_str, summaries, avg=True)
 # print("BEST Rouge scores: ", scores)
@@ -286,7 +291,6 @@ input_ids = inputs.input_ids.to(summ_model.device)
 attention_mask = inputs.attention_mask.to(summ_model.device)
 # result = summ_model.generate_beam_expansion(input_ids, attention_mask=attention_mask)
 num_beams = 3
-result, results_ori = summ_model.generate(input_ids, num_beams=num_beams, attention_mask=attention_mask)
 
 ### TEST WITH SINGLE BEAM EXPANSION
 max_pred_len = 150
@@ -316,13 +320,14 @@ for step in range(max_pred_len):
         sequence_output = finalize_beam_search_expand_single_bart(summ_model, params)
 
         print("****************")
-        print("SEQ OUT 2 BEAM: ")
-
+        print("SEQ OUT 2 BEAM EXPFT: ")
+        print("---")
         last_path = []
         for ori_seq in sequence_output["original_sequences"]:
             for ori in ori_seq:
                 last_path.append((ori[0], ori[1]))
                 print(tokenizer.decode(ori[1], skip_special_tokens=True) )
+            print("---")
         print("****************")
         
         new_all_paths = last_path
