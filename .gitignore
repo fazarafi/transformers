@@ -170,4 +170,5 @@ tags
 */wandb/*
 *.csv
 _faza_fine-tuning/wandb/*
+_faza_fine-tuning/notes*
 src/fact_factcc/factcc-checkpoint/*

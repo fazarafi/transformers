@@ -1,0 +1,437 @@
+dev  cuda
+torch  True
+dev summ_model 2:  cuda:0
+batch_size  25
+num_beams  5
+cur_len :  1
+cur_len :  2
+cur_len :  3
+cur_len :  4
+cur_len :  5
+cur_len :  6
+cur_len :  7
+cur_len :  8
+cur_len :  9
+cur_len :  10
+cur_len :  11
+cur_len :  12
+cur_len :  13
+cur_len :  14
+cur_len :  15
+cur_len :  16
+cur_len :  17
+cur_len :  18
+cur_len :  19
+cur_len :  20
+cur_len :  21
+cur_len :  22
+cur_len :  23
+cur_len :  24
+cur_len :  25
+cur_len :  26
+cur_len :  27
+cur_len :  28
+cur_len :  29
+cur_len :  30
+cur_len :  31
+cur_len :  32
+LAST input_ids:  tensor([[    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        ...,
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1]], device='cuda:0')
+========
+SEQ OUT 1 BSFT ori_seqs:
+---
+Former Premier League footballer Sam Sodje has appeared in court charged with fraud.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+Former Premier League footballer Sam Sodje has appeared in court charged with fraud and money laundering.
+---
+Middlesex batsman Adam Voges will miss the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th issue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary issue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary edition.
+---
+Google has appointed the former administrator of the far-right website 4chan to a senior position at the search giant.
+Google has appointed the former administrator of the far-right website 4chan as a senior engineer at the search giant.
+Google has appointed the former administrator of the far-right website 4chan to a senior role at the search giant.
+Google has appointed the former administrator of the far-right website 4chan to a senior position at its search engine.
+Google has appointed the former administrator of the far-right website 4chan to a senior position in its engineering team.
+---
+Two teenagers have been charged with aggravated vehicle taking following an incident in north Belfast.
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+Two teenagers have been charged in connection with an incident in which six police cars were stolen in north Belfast.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in north Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in Edinburgh.
+A man has been taken to hospital after being hit by a taxi in Inverness.
+A man has been taken to hospital after being hit by a taxi in Glasgow city centre.
+A man has been taken to hospital after being hit by a taxi in the centre of Glasgow.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday.
+---
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazil forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar last year.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2014.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2013.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the Resolution Foundation.
+London's schools face a funding cut of more than £1bn over the next five years, according to the London Institute.
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chilcot.
+---
+England batsman Jason Roy hit a century as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at Lord's.
+---
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn would be a "disaster" for the party.
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election as leader would be a "catastrophe".
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election as party leader would be a "catastrophe".
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election would be a "catastrophe" for the party.
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn would be a "disaster" for the party if he wins.
+---
+Heads are set to complain about the squeeze on their schools' budgets at a meeting of their union.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the government.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the education secretary.
+Heads are set to complain about the squeeze on their schools' budgets at a meeting with the education secretary.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the education secretary later.
+---
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks.
+The Republic of Ireland and the United States are at loggerheads over the Paris terror attacks.
+The Republic of Ireland and the United States are at loggerheads over the US presidential election.
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks, which killed 130 people.
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks, which left 130 people dead.
+---
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" in office despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" in the role despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents that led to adverse headlines.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents that led to her resignation.
+---
+A seven-year-old boy has been attacked by a man outside his school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A five-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Lichfield.
+---
+Wrexham have signed Newport County goalkeeper Rhys Taylor on loan until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on a month's loan.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on loan until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League side Wrexham on loan until the end of the season.
+---
+Non-league side New Mills United are "playing for their petrol money", says their manager.
+Non-league side New Mills United are "playing for their petrol money", their manager says.
+Non-league side New Mills United are "playing for their petrol money", according to their manager.
+Non-league side New Mills United are "playing for their petrol money", their manager has said.
+Non-league side New Mills United are "playing for their petrol money", according to their boss.
+---
+An MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+An MP has said he is worried about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the level of misinformation surrounding a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" surrounding a referendum on whether Bath should have an elected mayor.
+---
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis dressed as sausages.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw meat on customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages at customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages on customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages and meat at customers.
+---
+Wales coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy in Rome.
+Wales head coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations game against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the hunger to improve.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" attitude.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" mentality.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have inspired him to improve his own game.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the "hunger" to improve.
+---
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader and a new character.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and new characters.
+The first trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and new characters.
+---
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for life.
+A man who raped a 14-year-old girl and sexually assaulted three women has been jailed for life.
+A man who had sex with a 13-year-old girl and raped three women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three other women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for a further 12 years.
+---
+A US soldier has been killed in a so-called friendly fire incident in Afghanistan, officials say.
+A US soldier has been killed by an Afghan commando in eastern Afghanistan, the US military says.
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan, officials say.
+A US soldier has been killed in a so-called friendly fire incident in northern Afghanistan, officials say.
+A US soldier has been killed by an Afghan commando in eastern Afghanistan, the US military has said.
+---
+Two foreign tourists have been raped in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been raped in the northern Indian state of Jharkhand, police say.
+A Spanish woman has been raped in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been sexually assaulted in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been sexually assaulted in the northern Indian state of Jharkhand, police say.
+---
+Hong Kong's Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on all its flights.
+Hong Kong's biggest airline, Cathay Pacific, has banned the shipment of shark fin on its flights.
+Hong Kong's biggest airline, Cathay Pacific, has banned the shipment of shark fin on all flights.
+---
+========
+0 . Rouge:  {'rouge-1': {'r': 0.42187951451190114, 'p': 0.5029786314476716, 'f': 0.454769652980481}, 'rouge-2': {'r': 0.222003320541401, 'p': 0.2701093321882795, 'f': 0.24019780857031975}, 'rouge-l': {'r': 0.3894039848128419, 'p': 0.4649516527504144, 'f': 0.4201006674221105}}
+1 . Rouge:  {'rouge-1': {'r': 0.43839263071323914, 'p': 0.4933740921960736, 'f': 0.4606555696207925}, 'rouge-2': {'r': 0.23776482025026915, 'p': 0.2712640421154353, 'f': 0.25092879722549816}, 'rouge-l': {'r': 0.4117165997610471, 'p': 0.46172339734568835, 'f': 0.4319422193348387}}
+2 . Rouge:  {'rouge-1': {'r': 0.43803122720446724, 'p': 0.47146972076397303, 'f': 0.45010748124818484}, 'rouge-2': {'r': 0.23900290178804112, 'p': 0.2588929878171365, 'f': 0.2457273256384571}, 'rouge-l': {'r': 0.40372299981916343, 'p': 0.43275759090821686, 'f': 0.4140851701471163}}
+3 . Rouge:  {'rouge-1': {'r': 0.4307468700665632, 'p': 0.43995360829625196, 'f': 0.43140006518074214}, 'rouge-2': {'r': 0.22733318739510694, 'p': 0.22726151385594107, 'f': 0.22426038964421832}, 'rouge-l': {'r': 0.40407083911437114, 'p': 0.4116571474471595, 'f': 0.40415169977267185}}
+4 . Rouge:  {'rouge-1': {'r': 0.4506693813358236, 'p': 0.46338520616249795, 'f': 0.45270244899343154}, 'rouge-2': {'r': 0.23774647060312695, 'p': 0.23993255420190404, 'f': 0.23549170329261446}, 'rouge-l': {'r': 0.4097256222397425, 'p': 0.41891375152419713, 'f': 0.4103362075014473}}
+dev summ_model 2:  cuda:0
+params[batch_size]:  25
+curlen  1
+curlen  2
+curlen  3
+curlen  4
+curlen  5
+curlen  6
+curlen  7
+curlen  8
+curlen  9
+curlen  10
+curlen  11
+curlen  12
+curlen  13
+curlen  14
+curlen  15
+curlen  16
+curlen  17
+curlen  18
+curlen  19
+curlen  20
+curlen  21
+curlen  22
+curlen  23
+curlen  24
+curlen  25
+curlen  26
+curlen  27
+curlen  28
+curlen  29
+curlen  30
+curlen  31
+curlen  32
+beam_scores: 
+ tensor([  0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000, -20.2206, -21.6866, -21.8940,
+        -22.3872, -23.0624,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000],
+       device='cuda:0')
+ORI beam_scores_ORI: 
+ tensor([  0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000, -20.2206, -23.0624, -22.3872,
+        -21.6866, -21.8940,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000],
+       device='cuda:0')
+****************
+SEQ OUT 2 BEAM EXPFT: 
+---
+Former Premier League footballer Sam Sodje has appeared in court charged with fraud.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+Former Premier League footballer Sam Sodje has appeared in court charged with fraud and money laundering.
+---
+Middlesex batsman Adam Voges will miss the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a shoulder injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with an ankle injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th issue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary issue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary edition.
+---
+Google has appointed the former administrator of the far-right website 4chan to a senior position at the search giant.
+Google has appointed the former administrator of the far-right website 4chan as a senior engineer at the search giant.
+Google has appointed the former administrator of the far-right website 4chan to a senior role at the search giant.
+Google has appointed the former administrator of the far-right website 4chan to a senior position at its search engine.
+Google has appointed the former administrator of the far-right website 4chan to a senior position in its engineering team.
+---
+Two teenagers have been charged with aggravated vehicle taking following an incident in north Belfast.
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+Two teenagers have been charged in connection with an incident in which six police cars were stolen in north Belfast.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in north Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in Edinburgh.
+A man has been taken to hospital after being hit by a taxi in Inverness.
+A man has been taken to hospital after being hit by a taxi in Glasgow city centre.
+A man has been taken to hospital after being hit by a taxi in the centre of Glasgow.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday.
+---
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazil forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar last year.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2014.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2013.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the Resolution Foundation.
+London's schools face a funding cut of more than £1bn over the next five years, according to the London Institute.
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chilcot.
+---
+England batsman Jason Roy hit a century as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at Lord's.
+---
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn would be a "disaster" for the party.
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election as leader would be a "catastrophe".
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election as party leader would be a "catastrophe".
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn's election would be a "catastrophe" for the party.
+Labour leadership contenders Liz Kendall and Yvette Cooper have warned that Jeremy Corbyn would be a "disaster" for the party if he wins.
+---
+Heads are set to complain about the squeeze on their schools' budgets at a meeting of their union.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the government.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the education secretary.
+Heads are set to complain about the squeeze on their schools' budgets at a meeting with the education secretary.
+Heads are set to complain about the squeeze on their schools' budgets in a meeting with the education secretary later.
+---
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks.
+The Republic of Ireland and the United States are at loggerheads over the Paris terror attacks.
+The Republic of Ireland and the United States are at loggerheads over the US presidential election.
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks, which killed 130 people.
+The Republic of Ireland and the United States are at loggerheads over the Paris attacks, which left 130 people dead.
+---
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" in office despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" in the role despite a number of incidents.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents that led to adverse headlines.
+The Kent Police and Crime Commissioner (PCC) has said she has had a "good time" despite a number of incidents that led to her resignation.
+---
+A seven-year-old boy has been attacked by a man outside his school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A five-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Lichfield.
+---
+Wrexham have signed Newport County goalkeeper Rhys Taylor on loan until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on a month's loan.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on loan until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League side Wrexham on loan until the end of the season.
+---
+Non-league side New Mills United are "playing for their petrol money", says their manager.
+Non-league side New Mills United are "playing for their petrol money", their manager says.
+Non-league side New Mills United are "playing for their petrol money", according to their manager.
+Non-league side New Mills United are "playing for their petrol money", their manager has said.
+Non-league side New Mills United are "playing for their petrol money", according to their boss.
+---
+An MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+An MP has said he is worried about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the level of misinformation surrounding a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" surrounding a referendum on whether Bath should have an elected mayor.
+---
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis dressed as sausages.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw meat on customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages at customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages on customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages and meat at customers.
+---
+Wales coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy in Rome.
+Wales head coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations game against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the hunger to improve.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" attitude.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" mentality.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have inspired him to improve his own game.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the "hunger" to improve.
+---
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader and a new character.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and new characters.
+The first trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and new characters.
+---
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for life.
+A man who raped a 14-year-old girl and sexually assaulted three women has been jailed for life.
+A man who had sex with a 13-year-old girl and raped three women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three other women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for a further 12 years.
+---
+A US soldier has been killed in a so-called friendly fire incident in Afghanistan, officials say.
+A US soldier has been killed by an Afghan commando in eastern Afghanistan, the US military says.
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan, officials say.
+A US soldier has been killed in a so-called friendly fire incident in northern Afghanistan, officials say.
+A US soldier has been killed by an Afghan commando in eastern Afghanistan, the US military has said.
+---
+Two foreign tourists have been raped in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been raped in the northern Indian state of Jharkhand, police say.
+A Spanish woman has been raped in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been sexually assaulted in the northern Indian state of Himachal Pradesh, police say.
+Two foreign tourists have been sexually assaulted in the northern Indian state of Jharkhand, police say.
+---
+Hong Kong's Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on all its flights.
+Hong Kong's biggest airline, Cathay Pacific, has banned the shipment of shark fin on its flights.
+Hong Kong's biggest airline, Cathay Pacific, has banned the shipment of shark fin on all flights.
+---
+****************
+Yg ke - 0 :  {'rouge-1': {'r': 0.42187951451190114, 'p': 0.5029786314476716, 'f': 0.454769652980481}, 'rouge-2': {'r': 0.222003320541401, 'p': 0.2701093321882795, 'f': 0.24019780857031975}, 'rouge-l': {'r': 0.3894039848128419, 'p': 0.4649516527504144, 'f': 0.4201006674221105}}
+Yg ke - 1 :  {'rouge-1': {'r': 0.43839263071323914, 'p': 0.4933740921960736, 'f': 0.4606555696207925}, 'rouge-2': {'r': 0.23776482025026915, 'p': 0.2712640421154353, 'f': 0.25092879722549816}, 'rouge-l': {'r': 0.4117165997610471, 'p': 0.46172339734568835, 'f': 0.4319422193348387}}
+Yg ke - 2 :  {'rouge-1': {'r': 0.43803122720446724, 'p': 0.47146972076397303, 'f': 0.45010748124818484}, 'rouge-2': {'r': 0.23900290178804112, 'p': 0.2588929878171365, 'f': 0.2457273256384571}, 'rouge-l': {'r': 0.40372299981916343, 'p': 0.43275759090821686, 'f': 0.4140851701471163}}
+Yg ke - 3 :  {'rouge-1': {'r': 0.4307468700665632, 'p': 0.43995360829625196, 'f': 0.43140006518074214}, 'rouge-2': {'r': 0.22733318739510694, 'p': 0.22726151385594107, 'f': 0.22426038964421832}, 'rouge-l': {'r': 0.40407083911437114, 'p': 0.4116571474471595, 'f': 0.40415169977267185}}
+Yg ke - 4 :  {'rouge-1': {'r': 0.4506693813358236, 'p': 0.46338520616249795, 'f': 0.45270244899343154}, 'rouge-2': {'r': 0.23774647060312695, 'p': 0.23993255420190404, 'f': 0.23549170329261446}, 'rouge-l': {'r': 0.4097256222397425, 'p': 0.41891375152419713, 'f': 0.4103362075014473}}
+SORT random then reverse AWS

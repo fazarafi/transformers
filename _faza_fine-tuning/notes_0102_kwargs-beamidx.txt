@@ -1,0 +1,952 @@
+dev  cuda
+torch  True
+dev summ_model 2:  cuda:0
+batch_size  75
+num_beams  2
+cur_len :  1
+cur_len :  2
+cur_len :  3
+cur_len :  4
+cur_len :  5
+cur_len :  6
+cur_len :  7
+cur_len :  8
+cur_len :  9
+cur_len :  10
+cur_len :  11
+cur_len :  12
+cur_len :  13
+cur_len :  14
+cur_len :  15
+cur_len :  16
+cur_len :  17
+cur_len :  18
+cur_len :  19
+cur_len :  20
+cur_len :  21
+cur_len :  22
+cur_len :  23
+cur_len :  24
+cur_len :  25
+cur_len :  26
+cur_len :  27
+cur_len :  28
+cur_len :  29
+cur_len :  30
+cur_len :  31
+cur_len :  32
+cur_len :  33
+cur_len :  34
+cur_len :  35
+cur_len :  36
+LAST input_ids:  tensor([[    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        ...,
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1]], device='cuda:0')
+========
+SEQ OUT 1 BSFT ori_seqs:
+---
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+---
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+---
+Google has appointed the former administrator of the notorious 4chan website to a senior position at the search giant.
+Google has appointed the former administrator of the notorious 4chan website to a senior position at its search engine.
+---
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in the centre of Glasgow.
+A man has been taken to hospital after he was hit by a taxi in the centre of Glasgow.
+---
+Barcelona president Sandro Rosell has resigned, saying he feared for his life after receiving death threats over the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned, saying he feared for his life after receiving death threats over the club's signing of Brazil forward Neymar.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chilcot.
+---
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex at The Oval.
+---
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn is elected.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn wins the contest.
+---
+Heads are to be given a chance to express their concerns about funding cuts.
+Heads are to be given a chance to express their concerns about funding pressures at a government meeting.
+---
+The Republic of Ireland's football team have been knocked out of the European Championship by the Czech Republic.
+The Republic of Ireland's football team has been knocked out of the European Championship by the Czech Republic.
+---
+The police and crime commissioner for Kent has said she has had a "good time" despite a number of "unexpected" incidents.
+The police and crime commissioner for Kent has said she has had a "good time" despite a number of "unexpected" events.
+---
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his school bag outside a school in Staffordshire.
+---
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on a month's loan.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on loan until the end of the season.
+---
+New Mills have been relegated from the National League after just one season.
+New Mills have been relegated from the National League after just one season in the competition.
+---
+An MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+A Conservative MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+---
+Customers at a cafe in Tbilisi have been attacked by a group of neo-Nazis who threw sausages at them.
+Customers at a cafe in Tbilisi have been attacked by a group of neo-Nazis who threw sausages at them, the cafe says.
+---
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy in Rome.
+Wales head coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the hunger to improve.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" attitude.
+---
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader and a new character.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and a new character.
+---
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for a further 12 years.
+---
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan.
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan, officials say.
+---
+A Spanish woman has been raped by two men in the northern Indian state of Himachal Pradesh, police say.
+A Spanish woman has been raped by two men in the northern Indian state of Jharkhand, police say.
+---
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on all its flights.
+---
+Chester City have signed former Manchester United defender David Shaw on a one-year deal following his release by National League rivals Grimsby Town.
+Chester City have signed former Manchester United defender David Shaw on a one-year deal after his release by National League rivals Grimsby Town.
+---
+A well-preserved axe has been found in the seabed of a Danish island.
+A well-preserved axe has been found in the seabed of a Danish island, which is to be connected to Germany.
+---
+It's one of the world's biggest producers of wild tree seeds.
+It's one of the world's biggest producers of wild tree seeds and aspens are a great source of them.
+---
+Divers in Guernsey will have to pay £1,000 for a 24-hour oxygen treatment from April.
+Divers in Guernsey will have to pay £1,000 for a 24-hour oxygen treatment from next year.
+---
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the second Test against England at Lord's after failing a drugs test.
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the third Test against England at Lord's after failing a drugs test.
+---
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is to change its name.
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is set to change its name.
+---
+At least 120 civilians have been killed by Islamic State (IS) militants in the Syrian town of Kobane, a monitoring group says.
+At least 120 civilians have been killed by Islamic State (IS) militants after entering the Syrian town of Kobane, a monitoring group says.
+---
+Barnsley have signed West Ham striker Joe Lee on a free transfer.
+Barnsley have signed West Ham striker Alex Lee on a free transfer.
+---
+The body of a Northern Ireland man killed in a road accident in Abu Dhabi has been flown back to Belfast.
+The body of a Northern Ireland man who died in a road accident in Abu Dhabi has been flown back to Belfast.
+---
+A second wind farm has been proposed in the Scottish Borders, more than a year after the first was rejected.
+A second wind farm has been proposed in the Scottish Borders, more than a year after the first was rejected by the government.
+---
+Wasps have signed former England centre Kyle Eastmond from Premiership rivals Bath.
+Premiership side Wasps have signed former England centre Kyle Eastmond from Bath.
+---
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality over the sale of land.
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality over the sale of a former hall.
+---
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, according to official figures.
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, official figures have shown.
+---
+Footage has emerged of men urinating in a wall at a business premises.
+Footage has been released of men urinating in a wall at a business premises.
+---
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, figures show.
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, according to new figures.
+---
+The Glen Coe Skyline ultramarathon will be held for the second time in September.
+The Glen Coe Skyline ultramarathon will be held for the first time in September 2016.
+---
+A gang which has been at the centre of gun crime for more than a decade has been banned from the city.
+A gang which has been at the centre of a violent feud for more than a decade has been banned from the city.
+---
+A man accused of being a loyalist informer is to challenge the decision to drop some of the charges against him.
+A man accused of being a loyalist informer is to challenge the decision to drop some of the remaining charges against him.
+---
+Avon and Somerset's Chief Constable Nick Gargan has said he is "very much looking forward" to returning to work.
+Avon and Somerset's Chief Constable Nick Gargan has said he is "very much looking forward" to returning to work after being cleared of misconduct.
+---
+A health board has said it will review the way it manages mental health patients after the death of a man in Gwynedd.
+A health board has said it will review the way it manages mental health patients after the death of a man who went missing from a unit.
+---
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for the second time in two weeks.
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for a second time in two weeks.
+---
+A report is to be published next week into the future of flood protection in Dumfries.
+A report is to be published next week into the future of flood protection in Dumfries and Galloway.
+---
+Two towns in the south of England have been named the most expensive outside London.
+Two towns in the south of England have been named as the most expensive outside London.
+---
+Sadiq Khan has suspended the chief of staff of his parliamentary office after he was found to have posted abusive messages on social media.
+Sadiq Khan has suspended the chief of staff of his parliamentary office after he was found to have posted abusive comments on social media.
+---
+A motorcyclist and a car driver have been killed in a crash on the A40 in Wiltshire.
+A motorcyclist and a car driver have been killed in a collision on the A40 in Wiltshire.
+---
+A hoard of Viking coins found in Gwynedd has been declared treasure.
+A hoard of medieval coins found in Gwynedd has been declared treasure.
+---
+A man has been found not guilty of trying to help an alleged gang member escape from a prison van.
+A man has been found not guilty of trying to help an alleged gang member escape from a court van.
+---
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the northern hemisphere.
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the north of the Earth.
+---
+Cardiff City manager Neil Warnock says there is a "possibility" the club will make another bid for Aberdeen midfielder Jonny Hayes.
+Cardiff City manager Neil Warnock says there is a "possibility" the Bluebirds could make another bid for Aberdeen midfielder Jonny Hayes.
+---
+Exeter Chiefs have signed Cornish Pirates prop Sam Simmonds on a one-month loan deal.
+Exeter Chiefs have signed Cornish Pirates prop Sam Simmonds on a short-term deal until the end of the season.
+---
+Scotland has launched its first national human rights action plan.
+Scotland has launched its first national human rights action plan on International Human Rights Day.
+---
+Boca Juniors have re-signed striker Carlos Tevez from Juventus for an undisclosed fee.
+Boca Juniors have re-signed striker Carlos Tevez from Juventus on a three-year deal.
+---
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory in Rio.
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory at Rio 2016.
+---
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be if he wins.
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be when he takes the job.
+---
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed bump meeting, a court has heard.
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed-bump meet, a court has heard.
+---
+Derry City and Strabane District Council has voted to hold a civic reception for the England and Northern Ireland football teams.
+Derry City and Strabane District Council has voted to hold a civic reception for the England and Northern Ireland football teams on Thursday.
+---
+The number of people living with HIV in South Africa has more than halved in the last decade.
+The number of people living with HIV in South Africa has more than halved in the past decade.
+---
+Sweden won their second medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+Sweden won their second gold medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+---
+The Premier League's first game of the season was played under the controversial new 'half-time' rule, which would see the clock stopped every time the ball went out.
+The Premier League's first game of the season was played under the controversial new 'half-time' rule, which would see the clock stop every time the ball went out.
+---
+It was the game that changed Scotland's lives.
+It was the game that changed Scotland's footballing life.
+---
+Tate Britain's Duveen Galleries are to be transformed into a dance performance space.
+Tate Britain's Duveen Galleries are to be transformed into a dance hall for a new exhibition.
+---
+Plans to expand a business park in Sheffield could create up to 1,000 jobs.
+Plans to expand a business park in Sheffield could create up to 1,000 new jobs.
+---
+A Dundee teenager who had sex with a 13-year-old girl in the grounds of a college has been jailed for six months.
+A Dundee teenager who had sex with a 13-year-old girl in the grounds of a college has been jailed for two years.
+---
+An elderly man had to be rescued after his car became trapped in flood water in Worcestershire.
+An elderly man had to be rescued from his car after it became stuck in flood water in Worcestershire.
+---
+Two economic experts in Beijing had a bet to settle.
+Two economic experts in Beijing had a bet to settle on Tuesday.
+---
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of being a security risk.
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of being a threat to national security.
+---
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain".
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain" during a Labour leadership debate.
+---
+Nico Rosberg has been fined £100,000 by the Formula 1 stewards for asking his Mercedes team-mate to change his gearbox during the Azerbaijan Grand Prix.
+Nico Rosberg has been fined £100,000 by the Formula 1 stewards for asking his Mercedes team-mate to change his gearbox during the Hungarian Grand Prix.
+---
+A chihuahua is to become the first police dog in Japan to be trained to work as a rescue dog.
+A chihuahua is to become the first police dog in Japan to be trained to work as a search and rescue dog.
+---
+Rotherham United have confirmed that they will not appoint a new manager until early January.
+Rotherham United have confirmed that they will not be appointing a new manager until early January.
+---
+========
+0 . Rouge:  {'rouge-1': {'r': 0.4028458544561385, 'p': 0.43583704230141185, 'f': 0.4142581016186664}, 'rouge-2': {'r': 0.1950387187970442, 'p': 0.2122200150502344, 'f': 0.20068177284266173}, 'rouge-l': {'r': 0.34377091576456226, 'p': 0.369218177514045, 'f': 0.35221307583478245}}
+1 . Rouge:  {'rouge-1': {'r': 0.4124979062381808, 'p': 0.42034054681203686, 'f': 0.41232339568197623}, 'rouge-2': {'r': 0.19141912818074697, 'p': 0.19528304443927896, 'f': 0.190815270924432}, 'rouge-l': {'r': 0.34674429033224285, 'p': 0.3511577218970137, 'f': 0.3454678550910332}}
+dev summ_model 2:  cuda:0
+params[batch_size]:  75
+curlen  1
+EXPFT beam_idx  tensor([  0,   0,   2,   2,   4,   4,   6,   6,   8,   8,  10,  10,  12,  12,
+         14,  14,  16,  16,  18,  18,  20,  20,  22,  22,  24,  24,  26,  26,
+         28,  28,  30,  30,  32,  32,  34,  34,  36,  36,  38,  38,  40,  40,
+         42,  42,  44,  44,  46,  46,  48,  48,  50,  50,  52,  52,  54,  54,
+         56,  56,  58,  58,  60,  60,  62,  62,  64,  64,  66,  66,  68,  68,
+         70,  70,  72,  72,  74,  74,  76,  76,  78,  78,  80,  80,  82,  82,
+         84,  84,  86,  86,  88,  88,  90,  90,  92,  92,  94,  94,  96,  96,
+         98,  98, 100, 100, 102, 102, 104, 104, 106, 106, 108, 108, 110, 110,
+        112, 112, 114, 114, 116, 116, 118, 118, 120, 120, 122, 122, 124, 124,
+        126, 126, 128, 128, 130, 130, 132, 132, 134, 134, 136, 136, 138, 138,
+        140, 140, 142, 142, 144, 144, 146, 146, 148, 148], device='cuda:0')
+curlen  2
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   5,   4,   7,   6,   8,   8,  10,  11,  12,  13,
+         14,  14,  16,  16,  18,  19,  20,  20,  22,  22,  24,  25,  26,  26,
+         28,  29,  30,  31,  33,  32,  34,  35,  36,  37,  38,  39,  40,  41,
+         42,  42,  44,  45,  46,  46,  48,  49,  50,  51,  53,  52,  54,  54,
+         56,  56,  58,  59,  61,  60,  62,  63,  64,  64,  67,  66,  69,  68,
+         70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  80,  82,  82,
+         84,  84,  86,  87,  88,  89,  90,  91,  92,  92,  94,  94,  96,  97,
+         99,  98, 100, 101, 102, 102, 104, 104, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 114, 116, 117, 118, 118, 121, 120, 122, 123, 124, 124,
+        126, 127, 128, 129, 131, 130, 133, 132, 134, 134, 136, 137, 138, 138,
+        140, 141, 142, 143, 144, 145, 146, 147, 148, 149], device='cuda:0')
+curlen  3
+EXPFT beam_idx  tensor([  1,   0,   2,   3,   4,   5,   7,   6,   8,   9,  10,  11,  12,  12,
+         14,  15,  16,  17,  18,  18,  20,  21,  23,  22,  24,  25,  26,  27,
+         28,  29,  30,  30,  32,  33,  34,  35,  36,  36,  38,  39,  40,  41,
+         42,  42,  44,  45,  46,  47,  48,  48,  50,  50,  53,  52,  54,  54,
+         56,  56,  58,  59,  61,  60,  62,  63,  64,  65,  66,  67,  68,  69,
+         70,  71,  72,  73,  74,  75,  76,  76,  78,  79,  81,  80,  83,  82,
+         84,  85,  86,  87,  88,  89,  90,  91,  93,  92,  94,  94,  96,  97,
+         98,  99, 100, 101, 102, 102, 105, 104, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 116, 118, 119, 120, 121, 122, 123, 124, 124,
+        127, 126, 129, 129, 130, 131, 132, 132, 134, 135, 136, 136, 139, 138,
+        140, 141, 142, 143, 144, 145, 146, 147, 148, 149], device='cuda:0')
+curlen  4
+EXPFT beam_idx  tensor([  1,   0,   2,   3,   5,   4,   6,   7,   8,   9,  10,  11,  12,  13,
+         14,  14,  16,  17,  18,  19,  20,  20,  22,  23,  24,  25,  26,  27,
+         28,  29,  31,  30,  33,  32,  34,  35,  36,  37,  38,  38,  40,  41,
+         42,  43,  44,  45,  46,  46,  48,  49,  50,  51,  52,  53,  54,  55,
+         56,  57,  58,  59,  60,  61,  62,  62,  64,  65,  66,  67,  68,  69,
+         70,  71,  72,  73,  74,  74,  76,  76,  78,  79,  80,  81,  82,  83,
+         84,  85,  86,  87,  88,  88,  90,  91,  92,  93,  94,  95,  96,  96,
+         98,  99, 100, 100, 102, 103, 104, 104, 106, 106, 108, 109, 110, 110,
+        112, 113, 114, 115, 116, 116, 118, 119, 120, 120, 123, 122, 124, 125,
+        126, 126, 129, 128, 130, 130, 133, 132, 134, 135, 136, 136, 139, 138,
+        140, 141, 142, 142, 144, 145, 146, 147, 148, 148], device='cuda:0')
+curlen  5
+EXPFT beam_idx  tensor([  0,   1,   2,   3,   4,   5,   7,   6,   8,   9,  10,  11,  12,  13,
+         14,  15,  16,  17,  18,  19,  20,  21,  22,  22,  24,  25,  26,  27,
+         28,  29,  31,  30,  33,  32,  34,  35,  36,  37,  38,  39,  40,  40,
+         42,  43,  44,  45,  46,  47,  48,  49,  51,  50,  52,  53,  55,  54,
+         56,  57,  58,  59,  60,  60,  62,  63,  64,  65,  67,  66,  69,  69,
+         70,  71,  72,  72,  74,  74,  77,  76,  79,  78,  80,  81,  83,  82,
+         84,  85,  86,  86,  88,  88,  90,  91,  92,  93,  94,  95,  96,  97,
+         98,  98, 100, 101, 102, 102, 105, 104, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 114, 116, 117, 118, 119, 120, 121, 122, 122, 124, 125,
+        127, 126, 128, 129, 131, 130, 132, 133, 134, 134, 137, 136, 139, 139,
+        140, 141, 142, 142, 144, 144, 146, 147, 148, 148], device='cuda:0')
+curlen  6
+EXPFT beam_idx  tensor([  0,   1,   2,   3,   4,   5,   6,   7,   8,   8,  10,  11,  12,  13,
+         15,  14,  16,  16,  18,  19,  20,  20,  22,  23,  24,  25,  26,  27,
+         28,  29,  31,  30,  32,  33,  34,  35,  36,  37,  38,  39,  41,  40,
+         43,  42,  44,  45,  46,  47,  48,  49,  50,  50,  52,  52,  55,  54,
+         56,  57,  58,  59,  60,  60,  62,  63,  64,  64,  67,  66,  68,  69,
+         70,  71,  73,  73,  74,  74,  76,  77,  78,  79,  80,  81,  82,  83,
+         84,  85,  87,  86,  88,  89,  90,  91,  93,  92,  95,  94,  97,  97,
+         98,  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 108, 110, 111,
+        112, 112, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 124,
+        126, 126, 128, 129, 131, 130, 133, 133, 134, 135, 136, 137, 138, 139,
+        140, 141, 143, 142, 144, 144, 146, 146, 149, 148], device='cuda:0')
+curlen  7
+EXPFT beam_idx  tensor([  1,   0,   2,   3,   4,   4,   6,   7,   8,   9,  10,  11,  12,  13,
+         15,  14,  16,  16,  19,  18,  21,  21,  22,  23,  24,  25,  26,  26,
+         28,  29,  30,  31,  32,  33,  34,  35,  37,  36,  38,  39,  40,  41,
+         43,  42,  44,  45,  46,  46,  49,  48,  51,  51,  52,  52,  55,  54,
+         56,  56,  58,  58,  60,  61,  62,  63,  64,  65,  66,  67,  69,  68,
+         70,  71,  72,  72,  74,  75,  76,  77,  78,  79,  80,  80,  82,  83,
+         84,  85,  87,  86,  88,  88,  90,  90,  92,  93,  94,  95,  96,  97,
+         98,  98, 100, 101, 103, 102, 104, 104, 106, 107, 109, 108, 110, 110,
+        113, 112, 114, 115, 116, 116, 118, 119, 120, 121, 122, 123, 124, 125,
+        127, 126, 129, 129, 130, 131, 133, 132, 134, 135, 136, 137, 138, 139,
+        141, 140, 142, 143, 145, 144, 147, 146, 149, 149], device='cuda:0')
+curlen  8
+EXPFT beam_idx  tensor([  0,   1,   2,   3,   4,   5,   6,   6,   8,   9,  10,  11,  12,  12,
+         14,  15,  16,  17,  18,  19,  20,  21,  22,  22,  24,  25,  26,  26,
+         28,  29,  30,  31,  32,  33,  35,  34,  36,  36,  38,  39,  40,  41,
+         42,  43,  44,  44,  47,  46,  48,  49,  50,  50,  52,  53,  54,  54,
+         56,  57,  58,  58,  60,  61,  62,  63,  64,  64,  66,  66,  68,  69,
+         70,  71,  72,  72,  75,  74,  76,  77,  78,  79,  80,  81,  82,  82,
+         84,  85,  87,  86,  88,  88,  91,  90,  93,  92,  94,  94,  96,  97,
+         98,  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 117, 118, 119, 120, 120, 122, 123, 124, 125,
+        126, 127, 128, 129, 130, 131, 132, 132, 134, 135, 136, 136, 138, 139,
+        140, 141, 143, 142, 145, 144, 147, 147, 148, 149], device='cuda:0')
+curlen  9
+EXPFT beam_idx  tensor([  1,   0,   2,   2,   4,   4,   6,   6,   8,   8,  10,  10,  12,  12,
+         14,  14,  16,  17,  18,  19,  20,  21,  22,  23,  25,  24,  27,  27,
+         28,  29,  30,  31,  32,  33,  34,  35,  37,  36,  38,  38,  40,  41,
+         42,  43,  45,  44,  47,  46,  48,  49,  50,  51,  52,  52,  54,  55,
+         56,  57,  58,  59,  60,  61,  62,  63,  64,  64,  67,  66,  68,  69,
+         70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,
+         84,  85,  86,  87,  88,  88,  90,  91,  92,  92,  94,  94,  97,  96,
+         98,  99, 100, 101, 102, 102, 105, 104, 106, 106, 108, 108, 110, 111,
+        113, 112, 114, 115, 116, 116, 118, 119, 120, 120, 122, 123, 125, 124,
+        127, 126, 128, 128, 130, 131, 132, 132, 135, 134, 136, 137, 138, 139,
+        140, 141, 142, 143, 145, 144, 147, 146, 148, 148], device='cuda:0')
+curlen  10
+EXPFT beam_idx  tensor([  0,   1,   3,   2,   4,   5,   6,   7,   9,   9,  10,  11,  12,  12,
+         15,  14,  16,  17,  18,  19,  20,  20,  23,  22,  25,  24,  26,  26,
+         28,  29,  30,  30,  32,  33,  34,  34,  37,  36,  39,  38,  40,  41,
+         42,  43,  45,  44,  46,  47,  48,  48,  50,  50,  52,  53,  55,  54,
+         56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  67,  66,  68,  69,
+         70,  71,  72,  73,  75,  75,  76,  77,  78,  78,  80,  81,  82,  82,
+         84,  85,  86,  87,  88,  89,  90,  90,  93,  92,  94,  95,  96,  97,
+         98,  98, 100, 101, 103, 102, 104, 105, 106, 107, 108, 108, 110, 111,
+        112, 113, 114, 115, 116, 117, 118, 119, 120, 120, 122, 123, 125, 124,
+        126, 127, 129, 128, 130, 130, 132, 133, 134, 135, 136, 137, 138, 139,
+        140, 141, 142, 143, 144, 145, 147, 146, 149, 148], device='cuda:0')
+curlen  11
+EXPFT beam_idx  tensor([  1,   0,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,
+         14,  15,  16,  17,  19,  18,  20,  21,  22,  23,  24,  24,  26,  26,
+         28,  29,  30,  30,  32,  33,  34,  35,  37,  36,  38,  39,  40,  41,
+         42,  43,  44,  45,  46,  46,  49,  48,  50,  51,  52,  52,  54,  54,
+         56,  57,  58,  59,  60,  60,  62,  63,  64,  65,  66,  67,  69,  68,
+         70,  71,  72,  72,  74,  75,  76,  77,  78,  79,  80,  81,  83,  82,
+         84,  84,  87,  86,  88,  89,  90,  91,  92,  93,  95,  95,  96,  97,
+         99,  98, 100, 101, 102, 103, 104, 104, 106, 107, 108, 109, 110, 110,
+        113, 112, 114, 114, 116, 116, 118, 119, 120, 120, 122, 123, 125, 124,
+        126, 126, 129, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 138,
+        140, 140, 143, 142, 145, 144, 146, 147, 148, 148], device='cuda:0')
+curlen  12
+EXPFT beam_idx  tensor([  0,   1,   2,   3,   4,   5,   6,   7,   8,   8,  10,  11,  12,  12,
+         14,  14,  16,  17,  18,  19,  21,  20,  22,  23,  24,  25,  26,  26,
+         28,  28,  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,
+         42,  42,  44,  45,  47,  46,  48,  49,  50,  50,  52,  53,  54,  55,
+         56,  56,  58,  58,  61,  60,  62,  63,  64,  65,  66,  67,  68,  69,
+         70,  71,  73,  72,  74,  75,  76,  77,  78,  78,  80,  81,  82,  83,
+         84,  84,  86,  86,  88,  88,  91,  90,  93,  92,  94,  95,  96,  96,
+         98,  99, 100, 101, 102, 102, 104, 105, 106, 106, 108, 109, 111, 111,
+        112, 113, 114, 115, 116, 117, 118, 119, 120, 120, 122, 122, 124, 125,
+        126, 126, 128, 129, 130, 131, 132, 133, 134, 135, 137, 136, 139, 139,
+        140, 140, 143, 142, 144, 144, 147, 146, 149, 148], device='cuda:0')
+curlen  13
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   5,   5,   6,   6,   8,   9,  10,  11,  12,  13,
+         14,  14,  16,  16,  19,  18,  20,  20,  22,  23,  24,  25,  26,  26,
+         28,  29,  30,  31,  32,  33,  34,  35,  37,  36,  38,  39,  40,  41,
+         42,  42,  44,  45,  47,  46,  49,  48,  51,  50,  52,  53,  54,  55,
+         56,  56,  58,  59,  61,  60,  62,  63,  64,  65,  67,  66,  68,  68,
+         70,  71,  72,  73,  74,  75,  76,  77,  78,  78,  80,  81,  83,  82,
+         84,  85,  87,  86,  89,  88,  91,  90,  92,  93,  94,  95,  96,  97,
+         98,  99, 100, 101, 103, 102, 104, 104, 107, 106, 108, 109, 110, 111,
+        112, 112, 114, 115, 116, 116, 118, 118, 120, 121, 122, 123, 125, 124,
+        126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 137, 136, 139, 138,
+        140, 141, 142, 143, 144, 144, 146, 147, 149, 148], device='cuda:0')
+curlen  14
+EXPFT beam_idx  tensor([  1,   0,   3,   2,   4,   5,   6,   7,   9,   8,  10,  11,  12,  13,
+         14,  14,  16,  17,  19,  18,  20,  20,  22,  23,  24,  25,  26,  26,
+         28,  29,  31,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  40,
+         42,  43,  44,  45,  46,  47,  48,  49,  51,  50,  52,  53,  54,  54,
+         56,  56,  58,  58,  60,  61,  62,  63,  64,  65,  67,  66,  68,  69,
+         70,  71,  72,  73,  74,  75,  77,  76,  79,  78,  80,  80,  83,  82,
+         84,  85,  86,  87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,
+         98,  98, 100, 101, 102, 103, 104, 104, 106, 107, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 116, 118, 119, 120, 120, 122, 122, 124, 125,
+        127, 126,   0,   0, 130, 131, 132, 133, 134, 135, 136, 137, 139, 139,
+        140, 140, 142, 143, 145, 144, 146, 147, 149, 148], device='cuda:0')
+curlen  15
+EXPFT beam_idx  tensor([  1,   0,   2,   3,   4,   5,   7,   6,   8,   9,  11,  10,  12,  13,
+         14,  15,  16,  17,  18,  19,  20,  20,  22,  23,  24,  25,  26,  27,
+         28,  29,  31,  31,  32,  33,  34,  34,  36,  37,  38,  39,  40,  41,
+         42,  43,  44,  44,  46,  47,  48,  48,  51,  50,  52,  52,  54,  54,
+         56,  56,  58,  59,  60,  61,  62,  62,  64,  65,  67,  66,  68,  68,
+         70,  71,  72,  73,  74,  75,  77,  76,  79,  78,  81,  80,  83,  82,
+         84,  85,  86,  87,  88,  89,  90,  91,  93,  92,  94,  95,  96,  96,
+         98,  99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 108, 110, 111,
+        112, 112, 114, 115, 116, 116, 119, 118, 120, 120, 122, 123, 124, 125,
+        126, 127,   0,   0, 130, 130, 132, 133, 134, 135, 137, 136,   0,   0,
+        140, 140, 142, 143, 144, 145, 146, 147, 149, 148], device='cuda:0')
+curlen  16
+EXPFT beam_idx  tensor([  0,   0,   3,   2,   4,   4,   6,   6,   8,   9,  10,  11,  12,  12,
+         15,  14,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,
+         28,  29,  30,  30,  32,  33,  34,  34,  37,  36,  38,  39,  41,  40,
+         42,  42,  44,  44,  46,  46,  48,  48,  50,  51,  52,  53,  54,  55,
+         57,  56,  58,  59,  60,  61,  63,  62,  64,  65,  66,  67,  68,  69,
+         71,  71,  72,  73,  74,  74,  76,  77,  79,  78,  80,  80,  83,  82,
+         84,  84,  86,  87,  88,  88,  91,  90,  92,  93,  94,  95,  96,  97,
+         98,  99, 100, 101, 102, 103, 104, 104, 106, 106, 108, 109, 110, 111,
+        112, 113, 114, 115, 116, 117, 119, 118, 120, 121, 122, 122, 124, 125,
+        126, 126,   0,   0, 130, 130, 132, 133, 134, 134, 136, 137,   0,   0,
+        140, 141, 142, 142, 144, 145, 146, 146, 148, 149], device='cuda:0')
+curlen  17
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   5,   5,   6,   7,   9,   8,  11,  10,  12,  13,
+         14,  15,  16,  17,  18,  18,  21,  21,  22,  23,  25,  24,  26,  26,
+         28,  28,  30,  31,  32,  33,  34,  35,  37,  36,  38,  38,  41,  40,
+         42,  42,  44,  45,  46,  47,  48,  48,  50,  50,  52,  53,  55,  54,
+         56,  57,  58,  58,  61,  60,  62,  63,   0,   0,  66,  67,  68,  69,
+         71,  71,  72,  73,  74,  74,  77,  77,  78,  79,  80,  81,  82,  83,
+         84,  85,  86,  87,  88,  88,  91,  90,  93,  92,  95,  95,  96,  96,
+         98,  99,   0,   0, 102, 103, 104, 104, 106, 106, 108, 109, 111, 111,
+        113, 112, 114, 114, 116, 116, 119, 118, 120, 120, 122, 123, 125, 124,
+        127, 126,   0,   0, 130, 130, 132, 132, 134, 135, 137, 136,   0,   0,
+        140, 141, 142, 142, 145, 144, 146, 147, 149, 148], device='cuda:0')
+curlen  18
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   0,   0,   6,   6,   8,   9,  11,  10,  12,  12,
+         14,  15,  16,  17,  19,  19,  20,  20,  22,  23,  24,  24,  26,  27,
+         28,  29,  30,  30,  32,  33,  34,  35,  37,  36,  38,  38,  41,  40,
+         42,  43,  44,  44,  46,  47,  48,  49,  50,  50,  52,  53,  54,  54,
+         57,  56,  58,  58,  60,  60,  62,  63,   0,   0,  67,  66,  68,  68,
+          0,   0,  72,  73,  74,  75,  77,  77,  79,  78,  80,  81,  82,  83,
+         85,  84,  86,  87,  88,  89,  90,  91,  92,  93,  95,  95,  96,  97,
+         98,  99,   0,   0, 102, 103, 104, 105, 107, 106, 108, 109,   0,   0,
+        112, 113, 114, 115, 117, 116, 119, 118, 120, 120, 122, 122, 125, 124,
+        126, 127,   0,   0, 130, 131, 132, 133, 135, 134, 136, 137,   0,   0,
+        140, 140, 142, 143, 144, 145, 146, 146, 148, 149], device='cuda:0')
+curlen  19
+EXPFT beam_idx  tensor([  1,   0,   2,   2,   0,   0,   6,   7,   9,   8,  11,  10,  12,  13,
+         14,  15,  16,  17,  18,  19,  21,  20,  22,  23,  24,  25,  26,  26,
+         28,  29,   0,   0,  32,  33,  34,  35,  36,  37,  38,  38,  40,  41,
+         42,  43,  44,  44,  46,  47,  48,  49,  51,  50,  52,  52,  54,  54,
+         56,  57,  58,  59,  60,  61,  62,  63,   0,   0,  67,  66,  69,  68,
+          0,   0,  72,  72,  74,  75,   0,   0,  78,  79,  80,  81,  83,  82,
+         84,  85,  86,  87,  89,  88,  90,  90,  92,  92,   0,   0,  96,  97,
+         98,  99,   0,   0, 102, 102, 104, 104, 107, 106, 109, 108,   0,   0,
+        112, 113, 115, 115, 116, 116, 118, 119, 120, 120, 122, 123, 125, 124,
+        126, 127,   0,   0, 130, 131, 132, 132, 134, 135, 136, 137,   0,   0,
+        140, 140, 142, 143, 145, 144, 146, 147, 149, 149], device='cuda:0')
+curlen  20
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   0,   0,   6,   7,   8,   9,  11,  11,  13,  12,
+         14,  14,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  27,  26,
+         28,  29,   0,   0,  32,  33,  34,  34,  37,  36,  38,  39,  40,  41,
+         42,  42,  44,  45,  46,  47,  49,  49,  50,  51,  52,  52,  54,  55,
+         56,  56,  58,  59,  60,  61,  62,  63,   0,   0,  66,  67,  68,  68,
+          0,   0,  72,  73,  74,  74,   0,   0,  79,  78,  80,  81,  83,  82,
+         84,  84,  86,  87,  88,  89,  91,  90,  93,  93,   0,   0,  97,  96,
+         98,  99,   0,   0, 102, 103, 104, 105, 107, 106, 108, 109,   0,   0,
+        113, 113, 114, 115, 116, 116, 118, 118, 120, 121, 122, 123, 125, 124,
+        126, 126,   0,   0, 131, 131, 133, 133, 134, 135, 136, 137,   0,   0,
+        140, 141, 142, 143, 144, 145, 146, 146, 149, 149], device='cuda:0')
+curlen  21
+EXPFT beam_idx  tensor([  0,   0,   2,   2,   0,   0,   6,   7,   8,   9,  11,  11,  12,  12,
+         14,  15,  16,  17,  18,  19,  21,  21,  22,  23,  24,  25,  27,  26,
+         28,  29,   0,   0,  32,  33,  35,  35,  36,  37,  38,  39,  41,  40,
+         42,  42,  44,  45,  46,  47,  49,  49,  50,  51,  52,  53,  55,  54,
+         56,  56,  58,  59,  60,  61,  62,  63,   0,   0,  67,  66,  69,  68,
+          0,   0,  72,  72,  74,  75,   0,   0,  78,  78,  80,  80,  83,  82,
+         84,  84,  86,  87,  88,  89,  91,  90,  92,  93,   0,   0,  96,  96,
+         98,  99,   0,   0, 102, 103, 104, 105, 106, 107, 109, 109,   0,   0,
+        112, 112, 114, 115, 116, 117, 119, 118, 120, 121, 122, 123, 125, 124,
+        126, 127,   0,   0, 131, 130,   0,   0, 134, 135, 136, 137,   0,   0,
+        141, 140, 142, 143, 144, 145, 147, 146,   0,   0], device='cuda:0')
+curlen  22
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   0,   0,   6,   7,   8,   9,   0,   0,  12,  13,
+         14,  14,  16,  17,  18,  18,   0,   0,   0,   0,  24,  25,  26,  27,
+         28,  28,   0,   0,  32,  33,  35,  35,  36,  37,  39,  38,  40,  41,
+         42,  43,  45,  45,  46,  47,   0,   0,  51,  50,  52,  53,  54,  55,
+         56,  57,  58,  59,  61,  60,  62,  63,   0,   0,  67,  66,  69,  69,
+          0,   0,  72,  72,  75,  74,   0,   0,  79,  78,  81,  81,  82,  83,
+         84,  85,  86,  87,  88,  88,  90,  91,  92,  92,   0,   0,  96,  96,
+         98,  99,   0,   0, 102, 103, 105, 105, 107, 106, 108, 109,   0,   0,
+        112, 112, 115, 115, 117, 116, 118, 119, 121, 120,   0,   0, 125, 124,
+        126, 126,   0,   0, 131, 130,   0,   0, 134, 135, 137, 136,   0,   0,
+        140, 140, 142, 143, 144, 145, 146, 146,   0,   0], device='cuda:0')
+curlen  23
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         14,  14,  16,  17,  19,  18,   0,   0,   0,   0,  25,  24,  26,  27,
+         28,  28,   0,   0,  32,  33,  35,  34,  36,  36,  38,  39,  41,  41,
+         43,  43,   0,   0,  46,  47,   0,   0,  50,  51,  52,  53,  54,  55,
+         56,  56,  58,  59,  60,  60,  63,  62,   0,   0,  67,  67,  68,  68,
+          0,   0,  72,  73,  75,  74,   0,   0,  79,  78,   0,   0,  82,  83,
+         84,  85,  86,  87,  89,  88,  90,  91,  93,  93,   0,   0,  96,  97,
+         98,  99,   0,   0,   0,   0, 104, 105, 106, 107, 108, 108,   0,   0,
+          0,   0, 115, 115, 117, 116, 119, 118, 120, 121,   0,   0, 124, 125,
+        127, 127,   0,   0, 131, 131,   0,   0, 134, 135, 136, 136,   0,   0,
+        140, 140, 142, 142, 144, 145, 146, 147,   0,   0], device='cuda:0')
+curlen  24
+EXPFT beam_idx  tensor([  0,   0,   2,   3,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         15,  14,  16,  17,  18,  19,   0,   0,   0,   0,  24,  25,  26,  27,
+         28,  28,   0,   0,  32,  33,  34,  35,  37,  37,  38,  38,  41,  41,
+         42,  43,   0,   0,  46,  47,   0,   0,  50,  51,  52,  53,  54,  55,
+         56,  57,  58,  59,  61,  61,  63,  62,   0,   0,  67,  67,  68,  68,
+          0,   0,  72,  72,  74,  75,   0,   0,  79,  79,   0,   0,  82,  82,
+         84,  85,  86,  87,  88,  89,  90,  91,   0,   0,   0,   0,  96,  97,
+         98,  99,   0,   0,   0,   0, 104, 105, 107, 106, 108, 108,   0,   0,
+          0,   0,   0,   0, 117, 116, 118, 119, 120, 121,   0,   0, 124, 125,
+        126, 127,   0,   0,   0,   0,   0,   0, 134, 135, 137, 137,   0,   0,
+        141, 141, 142, 142, 144, 145, 147, 146,   0,   0], device='cuda:0')
+curlen  25
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         14,  14,  16,  17,  19,  19,   0,   0,   0,   0,  24,  25,  26,  27,
+         29,  29,   0,   0,  33,  33,  34,  34,   0,   0,  39,  38,   0,   0,
+         42,  43,   0,   0,   0,   0,   0,   0,  50,  51,  52,  53,  55,  55,
+         56,  56,  58,  59,   0,   0,  62,  63,   0,   0,   0,   0,  68,  69,
+          0,   0,  72,  73,  75,  74,   0,   0,  78,  79,   0,   0,  83,  83,
+         84,  84,  86,  86,  88,  89,  90,  91,   0,   0,   0,   0,  96,  97,
+          0,   0,   0,   0,   0,   0,   0,   0, 107, 106, 108, 109,   0,   0,
+          0,   0,   0,   0, 116, 117, 119, 118, 120, 120,   0,   0, 124, 125,
+        126, 127,   0,   0,   0,   0,   0,   0, 134, 135,   0,   0,   0,   0,
+          0,   0, 142, 142, 144, 145, 146, 146,   0,   0], device='cuda:0')
+curlen  26
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         14,  14,  16,  17,  19,  19,   0,   0,   0,   0,  25,  25,  26,  27,
+          0,   0,   0,   0,  33,  33,  34,  35,   0,   0,  38,  38,   0,   0,
+         42,  43,   0,   0,   0,   0,   0,   0,  50,  51,  52,  52,   0,   0,
+         57,  57,  58,  59,   0,   0,  62,  63,   0,   0,   0,   0,  68,  68,
+          0,   0,  73,  72,   0,   0,   0,   0,  78,  78,   0,   0,   0,   0,
+         85,  85,  86,  86,  88,  89,  90,  91,   0,   0,   0,   0,  96,  97,
+          0,   0,   0,   0,   0,   0,   0,   0, 106, 107, 109, 109,   0,   0,
+          0,   0,   0,   0, 116, 117, 118, 119, 121, 121,   0,   0, 124, 125,
+        126, 127,   0,   0,   0,   0,   0,   0, 134, 134,   0,   0,   0,   0,
+          0,   0, 142, 142, 144, 145, 146, 147,   0,   0], device='cuda:0')
+curlen  27
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  12,
+         14,  15,  17,  17,   0,   0,   0,   0,   0,   0,  24,  25,  27,  27,
+          0,   0,   0,   0,   0,   0,  34,  34,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,  50,  51,  52,  52,   0,   0,
+          0,   0,  58,  59,   0,   0,  62,  63,   0,   0,   0,   0,   0,   0,
+          0,   0,  72,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  86,  87,  89,  89,   0,   0,   0,   0,   0,   0,  96,  97,
+          0,   0,   0,   0,   0,   0,   0,   0, 106, 107,   0,   0,   0,   0,
+          0,   0,   0,   0, 116, 116, 119, 118, 120, 121,   0,   0, 125, 125,
+        126, 127,   0,   0,   0,   0,   0,   0, 134, 135,   0,   0,   0,   0,
+          0,   0, 143, 142, 144, 145, 146, 146,   0,   0], device='cuda:0')
+curlen  28
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         14,  15,  17,  17,   0,   0,   0,   0,   0,   0,  24,  25,  27,  27,
+          0,   0,   0,   0,   0,   0,  35,  35,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,  51,  50,  53,  53,   0,   0,
+          0,   0,  58,  59,   0,   0,  63,  63,   0,   0,   0,   0,   0,   0,
+          0,   0,  73,  72,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  86,  87,  88,  89,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0, 106, 107,   0,   0,   0,   0,
+          0,   0,   0,   0, 116, 117, 119, 119, 120, 121,   0,   0, 125, 125,
+        126, 126,   0,   0,   0,   0,   0,   0, 134, 135,   0,   0,   0,   0,
+          0,   0, 142, 143, 145, 144,   0,   0,   0,   0], device='cuda:0')
+curlen  29
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+         14,  14,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,  34,  34,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,  50,  51,   0,   0,   0,   0,
+          0,   0,  58,  59,   0,   0,  63,  62,   0,   0,   0,   0,   0,   0,
+          0,   0,  72,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  86,  87,  88,  88,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0, 107, 107,   0,   0,   0,   0,
+          0,   0,   0,   0, 116, 117, 118, 119,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0, 134, 135,   0,   0,   0,   0,
+          0,   0, 143, 142, 144, 144,   0,   0,   0,   0], device='cuda:0')
+curlen  30
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,  34,  34,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,  50,  51,   0,   0,   0,   0,
+          0,   0,  58,  59,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  73,  72,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  86,  87,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0, 107, 107,   0,   0,   0,   0,
+          0,   0,   0,   0, 117, 116, 119, 118,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0, 143, 143, 145, 144,   0,   0,   0,   0], device='cuda:0')
+curlen  31
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,  34,  35,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  58,  59,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  72,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  86,  87,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 117, 117,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 144, 144,   0,   0,   0,   0], device='cuda:0')
+curlen  32
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  12,  13,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,  35,  35,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  72,  72,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 116, 117,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 144, 145,   0,   0,   0,   0], device='cuda:0')
+curlen  33
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  73,  72,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 116, 116,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 144, 145,   0,   0,   0,   0], device='cuda:0')
+curlen  34
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  73,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 144, 145,   0,   0,   0,   0], device='cuda:0')
+curlen  35
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  72,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0, 144, 145,   0,   0,   0,   0], device='cuda:0')
+curlen  36
+EXPFT beam_idx  tensor([  0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,  73,  73,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+        126, 127,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,
+          0,   0,   0,   0,   0,   0,   0,   0,   0,   0], device='cuda:0')
+tensor([[    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        ...,
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1]], device='cuda:0')
+****************
+SEQ OUT 2 BEAM EXPFT: 
+---
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+---
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+---
+Google has appointed the former administrator of the notorious 4chan website to a senior position at the search giant.
+Google has appointed the former administrator of the notorious 4chan website to a senior position at its search engine.
+---
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in the centre of Glasgow.
+A man has been taken to hospital after he was hit by a taxi in the centre of Glasgow.
+---
+Barcelona president Sandro Rosell has resigned, saying he feared for his life after receiving death threats over the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned, saying he feared for his life after receiving death threats over the club's signing of Brazil forward Neymar.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chilcot.
+---
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex at The Oval.
+---
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn is elected.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn wins the contest.
+---
+Heads are to be given a chance to express their concerns about funding cuts.
+Heads are to be given a chance to express their concerns about funding pressures at a government meeting.
+---
+The Republic of Ireland's football team have been knocked out of the European Championship by the Czech Republic.
+The Republic of Ireland's football team has been knocked out of the European Championship by the Czech Republic.
+---
+The police and crime commissioner for Kent has said she has had a "good time" despite a number of "unexpected" incidents.
+The police and crime commissioner for Kent has said she has had a "good time" despite a number of "unexpected" events.
+---
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his school bag outside a school in Staffordshire.
+---
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on a month's loan.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on loan until the end of the season.
+---
+New Mills have been relegated from the National League after just one season.
+New Mills have been relegated from the National League after just one season in the competition.
+---
+An MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+A Conservative MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+---
+Customers at a cafe in Tbilisi have been attacked by a group of neo-Nazis who threw sausages at them.
+Customers at a cafe in Tbilisi have been attacked by a group of neo-Nazis who threw sausages at them, the cafe says.
+---
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy in Rome.
+Wales head coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the hunger to improve.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" attitude.
+---
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader and a new character.
+A new trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and a new character.
+---
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for a further 12 years.
+---
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan.
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan, officials say.
+---
+A Spanish woman has been raped by two men in the northern Indian state of Himachal Pradesh, police say.
+A Spanish woman has been raped by two men in the northern Indian state of Jharkhand, police say.
+---
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on all its flights.
+---
+Chester City have signed former Manchester United defender David Shaw on a one-year deal following his release by National League rivals Grimsby Town.
+Chester City have signed former Manchester United defender David Shaw on a one-year deal after his release by National League rivals Grimsby Town.
+---
+A well-preserved axe has been found in the seabed of a Danish island.
+A well-preserved axe has been found in the seabed of a Danish island, which is to be connected to Germany.
+---
+It's one of the world's biggest producers of wild tree seeds.
+It's one of the world's biggest producers of wild tree seeds and aspens are a great source of them.
+---
+Divers in Guernsey will have to pay £1,000 for a 24-hour oxygen treatment from April.
+Divers in Guernsey will have to pay £1,000 for a 24-hour oxygen treatment from next year.
+---
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the second Test against England at Lord's after failing a drugs test.
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the third Test against England at Lord's after failing a drugs test.
+---
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is to change its name.
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is set to change its name.
+---
+At least 120 civilians have been killed by Islamic State (IS) militants in the Syrian town of Kobane, a monitoring group says.
+At least 120 civilians have been killed by Islamic State (IS) militants after entering the Syrian town of Kobane, a monitoring group says.
+---
+Barnsley have signed West Ham striker Joe Lee on a free transfer.
+Barnsley have signed West Ham striker Alex Lee on a free transfer.
+---
+The body of a Northern Ireland man killed in a road accident in Abu Dhabi has been flown back to Belfast.
+The body of a Northern Ireland man who died in a road accident in Abu Dhabi has been flown back to Belfast.
+---
+A second wind farm has been proposed in the Scottish Borders, more than a year after the first was rejected.
+A second wind farm has been proposed in the Scottish Borders, more than a year after the first was rejected by the government.
+---
+Wasps have signed former England centre Kyle Eastmond from Premiership rivals Bath.
+Premiership side Wasps have signed former England centre Kyle Eastmond from Bath.
+---
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality over the sale of land.
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality over the sale of a former hall.
+---
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, according to official figures.
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, official figures have shown.
+---
+Footage has emerged of men urinating in a wall at a business premises.
+Footage has been released of men urinating in a wall at a business premises.
+---
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, figures show.
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, according to new figures.
+---
+The Glen Coe Skyline ultramarathon will be held for the second time in September.
+The Glen Coe Skyline ultramarathon will be held for the first time in September 2016.
+---
+A gang which has been at the centre of gun crime for more than a decade has been banned from the city.
+A gang which has been at the centre of a violent feud for more than a decade has been banned from the city.
+---
+A man accused of being a loyalist informer is to challenge the decision to drop some of the charges against him.
+A man accused of being a loyalist informer is to challenge the decision to drop some of the remaining charges against him.
+---
+Avon and Somerset's Chief Constable Nick Gargan has said he is "very much looking forward" to returning to work.
+Avon and Somerset's Chief Constable Nick Gargan has said he is "very much looking forward" to returning to work after being cleared of misconduct.
+---
+A health board has said it will review the way it manages mental health patients after the death of a man in Gwynedd.
+A health board has said it will review the way it manages mental health patients after the death of a man who went missing from a unit.
+---
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for the second time in two weeks.
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for a second time in two weeks.
+---
+A report is to be published next week into the future of flood protection in Dumfries.
+A report is to be published next week into the future of flood protection in Dumfries and Galloway.
+---
+Two towns in the south of England have been named the most expensive outside London.
+Two towns in the south of England have been named as the most expensive outside London.
+---
+Sadiq Khan has suspended the chief of staff of his parliamentary office after he was found to have posted abusive messages on social media.
+Sadiq Khan has suspended the chief of staff of his parliamentary office after he was found to have posted abusive comments on social media.
+---
+A motorcyclist and a car driver have been killed in a crash on the A40 in Wiltshire.
+A motorcyclist and a car driver have been killed in a collision on the A40 in Wiltshire.
+---
+A hoard of Viking coins found in Gwynedd has been declared treasure.
+A hoard of medieval coins found in Gwynedd has been declared treasure.
+---
+A man has been found not guilty of trying to help an alleged gang member escape from a prison van.
+A man has been found not guilty of trying to help an alleged gang member escape from a court van.
+---
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the northern hemisphere.
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the north of the Earth.
+---
+Cardiff City manager Neil Warnock says there is a "possibility" the club will make another bid for Aberdeen midfielder Jonny Hayes.
+Cardiff City manager Neil Warnock says there is a "possibility" the Bluebirds could make another bid for Aberdeen midfielder Jonny Hayes.
+---
+Exeter Chiefs have signed Cornish Pirates prop Sam Simmonds on a one-month loan deal.
+Exeter Chiefs have signed Cornish Pirates prop Sam Simmonds on a short-term deal until the end of the season.
+---
+Scotland has launched its first national human rights action plan.
+Scotland has launched its first national human rights action plan on International Human Rights Day.
+---
+Boca Juniors have re-signed striker Carlos Tevez from Juventus for an undisclosed fee.
+Boca Juniors have re-signed striker Carlos Tevez from Juventus on a three-year deal.
+---
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory in Rio.
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory at Rio 2016.
+---
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be if he wins.
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be when he takes the job.
+---
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed bump meeting, a court has heard.
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed-bump meet, a court has heard.
+---
+Derry City and Strabane District Council has voted to hold a civic reception for the England and Northern Ireland football teams.
+Derry City and Strabane District Council has voted to hold a civic reception for the England and Northern Ireland football teams on Thursday.
+---
+The number of people living with HIV in South Africa has more than halved in the last decade.
+The number of people living with HIV in South Africa has more than halved in the past decade.
+---
+Sweden won their second medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+Sweden won their second gold medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+---
+The Premier League's first game of the season was played under the controversial new 'half-time' rule, which would see the clock stopped every time the ball went out.
+The Premier League's first game of the season was played under the controversial new 'half-time' rule, which would see the clock stop every time the ball went out.
+---
+It was the game that changed Scotland's lives.
+It was the game that changed Scotland's footballing life.
+---
+Tate Britain's Duveen Galleries are to be transformed into a dance performance space.
+Tate Britain's Duveen Galleries are to be transformed into a dance hall for a new exhibition.
+---
+Plans to expand a business park in Sheffield could create up to 1,000 jobs.
+Plans to expand a business park in Sheffield could create up to 1,000 new jobs.
+---
+A Dundee teenager who had sex with a 13-year-old girl in the grounds of a college has been jailed for six months.
+A Dundee teenager who had sex with a 13-year-old girl in the grounds of a college has been jailed for two years.
+---
+An elderly man had to be rescued after his car became trapped in flood water in Worcestershire.
+An elderly man had to be rescued from his car after it became stuck in flood water in Worcestershire.
+---
+Two economic experts in Beijing had a bet to settle.
+Two economic experts in Beijing had a bet to settle on Tuesday.
+---
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of being a security risk.
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of being a threat to national security.
+---
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain".
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain" during a Labour leadership debate.
+---
+Nico Rosberg has been fined £100,000 by the Formula 1 stewards for asking his Mercedes team-mate to change his gearbox during the Azerbaijan Grand Prix.
+Nico Rosberg has been fined £100,000 by the Formula 1 stewards for asking his Mercedes team-mate to change his gearbox during the Hungarian Grand Prix.
+---
+A chihuahua is to become the first police dog in Japan to be trained to work as a rescue dog.
+A chihuahua is to become the first police dog in Japan to be trained to work as a search and rescue dog.
+---
+Rotherham United have confirmed that they will not appoint a new manager until early January.
+Rotherham United have confirmed that they will not be appointing a new manager until early January.
+---
+****************
+Yg ke - 0 :  {'rouge-1': {'r': 0.4028458544561385, 'p': 0.43583704230141185, 'f': 0.4142581016186664}, 'rouge-2': {'r': 0.1950387187970442, 'p': 0.2122200150502344, 'f': 0.20068177284266173}, 'rouge-l': {'r': 0.34377091576456226, 'p': 0.369218177514045, 'f': 0.35221307583478245}}
+Yg ke - 1 :  {'rouge-1': {'r': 0.4124979062381808, 'p': 0.42034054681203686, 'f': 0.41232339568197623}, 'rouge-2': {'r': 0.19141912818074697, 'p': 0.19528304443927896, 'f': 0.190815270924432}, 'rouge-l': {'r': 0.34674429033224285, 'p': 0.3511577218970137, 'f': 0.3454678550910332}}
+SORT random then reverse AWS

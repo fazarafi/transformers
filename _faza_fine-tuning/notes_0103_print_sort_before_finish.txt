@@ -1,0 +1,892 @@
+dev  cuda
+torch  True
+dev summ_model 2:  cuda:0
+batch_size  75
+num_beams  3
+cur_len :  1
+cur_len :  2
+cur_len :  3
+cur_len :  4
+cur_len :  5
+cur_len :  6
+cur_len :  7
+cur_len :  8
+cur_len :  9
+cur_len :  10
+cur_len :  11
+cur_len :  12
+cur_len :  13
+cur_len :  14
+cur_len :  15
+cur_len :  16
+cur_len :  17
+cur_len :  18
+cur_len :  19
+cur_len :  20
+cur_len :  21
+cur_len :  22
+cur_len :  23
+cur_len :  24
+cur_len :  25
+cur_len :  26
+cur_len :  27
+cur_len :  28
+cur_len :  29
+cur_len :  30
+cur_len :  31
+cur_len :  32
+cur_len :  33
+cur_len :  34
+cur_len :  35
+cur_len :  36
+cur_len :  37
+cur_len :  38
+LAST input_ids:  tensor([[    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        ...,
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1],
+        [    2, 12815,  2275,  ...,     1,     1,     1]], device='cuda:0')
+========
+SEQ OUT 1 BSFT ori_seqs:
+---
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+---
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee ligament injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary issue.
+---
+Google has appointed the former administrator of the far-right 4chan website to its engineering team.
+Google has appointed the former administrator of the far-right 4chan website to a senior position at the search giant.
+Google has appointed the former administrator of the far-right 4chan website to a senior role at the search giant.
+---
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+Two teenagers have been charged in connection with an incident in which six police cars were stolen in north Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in Inverness.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday night.
+---
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazil forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2014.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies (IFS).
+---
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third double century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+---
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn is elected.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party faces a "serious crisis" if Jeremy Corbyn wins.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party faces a "serious crisis" if Jeremy Corbyn is elected.
+---
+Heads are warning of a "crisis" in school finances, with the threat of further cuts.
+Heads are warning of a "crisis" in school finances as they face a £1bn cut in funding this year.
+Heads are warning of a "crisis" in school finances as they face a £1bn funding squeeze over the next two years.
+---
+The Republic of Ireland's football team have been knocked out of the World Cup in Russia.
+The Republic of Ireland's football team have been knocked out of the World Cup in the quarter-finals in Russia.
+The Republic of Ireland's football team have been knocked out of the World Cup in the quarter-finals by France.
+---
+The police and crime commissioner for Kent has said she has had a "good time" in the role despite a number of incidents.
+The police and crime commissioner for Kent has said she has had a "good time" in the role despite a number of high-profile incidents.
+The police and crime commissioner for Kent has said she has had a "good time" in the role despite a number of high-profile controversies.
+---
+A seven-year-old boy has been attacked by a man outside his school in Staffordshire.
+A seven-year-old boy has been attacked by a man who tried to steal his school bag.
+A seven-year-old boy has been attacked by a man who tried to steal his bag outside a school.
+---
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on a month's loan.
+Newport County goalkeeper Rhys Taylor has joined National League rivals Wrexham on loan until the end of the season.
+Newport County goalkeeper Rhys Taylor has joined National League side Wrexham on loan until the end of the season.
+---
+New Mills United have been relegated from the National League for the first time in their history.
+New Mills United have been relegated from the National League for the third time in four years.
+New Mills United have been relegated from the National League for the first time in their history after they were beaten 2-0 at home by Eastleigh.
+---
+An MP has said he is concerned about the level of misinformation about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" about a referendum on whether Bath should have an elected mayor.
+An MP has said he is concerned about the "level of misinformation" surrounding a referendum on whether Bath should have an elected mayor.
+---
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages at customers.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages at customers and made the Nazi salute.
+A cafe in Tbilisi says it has been attacked by a group of neo-Nazis who threw sausages at customers and threatened to kill them.
+---
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy in Rome.
+Wales head coach Warren Gatland made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+Wales head coach Warren Gatland has made seven changes for Saturday's Six Nations match against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have the hunger to improve.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" attitude.
+Barnsley striker Chris Bradshaw says Wales team-mates Aaron Ramsey and Gareth Bale have a "hungry" mentality.
+---
+A new trailer for Star Wars: The Force Awakens has been released, featuring Darth Vader and a new character.
+The first trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and new characters.
+The first trailer for Star Wars: The Force Awakens has been released online, featuring Darth Vader and a new character.
+---
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for life.
+A man who had sex with a 13-year-old girl and raped three women has been jailed for life.
+A man who raped a 13-year-old girl and sexually assaulted three women has been jailed for a further 12 years.
+---
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan.
+A US soldier has been killed in a so-called friendly fire incident in Afghanistan, officials say.
+A US soldier has been killed in a so-called friendly fire incident in eastern Afghanistan, officials say.
+---
+A Spanish woman has been raped in the northern Indian state of Himachal Pradesh, police say.
+A Spanish woman has been raped in the northern Indian state of Jharkhand, police say.
+A Spanish woman has been raped in the northern Indian state of Himachal Pradesh, police say, in the latest such attack in the country.
+---
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on its flights.
+Hong Kong-based airline Cathay Pacific has banned the shipment of shark fin on all its flights.
+Hong Kong-based airline Cathay Pacific has said it will ban the shipment of shark fin on its flights.
+---
+National League side Chester have signed former Manchester City goalkeeper David Shaw on a one-year deal.
+National League side Chester have signed former Manchester City goalkeeper David Shaw on a two-year deal.
+National League side Chester have signed former Manchester City defender David Shaw on a one-year deal.
+---
+A well-preserved axe has been found in the seabed of a Danish island.
+A well-preserved axe has been found in the seabed of a Danish island, archaeologists say.
+A well-preserved axe has been found in the seabed of a Danish island, which is to be connected to Germany.
+---
+It's one of the world's biggest producers of wild tree seeds.
+It's one of the world's biggest producers of wild tree seeds and aspens are a great source of them.
+It's one of the world's biggest producers of wild tree seeds and aspens are a great source of seeds.
+---
+Divers in Guernsey will have to pay an extra £1,000 a year for oxygen treatment from next year.
+Divers in Guernsey will have to pay an extra £1,000 a year to use a special oxygen chamber.
+Divers in Guernsey will have to pay an extra £1,000 a year to use a special oxygen chamber, the government has announced.
+---
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the second Test against England at Lord's after failing a drugs test.
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the third Test against England at Lord's after failing a drugs test.
+Sri Lanka fast bowler Rangana Eranga has been ruled out of the rest of the Test series against England after failing a drugs test.
+---
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is to change its name.
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is set to change its name.
+A clothing shop in the western Indian state of Gujarat that was named after Adolf Hitler is to change its name, its owners say.
+---
+At least 120 civilians have been killed by so-called Islamic State (IS) after entering the Syrian town of Kobane, a monitoring group says.
+At least 120 civilians have been killed by so-called Islamic State (IS) militants in the Syrian town of Kobane, a monitoring group says.
+At least 120 civilians have been killed by so-called Islamic State (IS) after entering the Syrian town of Kobane from the north, a monitoring group says.
+---
+Barnsley have signed former West Ham United striker Jordan Lee.
+Barnsley have signed former West Ham United striker Jordan Lee on a free transfer.
+Barnsley have signed former West Ham United striker Joe Lee on a free transfer.
+---
+The body of a Northern Ireland man who died in a road accident in Abu Dhabi has been flown back to Belfast.
+The body of a Northern Ireland man who was killed in a road accident in Abu Dhabi has been flown back to Belfast.
+The body of a Northern Ireland man who was killed in a road accident in Abu Dhabi has been flown home to Belfast.
+---
+New plans have been submitted for a second wind farm in the Scottish Borders, following a decision by the Scottish government to reject the first.
+New plans have been submitted for a second wind farm in the Scottish Borders, following a decision by the Scottish government to reject a previous development.
+New plans have been submitted for a second wind farm in the Scottish Borders, following a decision by the Scottish government to refuse permission for the first.
+---
+Wasps have signed England centre Kyle Eastmond from Premiership rivals Bath.
+Wasps have signed former England centre Kyle Eastmond from Premiership rivals Bath.
+Premiership side Wasps have signed former England centre Kyle Eastmond from Bath.
+---
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality.
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice and criminality over the sale of land.
+Middlesbrough's mayor has told two councillors to "put up or shut up" over claims of malpractice, corruption or criminality over the sale of land.
+---
+The US economy grew faster than previously estimated in the first quarter of the year, according to official figures.
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, according to official figures.
+The US economy grew at a faster pace than previously estimated in the first quarter of the year, official figures have shown.
+---
+Footage has emerged of men urinating in a wall at a business premises.
+Footage of men urinating in a wall at a business premises has been posted online.
+Footage of men urinating in a wall at a business premises has been shared online.
+---
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, figures show.
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, figures suggest.
+More than 2,000 drugs have been seized or confiscated from school premises in the past five years, according to new figures.
+---
+The second annual Glen Coe Skyline ultramarathon will be held in September.
+The second annual Glen Coe Skyline ultramarathon will be held in September 2016.
+The Glen Coe Skyline ultramarathon will be held for the first time in September.
+---
+A gang which has been at the centre of a violent feud for more than a decade has been banned from the city.
+A gang which has been at the centre of gun crime in the West Midlands for many years has been banned from the city.
+A gang which has been at the centre of a violent feud for more than a decade has been banned from most of the city.
+---
+A man accused of being a loyalist informer is to challenge a decision to drop some of the charges against him.
+A man accused of being a loyalist informer is to challenge a decision to drop some of the remaining charges against him.
+A man accused of being a loyalist informer is to challenge a decision to drop some of the remaining charges against him in court.
+---
+Avon and Somerset Chief Constable Dave Gargan has said he is "very much looking forward" to returning to work after being cleared of misconduct.
+Avon and Somerset's Chief Constable Nick Gargan has said he is "very much looking forward" to returning to work after being cleared of misconduct.
+Avon and Somerset Chief Constable Dave Gargan has said he is "very much looking forward" to returning to work, despite the Police Federation saying he has "fallen below standards".
+---
+A health board has said it will review the way it manages mental health patients after the death of a man in Gwynedd.
+A health board has said it will review the way it manages mental health patients after the death of a man who went missing from a Gwynedd unit.
+A health board has said it will review the way it manages mental health patients after the death of a man who went missing from a Gwynedd hospital.
+---
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for the second time in two weeks.
+Motorists are being urged to pay more for their petrol and diesel as supermarkets cut prices for a second time in two weeks.
+Motorists are being urged to pay more for their petrol and diesel, as supermarkets cut prices for the second time in two weeks.
+---
+Plans to protect the Whitesands in Dumfries and Galloway from flooding have been put on hold.
+Plans to protect the Whitesands in Dumfries and Galloway from flooding are to be reconsidered.
+Plans to protect the Whitesands in Dumfries and Galloway from flooding have been put on hold after public opposition.
+---
+Two towns in the south of England have been named the most expensive outside London.
+Two towns in the south of England have been named as the most expensive outside London.
+Two towns in the south of England have been named the most expensive in the UK.
+---
+Sadiq Khan's parliamentary assistant has been suspended after he was found to have posted abusive messages online.
+Sadiq Khan's parliamentary assistant has been suspended after he was found to have posted abusive messages on social media.
+Sadiq Khan's parliamentary assistant has been suspended after he was found to have posted abusive comments on social media.
+---
+Two men have been killed in a crash between a motorbike and a car on the A40.
+A motorcyclist and a car driver have been killed in a crash on the A40 in Wiltshire.
+Two men have been killed in a crash between a motorbike and a car on the A40 in Wiltshire.
+---
+A hoard of Viking coins found in Gwynedd has been declared treasure.
+A hoard of medieval coins found in Gwynedd has been declared treasure.
+A hoard of Viking coins found in Gwynedd has been declared treasure by a coroner.
+---
+A man has been found not guilty of helping an alleged gang member escape from a prison van.
+A man has been found not guilty of trying to help an alleged gang member escape from a prison van.
+A man has been found not guilty of helping an alleged gang member escape from a prison van in south-east London.
+---
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the northern hemisphere.
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field seen in the northern hemisphere.
+Scientists in Denmark say they have found the best explanation yet for the strong magnetic field in the north of the Earth.
+---
+Cardiff City manager Neil Warnock says there is a "possibility" the club will make another bid for Aberdeen midfielder Jonny Hayes.
+Cardiff City manager Neil Warnock says there is a "possibility" his side could make another bid for Aberdeen midfielder Jonny Hayes.
+Cardiff City manager Neil Warnock says there is a "possibility" the Bluebirds could make another bid for Aberdeen midfielder Jonny Hayes.
+---
+Exeter Chiefs have signed Cornish Pirates' Sam Simmonds on a one-month loan deal.
+Exeter Chiefs have signed Cornish Pirates' Sam Simmonds on a short-term deal until the end of the season.
+Exeter Chiefs have signed Cornish Pirates prop Sam Simmonds on a short-term deal until the end of the season.
+---
+Scotland has launched its first national human rights action plan.
+Scotland's first national human rights action plan has been launched.
+Scotland has launched its first national human rights action plan on International Human Rights Day.
+---
+Boca Juniors have signed striker Carlos Tevez from Juventus for an undisclosed fee.
+Boca Juniors have re-signed striker Carlos Tevez from Juventus for an undisclosed fee.
+Boca Juniors have re-signed striker Carlos Tevez from Juventus on a three-year deal.
+---
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory in Rio.
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory at Rio 2016.
+Lizzie Armstrong became the first woman to win the Olympic time trial three times with victory in Rio on Sunday.
+---
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be if he wins.
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be once he takes the oath of office.
+Donald Trump's campaign for the White House is in full swing, and it's impossible to know what kind of person he will be when he takes the oath of office.
+---
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed bump meeting, a court has heard.
+A teenage girl thought she was going to die when a car drove over her at a speed-bump meet, a court has heard.
+A teenage girl thought she was going to die when a car crashed into a crowd at a speed-bump meet, a court has heard.
+---
+Derry City and Strabane District Council has voted to hold a civic reception for the England and Northern Ireland football teams.
+Derry City and Strabane District Council has voted to hold a civic reception for the Republic of Ireland and Northern Ireland football teams.
+Derry City and Strabane District Council has voted to hold a civic reception for the Republic of Ireland and Northern Ireland football teams at the same time.
+---
+The number of people living with HIV in South Africa has more than halved in the last decade.
+The number of people living with HIV in South Africa has more than halved in the past decade.
+The number of people living with HIV in South Africa has more than halved in the last 10 years.
+---
+Sweden won their second medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+Sweden won their second medal of the Winter Olympics with victory in the men's 4x10km freestyle relay in Sochi.
+Sweden won their second gold medal of the Winter Olympics with victory in the men's 4x5km freestyle relay in Sochi.
+---
+The Premier League's opening weekend saw the first game of the season in which the clock was stopped every time the ball went out.
+The Premier League's opening weekend saw the first game of the season in which the clock was stopped every time the ball went in.
+The Premier League's opening weekend saw the first game of the season in which the clock was stopped every time the ball was out.
+---
+It was a game that Scotland will never forget.
+It was the game that changed Scotland's lives.
+It was the game that changed Scotland's footballing life.
+---
+Tate Britain's Duveen Galleries are to be transformed into a dance performance space.
+Tate Britain's Duveen Galleries are to be transformed into an "antique dance gallery" with a series of performances.
+Tate Britain's Duveen Galleries are to be transformed into an "antique dance hall" with a series of performances.
+---
+Plans to expand a Sheffield business park could create up to 1,000 new jobs.
+Plans to expand a business park in Sheffield could create up to 1,000 jobs.
+Plans to expand a business park in Sheffield could create up to 1,000 new jobs.
+---
+A Dundee teenager has been jailed for six months for having sex with a 13-year-old girl.
+A Dundee teenager has been jailed for six months for having sex with a 13-year-old girl in the grounds of a college.
+A Dundee teenager who had sex with a 13-year-old girl in the grounds of a college has been jailed for six months.
+---
+An elderly man had to be rescued after his car got stuck in flood water in Worcestershire.
+An elderly man had to be rescued after his car became trapped in flood water in Worcestershire.
+An elderly man had to be rescued from his car after it became stuck in flood water in Worcestershire.
+---
+Two of the world's best-known economic analysts had a bet to settle.
+Two of the world's best-known economic analysts had a bet to settle last week.
+Two of the world's best-known economic analysts had a bet to settle on Tuesday.
+---
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of posing a national security threat.
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of posing a national security risk.
+Chinese tech giants Huawei and ZTE have been accused by a US congressional panel of being a threat to national security.
+---
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain".
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "can all come to Britain".
+David Cameron has been criticised for saying migrants at the Calais "Jungle" camp "could all come to Britain" during a Labour leadership debate.
+---
+Nico Rosberg has had his points lead cut by three points after Formula 1 stewards found Mercedes broke the rules by helping him with a gearbox problem in Azerbaijan.
+Nico Rosberg has had his points lead cut by three points after Formula 1 stewards found Mercedes broke rules by helping him with a gearbox problem in the Hungarian Grand Prix.
+Nico Rosberg has had his points lead cut by three points after Formula 1 stewards found Mercedes broke the rules by helping him with a gearbox problem in the Hungarian Grand Prix.
+---
+A chihuahua has been chosen by police in Japan to work as a rescue dog.
+A chihuahua has been chosen by police in Japan to work as a search and rescue dog.
+A chihuahua is to become the first police dog in Japan to be trained to work as a rescue dog.
+---
+Rotherham United say they will not be appointing a new manager until early January.
+Rotherham United have confirmed that they will not appoint a new manager until early January.
+Rotherham United have confirmed that they will not be appointing a new manager until early January.
+---
+========
+0 . Rouge:  {'rouge-1': {'r': 0.39411766974942364, 'p': 0.44280460852037556, 'f': 0.4124548940131171}, 'rouge-2': {'r': 0.18980864942528686, 'p': 0.21489179290918428, 'f': 0.19870431063662108}, 'rouge-l': {'r': 0.33454683924482, 'p': 0.3740110461898005, 'f': 0.3492906026067193}}
+1 . Rouge:  {'rouge-1': {'r': 0.41038509704799914, 'p': 0.43349972549751775, 'f': 0.4172282880714087}, 'rouge-2': {'r': 0.20494293641311626, 'p': 0.21641750914898167, 'f': 0.20737796058829994}, 'rouge-l': {'r': 0.352824576904278, 'p': 0.3713258640103793, 'f': 0.3579132333537779}}
+2 . Rouge:  {'rouge-1': {'r': 0.4187559475462693, 'p': 0.41702459654735835, 'f': 0.41383297340823677}, 'rouge-2': {'r': 0.19647438398171554, 'p': 0.194585958464109, 'f': 0.19298941025689917}, 'rouge-l': {'r': 0.3496500784583568, 'p': 0.3469753571584323, 'f': 0.34493265819260654}}
+dev summ_model 2:  cuda:0
+params[batch_size]:  75
+curlen  1
+curlen  2
+curlen  3
+curlen  4
+curlen  5
+curlen  6
+curlen  7
+curlen  8
+curlen  9
+curlen  10
+curlen  11
+curlen  12
+curlen  13
+curlen  14
+curlen  15
+curlen  16
+curlen  17
+curlen  18
+curlen  19
+curlen  20
+curlen  21
+curlen  22
+curlen  23
+curlen  24
+curlen  25
+curlen  26
+curlen  27
+curlen  28
+curlen  29
+curlen  30
+curlen  31
+curlen  32
+curlen  33
+curlen  34
+curlen  35
+curlen  36
+curlen  37
+curlen  38
+curlen  39
+curlen  40
+curlen  41
+beam_scores:  tensor([  0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000, -24.7763, -25.2127, -26.5882,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,   0.0000,
+          0.0000], device='cuda:0')
+next_indices:  tensor([[2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 1, 1],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2],
+        [2, 1, 0, 1, 0, 2]], device='cuda:0')
+next_tokens:  tensor([[35844, 35844, 35844,  9936,  9936,  9936],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [41608, 41608, 41608, 28988, 28988, 28988],
+        [41608, 41608, 41608, 27774, 27774, 27774],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35878, 35878, 35878,  9936,  9936,  9936],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [41608, 41608, 41608, 28988, 28988, 28988],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [21728, 21728, 21728, 30112, 30112, 30112],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [28988, 28988, 28988, 41608, 41608, 41608],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [41608, 41608, 41608, 28307, 28307, 28307],
+        [35844, 35844, 35844, 19383, 19383, 19383],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [    2,  3050,     2,  2190,   997,  2168],
+        [41608, 41608, 41608,  9936,  9936,  9936],
+        [ 9936,  9936,  9936, 21728, 21728, 21728],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [41608, 41608, 41608,  9936,  9936,  9936],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [ 9936,  9936,  9936, 35844, 35844, 35844],
+        [ 9936,  9936,  9936, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [28988, 28988, 28988, 41608, 41608, 41608],
+        [41608, 41608, 41608, 28988, 28988, 28988],
+        [41608, 41608, 41608, 28988, 28988, 28988],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [35844, 35844, 35844, 27774, 27774, 27774],
+        [35844, 35844, 35844,  9936,  9936,  9936],
+        [ 9936,  9936,  9936, 35844, 35844, 35844],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [28988, 28988, 28988, 35844, 35844, 35844],
+        [28988, 28988, 28988, 41608, 41608, 41608],
+        [28988, 28988, 28988,  9936,  9936,  9936],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [35844, 35844, 35844, 41608, 41608, 41608],
+        [41608, 41608, 41608, 27774, 27774, 27774],
+        [ 9936,  9936,  9936, 35844, 35844, 35844],
+        [35844, 35844, 35844, 27774, 27774, 27774],
+        [30112, 30112, 30112, 35844, 35844, 35844],
+        [41608, 41608, 41608, 35844, 35844, 35844],
+        [28988, 28988, 28988, 27774, 27774, 27774],
+        [35844, 35844, 35844, 28988, 28988, 28988],
+        [35844, 35844, 35844, 28988, 28988, 28988]], device='cuda:0')
+beam_indices:  None
+****************
+SEQ OUT 2 BEAM EXPFT: 
+---
+Former England footballer Sam Sodje has appeared in court charged with fraud.
+Former England footballer Sam Sodje has pleaded not guilty pleas to fraud and money laundering.
+Former England footballer Sam Sodje has pleaded not guilty pleas to fraud and money laundering charges.
+---
+Middlesex batsman Adam Voges has been out for up to the county to be ruled out for six months after suffering a hamstring injury.
+Middlesex batsman Adam Voges has been out for up to the county to be ruled out for six months after suffering a shoulder injury.
+Middlesex batsman Adam Voges has been out for up to the county to be ruled out for six months after suffering a knee injury.
+---
+British Vogue has been photographed the Duchess of Cambridge for British Vogue.
+British Vogue has been photographed the Duchess of Cambridge for British Vogue's 100th anniversary issue.
+British Vogue has been photographed the Duchess of Cambridge for British Vogue's 100th birthday issue.
+---
+The founder of the former administrator of notorious for-profit website 4chan.
+The creator Chris Pooleisure site 4chan has joined the firm as a senior engineer on Wednesday.
+The creator Chris Pooleisure site 4chan has joined the firm as a senior engineer on Monday.
+---
+Two teenagers have been charged in connection with a police car theft in north Belfast.
+Two teenagers have been charged in connection with a police car theft in west Belfast headquarters in Belfast City Council vehicles.
+Two teenagers have been charged in connection with a police car theft in west Belfast headquarters in Belfast City Police Service vehicles.
+---
+A pedestrian has been taken to be treated for a taxi after it was hit by it in Inverness.
+A pedestrian has been taken to be treated for a taxi after it was hit by the of a hit-and.
+A pedestrian has been taken to be treated for a taxi after it was hit by the of a collision with a taxi in Edinburgh.
+---
+Barcelona president Sandro Rosell has resigned on Friday resigned, saying he feared for his life after the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned on Thursday resigned, saying he feared for his life after the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned on Wednesday resigned, saying he feared for his life after the club's signing of Brazilian forward Neymar.
+---
+London schools in London Councils could lose an average of £1,000 a year under government plans, according to the think tank Chatham House has said.
+London schools in London Councils could lose an average of £1,000 a year under government plans, according to the think tank Chilcot has said.
+London schools in London Councils could lose an average of £1,000 a year under government plans, according to the think tank Chatham House has warned.
+---
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a disastrous start against Middlesex at The Oval.
+---
+Labour leadership rival Yvette Cooper has said Labour faces a "go down the general election with Jeremy Corbyn wins.
+Labour leadership rival Yvette Cooper has said Labour faces a "go down the next week" if Jeremy Corbyn as leader.
+Labour leadership rival Yvette Cooper has said Labour faces a "go down the general election with Jeremy Corbyn is elected leader.
+---
+Heads are facing a £3bn funding squeeze over the next two years, according toymaker ASCLU says.
+Heads are facing a £3bn funding squeeze over the next two years, according toymaker ASCLU has warned.
+Heads are facing a £3bn funding squeeze over the next two years, according toymaker ASCLU union has warned.
+---
+The Sinn Féin the Republic of Ireland's football's World Cup qualifying campaign.
+The Sinn Féin the Republic of Ireland's football's World Cup qualifying match against the USA.
+The Sinn Féin the Republic of Ireland's football's World Cup qualifying match against the United States.
+---
+A police and crime commissioner for Kent Police and from "life of the week", she has said.
+A police and crime commissioner for Kent Police and from "life of the day", she has said.
+A police and crime commissioner for Kent Police and from "life of the year", she has said.
+---
+A six-year-old boy has been threatened by the hair out of a school in Staffordshire.
+A six-year-old boy has been threatened by the hair out of a school in Staffordshire, police said.
+A six-year-old boy has been threatened by the hair out of a school in Staffordshire, police have a police.
+---
+Newport goalkeeper Rhys Taylor has joined National League Two rivals Wrexham on loan until the end of October.
+Newport goalkeeper Rhys Taylor has joined National League Two rivals Wrexham on loan until the end of the season.
+Newport goalkeeper Rhys Taylor has joined National League Two side Wrexham on loan until the Exiles' next game.
+---
+New Mills United are hoping to end of season's first topsy-they have endured.
+New Mills United are hoping to end of season's first topsy-they have been through the National League.
+New Mills United are hoping to end of season's first topsy-they have been through the past few months ago.
+---
+An MP has said it is worried about the people are being misled"misinformation" of misinformation about its referendum on whether Bath should have an elected mayor.
+An MP has said it is worried about the people are being misled"misinformation" of misinformation about its referendum on whether Bath should have a directly elected mayor.
+An MP has said it is worried about the people are being misled"misinformation" of misinformation about its referendum on whether Bath should have an elected mayor should.
+---
+A cafe owners of a cafe in Tbilisi region, say they are investigating staff at a cafe's cafe.
+A cafe owners of a cafe in Tbilisi region, say they are investigating staff at a cafe's cafe in what they werewolf attack.
+A cafe owners of a cafe in Tbilisi region, say they are investigating staff at a cafe's cafe in a suspected neo-time attack.
+---
+Wales coach Warren has made seven changes to his Wales side for Saturday's Six Nations match against Italy.
+Wales coach Warren has made seven changes to his Wales side for Saturday's Six Nations match against Italy in Rome.
+Wales coach Warren has made seven changes to his Wales side for Saturday's Six Nations match against Italy at Twickenham.
+---
+Barnsley striker Chris Bradshaw says he has learned a lot of-a with Aaron Ramsey and Gareth Bale.
+Barnsley striker Chris Bradshaw says Wales team-once-close friends with the "hung Ramsey and Gareth Bale.
+Barnsley striker Chris Bradshaw says he has learned a lot of-a with Aaron Ramsey and Gareth Bale should be the inspiration.
+---
+A new trailer for Star Wars: The Force Awakens has been released on the set, shows Darth Vader-style of Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released on the set, shows Darth Vader-style footage of Darth Vader.
+A new trailer for Star Wars: The Force Awakens has been released on the set, shows Darth Vader-style of Darth Vader's Vader.
+---
+A man who raped a sex offender for more than 20 years has been jailed for life.
+A man who raped a sex offender for more than a decade has been jailed for life.
+A man who raped a sex offender for more than 20 years has been jailed for a further 12 years.
+---
+A US soldier has been killed in a US forces in a province in a so-called "friendly fire" incident", officials.
+A US soldier has been killed in a US forces in a province in a so-called a friendly firefight", officials say officials say.
+A US soldier has been killed in a US forces in a province in a so-called "friendly fire", officials say officials say local say.
+---
+A Spanish woman has been seriously injured in a group rape in India's northern Indian state of Himachal Pradesh sexually assaulted her.
+A Spanish woman has been seriously injured in a group rape in India's northern Indian state of Himachal Pradesh tried to death.
+A Spanish woman has been seriously injured in a group rape in India's northern Indian state of Himachal Pradesh sexually assaulted her and her companion.
+---
+Hong Kong-Pacific, the first-class passengers from being transported cargo flights.
+Hong Kong-Pacific, the first-class passengers from being transported cargo flights, in Hong Kong airline.
+Hong Kong-Pacific has said to become the first class on all-by the first time for the airline to do.
+---
+Chester have made their first-team-mate Luke Shaw has signed a new one-length contract with the National League club.
+Chester have made their first-team-mate Luke Shaw has signed a new one-length contract with the National League side.
+Chester have made their first-team-mate Luke Shaw has signed a new one-length deal with the National League Two club.
+---
+A well-preserved for thousands of years after it was buried has been buried underlined in Denmark.
+A well-preserved for thousands of years after being dug up for auction has been found in the ground in Denmark's National Museum says.
+A well-preserved for thousands of years after being dug up for auction has been found in the ground in Denmark's National Museum has said.
+---
+It's a big deal for the charity Forestart.
+It's a big deal for the charity Forestart harvests wild tree seeds.
+It's a big deal for the charity Forestart harvests.com to get the aspans, orpen tree produces.
+---
+Guernsey in Guernsey are to use charges of-a-day charges after the health department officials said they said.
+Guernsey in Guernsey are to use charges of-a-day charges after the health department officials said they say.
+Guernsey in Guernsey are to use charges of-a-day charges after the health department bosses say will cost £10,000 a year is too.
+---
+South Africa fast bowler Rangana Eranga undergoing out of the third Test against England at Lord's because of a week-long illness.
+South Africa fast bowler Rangana Eranga undergoing out of the third Test against England at Lord's because of a week's bowling tests.
+South Africa fast bowler Rangana Eranga undergoing out of the third Test against England at Lord's because of a week's bowling tests on his bowling.
+---
+The owners of Adolf Hitler is set to change its new name because of pressure from Jewish communities.
+The owners of Adolf Hitler is set to change its new name after pressure from Jewish communities in India.
+The owners of Adolf Hitler is set to change its new name because of pressure from Jewish groups in India.
+---
+At least 120 people have been killed by so-called Islamic State militants who entered the Syrian town of Kobane was north of the Syrian city of Raqqa, activists say.
+At least 120 people have been killed by so-called Islamic State militants who entered the Syrian town of Kobane was north of the Islamic State's Syrian Raqqa stronghold of its Syrian stronghold.
+At least 120 people have been killed by so-called Islamic State militants who entered the Syrian town of Kobane was north of the Islamic State's Syrian Raqqa stronghold of its Syrian stronghold, activists say.
+---
+Barns One have signed former West Hammers striker Joe Lee on a free transfer on Tuesday.
+Barns One have signed former West Hammers striker Alex Lee on a free transfer on Tuesday.
+Barns One have signed former West Hammers striker Joe Lee on a free transfer on Monday.
+---
+A man who lost in Ireland journalist David Hunter in Jordan has been flown back to Belfast.
+A man who lost in Ireland journalist David Hunter in Qatar has been flown back to Belfast man.
+A man who lost in Ireland journalist David Hunter in Qatar has been flown back to Belfast man in Belfast.
+---
+Plans have been proposed winded wind farm has been submitted to a Scottish Borders.
+Plans have been proposed winded wind farm has been submitted in the Scottish Borders Council.
+Plans have been proposed winded wind farm has been submitted in the Scottish Borders Council following the same-making decision-making body.
+---
+Wasps have signed former England centre Kyle Eastmond from Bath.
+Wasps have signed former England centre Kyle Eastmond from Bath for next season.
+Wasps have signed former England centre Kyle Eastmond from Bath for the Bath's Premiership campaign.
+---
+Middlesbrough's mayor has told two councillors who have "put up or shut up over claims of malpractice, corruption".
+Middlesbrough's mayor has told two councillors who have "put up or shut up over claims of "malpractice, corruption or criminality".
+Middlesbrough's mayor has told two councillors who have "put up or shut up over claims of "malpractice, corruption or criminality"there".
+---
+The US economic growth has been revised figures for more than three years in the first quarter of 2017, official figures show.
+The US economic growth has been revised figures for more than a decade in the first quarter of the year-on Thursday.
+The US economic growth has been revised figures for more than a decade in the first quarter of the year-on Thursday to the latest official figures.
+---
+Footage-defying been set to record images of men using a wall-house at a town centre-centive.
+Footage-defying been set to record images of men using a wall-house at a town centre-centive town.
+Footage-defying been set to record images of men using a wall-house at a town centre-centive town centre.
+---
+Illegal drugs have been seized or confiscated from schools in any time in any other police forces.
+Illegal drugs have been seized or confiscated from schools than any other crimes, according to date back to date.
+Illegal drugs have been seized or confiscated from schools in any time in any other police forces, according to date.
+---
+The Glen Coe of the Coe Skyline will be held in September.
+The Glen Coe of the Coe skyrunning event will be held in 2016.
+The Glen Coe of the Coe skyrunning event will be held in September.
+---
+A court has been given permanent injunctions against the law after a bid to stop a decade-long gun feud.
+A court has been given permanent injunctions against the law after a bid to stop a decade-long gun and drug-dealing.
+A court has been given permanent injunctions against the law after a bid to stop a decade-long gun and drug dealing and violence.
+---
+A man accused of the loyalist loyalist Gary Haggled with more than 200 charges is to challenge the decision to drop some of some charges.
+A man accused of the loyalist loyalist Gary Haggled with more than 200 charges is to challenge the decision not to drop charges against him.
+A man accused of the loyalist loyalist Gary Haggled with more than 200 charges is to challenge the decision to drop some of some of the remaining charges.
+---
+Avon and Crime and Police Federation of Chief Constable Paul Gargan investigation into the conduct" behaviour of the force's chief constable Dave Gargan.
+Avon and Crime and Police Federation of Chief Constable Paul Gargan investigation into the conduct" behaviour of the force's chief constable Dave Gargan is "fallen.
+Avon and Crime and Police Federation of Chief Constable Paul Gargan investigation into the conduct" behaviour of the force's chief constable Dave Gargan has been "crossed.
+---
+A mental health board has been criticised over the point-of-day care of patients has said it said it believes was not an issue with a man who was found dead.
+A mental health board has been criticised over the point-of-day care of patients has said it said it's are at the case with a man who was found dead.
+A mental health board has been criticised over the point-of-day care of patients has said it said it believes was not an issue with a man who was later found dead.
+---
+Motorists are being urged to take advantage of petrol and diesel and petrol as supermarkets have been proposed by supermarkets.
+Motorists are being urged to take advantage of petrol and diesel and petrol as supermarkets have been cut by supermarkets.
+Motorists are being urged to take advantage of petrol and diesel and petrol as supermarkets have been announced by supermarkets.
+---
+Plans to a meeting next week will attempt to find a solution to the problem of flooding the Whitesands in Dumfries and Galloway.
+Plans to a meeting next week will attempt to find a solution to the problem of flooding the Whitesands in Dumfries and Galloway could be reduced.
+Plans to a meeting next week will attempt to find a solution to the problem of flooding the Whitesands in Dumfries and Galloway can be reduced.
+---
+Two towns have joined the club of London as the most expensive playground.
+Two towns have joined the club of London as the most expensive havens.
+Two towns have joined the club of London as the most expensive homes.
+---
+Sadiq Khan family doctor Shueb Salarising as part of London Mayor Sadiq Khan.
+Sadiq Khan family doctor Shueb Salarising as part of London mayor candidate Sadiq Khan.
+Sadiq Khan family doctor Shueb Salarising as part of London mayor candidate Sadiq Khan after he was accused of comments.
+---
+A motorcyclists have died in a crash on the A40.
+A motorcyclists have died in a crash on the A40 in Wiltshire village of Codford.
+A motorcyclists have died in a crash on the A40 in Wiltshire town of Codford.
+---
+More than 1, or 2,000-year been found in a Gwynedd.
+More than 1, or 2,000-yearly been found in a Gwynedd.
+More than 1, or 2,000-yearly been found in a Gwynedd, it has emerged.
+---
+A man has been part of a plot to free a year ago to escape from a gang member has been cleared of involvement.
+A man has been part of a plot to free a year ago to escape from a gang member has been found not guilty of the plot.
+A man has been part of a plot to free a year ago to escape from a gang leader has been cleared of involvement in the plot.
+---
+Scientists in Denmark have identified a new source of the Earth.
+Scientists in Denmark have identified the source of the Earth's Earth's magnetic evidence.
+Scientists in Denmark have identified the source of the Earth's Earth has never-field.
+---
+Cardiff Neil Warnock says Cardiff City may make another bid for Aberdeen for midfielder Jonny Hayes.
+Cardiff Neil Warnock says Cardiff City may make another bid for Aberdeen for Aberdeen midfielder Jonny Hayes.
+Cardiff Neil Warnock says Cardiff City are considering a second bid for Aberdeen for Aberdeen's midfielder Jonny.
+---
+Exeter flanker Sam Simmonds has signed a new contract rivals Exeter Chiefs.
+Exeter flanker Sam Simmonds has signed a new contract side Exeter Chiefs on a permanent basis.
+Exeter flanker Sam Simmonds has signed a new contract side Exeter Chiefs on a month's loan.
+---
+Scotland has launched on International Human Rights Day for Human Rights Scotland has been described as "big step towards building a country where the UK has a country".
+Scotland has launched on International Human Rights Day for Human Rights Scotland has been described as "big step" towards building a country where everyone can be proud.
+Scotland has launched on International Human Rights Day for Human Rights Scotland has been described as "big step towards building a country where the UK has a country for the benefit".
+---
+Boca Juniors Carlos Tevez has signed for a second-profit Argentine side Boca in a fee oficial fee of season.
+Boca Juniors Carlos Tevez has signed for a second-profit Argentine side Boca in a fee oficial fee of the summer.
+Boca Juniors Carlos Tevez has signed for a second-profit Argentine side Boca in a fee oficial fee of all competitions.
+---
+Lance Armstrong won her third Olympic gold medal at the Rio Olympics with victory in the Olympic women's road race.
+Lance Armstrong won her third Olympic gold medal at the Rio Olympics with victory in the women's women's road race.
+Lance Armstrong won her third Olympic gold medal at the Rio Olympics with victory in the Olympic women's road race in Rio.
+---
+Donald Trump prepares to step-down as US president candidate?
+Donald Trump prepares to step-down as US president candidate in November?
+Donald Trump prepares to step-down as US president candidate in 2016?
+---
+A teenager thought she was going to be reunited with after she was hit by a speedway drivers ran over-racing her, a number of others.
+A teenager thought she was going to be reunited with after she was hit by a speedway drivers ran over-racing her, a group of 17 others.
+A teenager thought she was going to be reunited with after she was hit by a speedway drivers ran over-racing her, a group of 17 others, a court heard.
+---
+Derry City Council to host a civic reception for the Northern Ireland team and Northern Ireland football teams has been rejected.
+Derry City Council to host a civic reception for the Northern Ireland and Northern Ireland football team have been rejected by councillors.
+Derry City Council to host a civic reception for the Northern Ireland team and Northern Ireland football teams has been rejected by councillors.
+---
+The number of people living with HIV or Aids, and it has been diagnosed with the disease than at any time in the world.
+The number of people living with HIV or Aids, and it has been diagnosed with the virus than any other country in the country's history.
+The number of people living with HIV or Aids, and it has been diagnosed with the virus than at any time in the country's history.
+---
+Sweden won their second Olympic men's men's slalom title with victory in-looking on for Russia.
+Sweden won their second Olympic men's men's slalom title with victory in-looking on for Russia in the day before the same way.
+Sweden won their second Olympic men's men's slalom title with victory in-looking on for Russia in the day before the women's team won.
+---
+The Premier League One-On-Three weekend for the Premier League football, as many games were played over the weekend under the proposed new 30-minute rule.
+The Premier League One-On-Three weekend for the Premier League football, as many games were played over the weekend because of the proposed new half-minute rule.
+The Premier League One-On-Three weekend for the Premier League football, as many games were played over the weekend because of the proposed new 30-minute half.
+---
+Scotland's been a long years away from winning the way they were made toil in the way back then.
+Scotland's been a long years away from winning the way they were made to the way to the day they were.
+Scotland's been a long years away from winning the way they were made toil in the way back in which they.
+---
+An installation which will be staged" the history of 19thousands of the Tate Britain's galleries has been unveiled.
+An installation which will be staged" the history of 19thousands of the Tate Britain's galleries is to beamed into the gallery for the first time.
+An installation which will be staged" the history of 19thousands of the Tate Britain's galleries is to beamed into the gallery for aisles.
+---
+A £80m expansion of a year to expand a new business park in Sheffield has been announced.
+A £80m expansion of a year to expand a new business park in Sheffield has been unveiled.
+A £80m expansion of a year to expand a new business park in Sheffield has been revealed.
+---
+A Dundee who had sex with a year for having sex with an underage has been jailed for a second offence.
+A Dundee who had sex with a year for having sex with an underage has been jailed for a second offence of sexual activity with a child.
+A Dundee who had sex with a year for having sex with an underage has been jailed for a third offence of sexual activity with a child.
+---
+An elderly driver was rescued himself rescued after his car after it became stuck in flood water.
+An elderly driver was rescued himself rescued after his car after it became stuck in flood water in Worces.
+An elderly driver was rescued himself rescued after his car after it became stuck in flood waters in Worcestershire.
+---
+Two economists from thespired by chance come face to-to-face last week.
+Two economists from thespired by chance come face to-to-face in a barbecuing in a rooftop.
+Two economists from thespired by chance come face to-to-face in a bartering their views on China's economy.
+---
+China's Huawei and US congressional committee have been sharply critical of Chinese telecoms giants and Chinese rival ZTE.
+China's Huawei and US congressional committee have been sharply critical of Chinese telecoms giants and Chinese rival ZTE, accusing them to pose a security risk.
+China's Huawei and US congressional committee have been sharply critical of Chinese telecoms giants and Chinese rival ZTE, accusing them to beleaguereducing threat.
+---
+David Cameron has been criticised for saying migrants at the Calais "Jungle" could all come to Britain" Britain in a TV debate.
+David Cameron has been criticised for saying migrants at the Calais "Jungle" could all come to Britain" Britain in a TV debate on the EU.
+David Cameron has been criticised for saying migrants at the Calais "Jungle" could all come to Britain" Britain in a Commons debate on the EU.
+---
+Nico Rosberg has had his team-mate Lewis Hamilton and Red Bull by the way too much allowed in the Azerbaijan Grand Prix.
+Nico Rosberg has had his team-mate Lewis Hamilton and Red Bull by the way too much allowed during Sunday's Hungarian Grand Prix.
+Nico Rosberg has had his team-mate Lewis Hamilton and Red Bull by the way too much allowed during the Azerbaijan Grand Prix in March.
+---
+A chihuahua Momo, a police dog in charge of search and rescue, is the first of its kind in the country.
+A chihuahua Momo, a police dog in charge of search and rescue, is the first of its kind in the world.
+A chihuahua Momo, a police dog in charge of search and rescue, is the first of its kind to work in the police say.
+---
+Rotherhampton Wanderers are still be without a manager for the start of the season.
+Rotherhampton Wanderers are still not have a new manager for the rest of the season.
+Rotherhampton Wanderers are still be without a permanent manager for the rest of the new season.
+---
+****************
+Yg ke - 0 :  {'rouge-1': {'r': 0.3465405928476732, 'p': 0.4001070085984072, 'f': 0.3652808473717302}, 'rouge-2': {'r': 0.1537184479989747, 'p': 0.17095561166157025, 'f': 0.15870888169567599}, 'rouge-l': {'r': 0.28934303839920994, 'p': 0.33401876324669416, 'f': 0.3048596993697519}}
+Yg ke - 1 :  {'rouge-1': {'r': 0.3590330448207013, 'p': 0.3793001618613409, 'f': 0.3632868541811668}, 'rouge-2': {'r': 0.1537966497277485, 'p': 0.1527604885463556, 'f': 0.15081027355618726}, 'rouge-l': {'r': 0.2940741805519028, 'p': 0.3102938494189536, 'f': 0.2973988703044084}}
+Yg ke - 2 :  {'rouge-1': {'r': 0.35768491992296003, 'p': 0.356539138356579, 'f': 0.35205670717303145}, 'rouge-2': {'r': 0.15459369199970888, 'p': 0.14358595101209104, 'f': 0.1466703707765388}, 'rouge-l': {'r': 0.2928745235520573, 'p': 0.2913435925665296, 'f': 0.2879557876848425}}
+SORT random then reverse AWS

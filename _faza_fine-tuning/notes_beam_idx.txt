@@ -1,0 +1,684 @@
+dev  cuda
+torch  True
+dev summ_model 2:  cuda:0
+batch_size  10
+num_beams  3
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  1
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  2
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  3
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  4
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  5
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  6
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  7
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  8
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  9
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  10
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  11
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  12
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  13
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  14
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  15
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  16
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  17
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  18
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  19
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  20
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  21
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  22
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  23
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  24
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  25
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  26
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  27
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  28
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  29
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  30
+[BSFT] AFTER params['beam_indices']:  None
+----
+[BSFT] BEFORE params['beam_indices']:  None
+cur_len :  31
+[BSFT] AFTER params['beam_indices']:  None
+----
+LAST input_ids:  tensor([[    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 23122,    18,  1304,   652,    10,  1435,   847,     9,    55,
+            87,   984,   134,  6316,    81,     5,   220,   292,   107,     6,
+           309,     7,     5,  2534,    13, 22528,  9307,    36,  7025,   104,
+            43,     8],
+        [    2, 23122,    18,  1304,   652,    10,  1435,   847,     9,    55,
+            87,   984,   134,  6316,    81,     5,   220,   292,   107,     6,
+           309,     7,     5,  2534,    13, 22528,  9307,    36,  7025,   104,
+            43,    11],
+        [    2, 23122,    18,  1304,   652,    10,  1435,   847,     9,    55,
+            87,   984,   134,  6316,    81,     5,   220,   292,   107,     6,
+           309,     7,     5,  2534,    13, 22528,  9307,    36,  7025,   104,
+            43,    23],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1],
+        [    2, 12815,  2275,   815, 19931,  1960, 33270,  2359,    34,  4407,
+            45,  2181,     7,  3526,     8,   418,    12,   462, 31734,  1103,
+             1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+             1,     1]], device='cuda:0')
+========
+SEQ OUT 1 BSFT ori_seqs:
+---
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.
+---
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee ligament injury.
+---
+The Duchess of Cambridge has been photographed for British Vogue.
+The Duchess of Cambridge has been photographed for the first time for British Vogue.
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary issue.
+---
+Google has appointed the former administrator of the far-right 4chan website to its engineering team.
+Google has appointed the former administrator of the far-right 4chan website to a senior position at the search giant.
+Google has appointed the former administrator of the far-right 4chan website to a senior role at the search giant.
+---
+Two teenagers have been charged in connection with an incident in north Belfast in which a police car was stolen.
+Two teenagers have been charged in connection with an incident in which a police car was stolen in west Belfast.
+Two teenagers have been charged in connection with an incident in which six police cars were stolen in north Belfast.
+---
+A man has been taken to hospital after being hit by a taxi in Inverness.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday.
+A man has been taken to hospital after being hit by a taxi in Inverness on Saturday night.
+---
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazil forward Neymar.
+Barcelona president Sandro Rosell has resigned amid an investigation into the club's signing of Brazilian forward Neymar in 2014.
+---
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies.
+London's schools face a funding cut of more than £1bn over the next five years, according to the think tank Chatham House.
+London's schools face a funding cut of more than £1bn over the next five years, according to the Institute for Fiscal Studies (IFS).
+---
+England batsman Jason Roy hit his third century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third century in a week to help Surrey recover from a poor start against Middlesex at The Oval.
+England batsman Jason Roy hit his third double century in a week as Surrey recovered from a poor start against Middlesex at The Oval.
+---
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party could be in trouble if Jeremy Corbyn is elected.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party faces a "serious crisis" if Jeremy Corbyn wins.
+Labour leadership contender Liz Kendall and rival Yvette Cooper have warned the party faces a "serious crisis" if Jeremy Corbyn is elected.
+---
+========
+0 . Rouge:  {'rouge-1': {'r': 0.45805590044182054, 'p': 0.5150551409374937, 'f': 0.4822277246534658}, 'rouge-2': {'r': 0.2554437229437229, 'p': 0.30443030481730166, 'f': 0.27551969857966924}, 'rouge-l': {'r': 0.43203516678950793, 'p': 0.48898010486245774, 'f': 0.45618669470999695}}
+1 . Rouge:  {'rouge-1': {'r': 0.46562142987805927, 'p': 0.4906731745094916, 'f': 0.4755146934208633}, 'rouge-2': {'r': 0.26075108225108223, 'p': 0.28447196319706075, 'f': 0.2709083793241548}, 'rouge-l': {'r': 0.4336198349817276, 'p': 0.458600345377839, 'f': 0.44351926563346167}}
+2 . Rouge:  {'rouge-1': {'r': 0.4363174634402256, 'p': 0.4401429099908034, 'f': 0.4364505101965765}, 'rouge-2': {'r': 0.23966991341991345, 'p': 0.25128016215847687, 'f': 0.24416728685356387}, 'rouge-l': {'r': 0.4148421843333675, 'p': 0.4199408897887832, 'f': 0.41567713942320567}}
+dev summ_model 2:  cuda:0
+params[batch_size]:  10
+curlen  1
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  2
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  3
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  4
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  5
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  6
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  7
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  8
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  9
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  10
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  11
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  12
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  13
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  14
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  15
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  16
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  17
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  18
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  19
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  20
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  21
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  22
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  23
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  24
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  25
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  26
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  27
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  28
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  29
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  30
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  31
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  32
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  33
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  34
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  35
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  36
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  37
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  38
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  39
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  40
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  41
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+curlen  42
+[EXPFT] BEFORE params['beam_indices']:  None
+[EXPFT] AFTER params['beam_indices']:  None
+----
+input_ids:  tensor([[2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2],
+        [2]], device='cuda:0')
+summ_paths:  [(-252.59012413024902, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-259.28562450408936, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-261.1470642089844, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-152.6173448562622, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-158.1338872909546, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-160.4505434036255, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-283.313982963562, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-284.1343765258789, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-279.8755111694336, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-266.09338569641113, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-253.08399868011475, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-258.2610502243042, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-308.798059463501, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-314.8599920272827, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-301.318696975708, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-318.21137714385986, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-316.70319175720215, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-317.5218858718872, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-334.7915382385254, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-343.34443187713623, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-323.88606452941895, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-791.385630607605, tensor([   2, 9690,   87,  143,  233,    9,    5,  168,  708,    7, 1156,   74,
+          33,    7, 2217,  984,  176,    4,  245,  119,  540,    7, 1930,   15,
+        5307,   11,    5,  220,  292,  107,  536,   56,    7,  593,    7,  457,
+           9,  106,   11,   10,  892,    4], device='cuda:0')), (-793.005313873291, tensor([   2, 9690,   87,  143,  233,    9,    5,  168,  708,    7, 1156,   74,
+          33,    7, 2217,  984,  176,    4,  245,  119,  540,    7, 1930,   15,
+        5307,   11,    5,  220,  292,  107,  536,   56,    7,  593,    7,  457,
+           9,  106,   11,   10,  266,    4], device='cuda:0')), (-789.0855579376221, tensor([   2, 9690,   87,  143,  233,    9,    5,  168,  708,    7, 1156,   74,
+          33,    7, 2217,  984,  176,    4,  245,  119,  540,    7, 1930,   15,
+        5307,   11,    5,  220,  292,  107,  536,   56,    7,  593,    7,  457,
+           9,  106,   11,   10,  892,   30], device='cuda:0')), (-222.18047904968262, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-231.84650135040283, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-232.7745304107666, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-363.24670028686523, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-362.32752895355225, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0')), (-362.09381103515625, tensor([    2,  9089,    12, 26698, 19931,  1960, 33270,  2359,    34,  2296,
+         3526,  9971,    11,    10,   984,   134,     6,   151,    12,  8833,
+        11888,   134,   119,    12,  8833,  3526,  3329,     1,     1,     1,
+            1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+            1,     1], device='cuda:0'))]
+tensor([[   2, 9089,   12,  ...,    1,    1,    1],
+        [   2, 9089,   12,  ...,    1,    1,    1],
+        [   2, 9089,   12,  ...,    1,    1,    1],
+        ...,
+        [   2, 9089,   12,  ...,    1,    1,    1],
+        [   2, 9089,   12,  ...,    1,    1,    1],
+        [   2, 9089,   12,  ...,    1,    1,    1]], device='cuda:0')
+****************
+SEQ OUT 2 BEAM EXPFT: 
+---
+Ex-England footballer Sam Sodje has pleaded not guilty.
+Ex-England footballer Sam Sodje has denied fraud offences in a £1,500 pounds of-pound) of fraud.
+Ex-England footballer Sam Sodje has denied fraud offences in a £1,000-pound (£1m pound fraud.
+---
+Adam Voges has been out on crutches for up to six weeks after suffering a knee injury.
+Adam Voges has been out on crutches for up to six weeks after suffering a shoulder injury.
+Adam Voges has been out on crutches for up to six weeks after suffering a hamstring injury.
+---
+A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed her.
+A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed the Duchess.
+A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed her has been named after her.
+---
+Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head.
+Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head of search.
+Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head of engineering.
+---
+A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west Belfast.
+A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west of Belfast.
+A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west of Belfast city.
+---
+Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh city centre on Saturday night.
+Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh has been taken to hospital.
+Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh city centre has been taken to receive treatment.
+---
+Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar speculation.
+Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar scandal.
+Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar controversy.
+---
+More than any part of the government plans to England would lose £2.
+More than any part of the government plans to England would have to lose £2.5m less to spend on teaching in the next five years ago had to close to half of them in a study.
+More than any part of the government plans to England would have to lose £2.5m less to spend on teaching in the next five years ago had to close to half of them in a report.
+---
+England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at the Oval.
+England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at Guildford.
+England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at The Oval.
+---
+The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the same.
+The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the backing of the Labour Party.
+The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the backing of the Labour leader Jeremy Corbyn.
+---
+****************
+#####
+---- GOLDEN SUMM:
+['Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.', 'Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.', "The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.", "Google has hired the creator of one of the web's most notorious forums - 4chan.", 'Two teenagers have been charged in connection with an incident in west Belfast in which a car collided with two police vehicles.', 'A pedestrian has been struck by a taxi in Dundee after it mounted the pavement.', "Barcelona football club chief Sandro Rosell has resigned following a Spanish court's decision to look into last year's signing of Brazil star Neymar.", 'About 70% of London schools could face budget cuts under government plans to change how they are funded, according to London Councils.', "Jason Roy continued his fine form with a second century in six days as Surrey made a strong start with the bat against Middlesex at Lord's.", 'Labour leadership hopefuls Liz Kendall and Yvette Cooper have said their supporters should back anyone other than Jeremy Corbyn in the contest.']
+---- SYSTEM SUMM:
+['Ex-England footballer Sam Sodje has pleaded not guilty.', 'Adam Voges has been out on crutches for up to six weeks after suffering a knee injury.', 'A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed her.', 'Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head.', 'A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west Belfast.', 'Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh city centre on Saturday night.', "Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar speculation.", 'More than any part of the government plans to England would lose £2.', 'England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at the Oval.', 'The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the same.']
+Yg ke - 0 :  {'rouge-1': {'r': 0.2868352211345885, 'p': 0.3396877894207616, 'f': 0.3042952874798325}, 'rouge-2': {'r': 0.11279329004329004, 'p': 0.1438501612766319, 'f': 0.12191944010685582}, 'rouge-l': {'r': 0.24551943166090423, 'p': 0.2973266783096505, 'f': 0.2626788394117715}}
+#####
+---- GOLDEN SUMM:
+['Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.', 'Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.', "The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.", "Google has hired the creator of one of the web's most notorious forums - 4chan.", 'Two teenagers have been charged in connection with an incident in west Belfast in which a car collided with two police vehicles.', 'A pedestrian has been struck by a taxi in Dundee after it mounted the pavement.', "Barcelona football club chief Sandro Rosell has resigned following a Spanish court's decision to look into last year's signing of Brazil star Neymar.", 'About 70% of London schools could face budget cuts under government plans to change how they are funded, according to London Councils.', "Jason Roy continued his fine form with a second century in six days as Surrey made a strong start with the bat against Middlesex at Lord's.", 'Labour leadership hopefuls Liz Kendall and Yvette Cooper have said their supporters should back anyone other than Jeremy Corbyn in the contest.']
+---- SYSTEM SUMM:
+['Ex-England footballer Sam Sodje has denied fraud offences in a £1,500 pounds of-pound) of fraud.', 'Adam Voges has been out on crutches for up to six weeks after suffering a shoulder injury.', 'A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed the Duchess.', 'Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head of search.', 'A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west of Belfast.', 'Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh has been taken to hospital.', "Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar scandal.", 'More than any part of the government plans to England would have to lose £2.5m less to spend on teaching in the next five years ago had to close to half of them in a study.', 'England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at Guildford.', 'The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the backing of the Labour Party.']
+Yg ke - 1 :  {'rouge-1': {'r': 0.3244822799581179, 'p': 0.33094230674726033, 'f': 0.3236457943000879}, 'rouge-2': {'r': 0.11517424242424243, 'p': 0.10876177282507207, 'f': 0.1102874238631812}, 'rouge-l': {'r': 0.26316649048443364, 'p': 0.27299535603715175, 'f': 0.2644540530874738}}
+#####
+---- GOLDEN SUMM:
+['Former Premier League footballer Sam Sodje has appeared in court alongside three brothers accused of charity fraud.', 'Middlesex batsman Adam Voges will be out until August after suffering a torn calf muscle in his right leg.', "The Duchess of Cambridge will feature on the cover of British Vogue to mark the magazine's centenary.", "Google has hired the creator of one of the web's most notorious forums - 4chan.", 'Two teenagers have been charged in connection with an incident in west Belfast in which a car collided with two police vehicles.', 'A pedestrian has been struck by a taxi in Dundee after it mounted the pavement.', "Barcelona football club chief Sandro Rosell has resigned following a Spanish court's decision to look into last year's signing of Brazil star Neymar.", 'About 70% of London schools could face budget cuts under government plans to change how they are funded, according to London Councils.', "Jason Roy continued his fine form with a second century in six days as Surrey made a strong start with the bat against Middlesex at Lord's.", 'Labour leadership hopefuls Liz Kendall and Yvette Cooper have said their supporters should back anyone other than Jeremy Corbyn in the contest.']
+---- SYSTEM SUMM:
+['Ex-England footballer Sam Sodje has denied fraud offences in a £1,000-pound (£1m pound fraud.', 'Adam Voges has been out on crutches for up to six weeks after suffering a hamstring injury.', 'A shoot photographer Josh has been photographed the Cambridge has been published a new images of the most photographed her has been named after her.', 'Google has appointed the former administrator of the far-right website as its new chief engineer at its new global head of engineering.', 'A man and a charged with two teenagers have been charged following a police chase by-style car attack on police in west of Belfast city.', 'Police are treating a crash involving a taxi driver hit a-run into a wall in Edinburgh city centre has been taken to receive treatment.', "Barcelona's former executive Sandrodd Rosell has resigned amid a day after the club's world's most expensive Neymar controversy.", 'More than any part of the government plans to England would have to lose £2.5m less to spend on teaching in the next five years ago had to close to half of them in a report.', 'England batsman Jason Roy hit a century of the space of a day one of Surrey began in the hosts at The Oval.', 'The Labour leadership contender for Labour and shadow home and shadow foreign policy contender Y Cooper is the backing of the Labour leader Jeremy Corbyn.']
+Yg ke - 2 :  {'rouge-1': {'r': 0.3210241694411839, 'p': 0.31766805949468485, 'f': 0.3146310982973889}, 'rouge-2': {'r': 0.11993614718614717, 'p': 0.11191727674144554, 'f': 0.1137546308676062}, 'rouge-l': {'r': 0.26182959208871176, 'p': 0.264504848436737, 'f': 0.25918906316164986}}
+RANDOM AWS
