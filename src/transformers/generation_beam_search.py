@@ -315,7 +315,6 @@ class BeamSearchScorer(BeamScorer):
         eos_token_id: Optional[int] = None,
         beam_indices: Optional[torch.LongTensor] = None,
     ) -> Tuple[torch.LongTensor]:
-        print("[DEBUG FT] finalize beam")
         batch_size = len(self._beam_hyps)
 
         # finalize all open beam hypotheses and add to generated hypotheses
@@ -896,7 +895,6 @@ class BeamHypotheses:
             return ret
 
 
-
 class FactBeamSearchScorer(BeamScorer):
     r"""
     [`BeamScorer`] implementing standard beam search decoding.
@@ -1016,12 +1014,6 @@ class FactBeamSearchScorer(BeamScorer):
         next_beam_tokens = torch.zeros((batch_size, self.group_size), dtype=next_tokens.dtype, device=device)
         next_beam_indices = torch.zeros((batch_size, self.group_size), dtype=next_indices.dtype, device=device)
 
-        # feqa_scorer = BaselineScorer(model="feqa")
-        
-        # TODO Faza beam search disini
-        # input_ids.xyz -> source document
-        # hypotheses -> beam nya
-        
         for batch_idx, beam_hyp in enumerate(self._beam_hyps):
             if self._done[batch_idx]:
                 if self.num_beams < len(beam_hyp):

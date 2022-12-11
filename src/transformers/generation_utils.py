@@ -1851,7 +1851,6 @@ class GenerationMixin:
             
             # print("=================")
             # print("all params: ", {**beam_params, **params})
-            # exit()
             return {**beam_params, **params}, model_kwargs
 
     def greedy_search(
@@ -2532,11 +2531,13 @@ class GenerationMixin:
                 if this_peer_finished_flag.item() == 0.0:
                     break
 
+            print("BSFT input path ", input_ids)
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
 
             # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
-            if cur_len < 5:
-                print("BSFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
+            
+            # if cur_len < 5:
+            #     print("BSFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
             
             
             outputs = self(
@@ -2609,19 +2610,22 @@ class GenerationMixin:
             beam_next_tokens = beam_outputs["next_beam_tokens"]
             beam_idx = beam_outputs["next_beam_indices"]
 
-            print("BSFT beam_scores ", beam_scores)
-            print("BSFT beam_scores ", beam_scores.grad_fn)
-
             input_ids = torch.cat([input_ids[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
 
             model_kwargs = self._update_model_kwargs_for_generation(
                 outputs, model_kwargs, is_encoder_decoder=self.config.is_encoder_decoder
             )
+            
+            print("BSFT beam_scores ", beam_scores)
+            print("BSFT beam_idx: ", beam_idx)
+            print("BSFT beam_next_tokens: ", beam_next_tokens)
             if model_kwargs["past"] is not None:
                 model_kwargs["past"] = self._reorder_cache(model_kwargs["past"], beam_idx)
 
             # print("BSFT model_kwargs: ", model_kwargs["past"])
-
+            print("dict_keys(['use_cache', 'attention_mask', 'encoder_outputs', 'past'])")
+            # print(model_kwargs['use_cache'], " ", model_kwargs['attention_mask'], " ", model_kwargs['encoder_outputs'])
+            
             if return_dict_in_generate and output_scores:
                 beam_indices = tuple((beam_indices[beam_idx[i]] + (beam_idx[i],) for i in range(len(beam_indices))))
 
@@ -3662,6 +3666,8 @@ class GenerationMixin:
             max_length=stopping_criteria.max_length,
         )
 
+        print("BSFT stop crt: ", str(stopping_criteria))
+
         if return_dict_in_generate:
             if not output_scores:
                 sequence_outputs["sequence_scores"] = None
@@ -3786,6 +3792,8 @@ class GenerationMixin:
         **model_kwargs,
     ):
         # TODO FT make comments/README
+        # print("EXPFT PARAMS ", params)
+        
         
         print('curlen ', params["cur_len"])
         # TODO FT to be removed, for debugging only
@@ -3796,7 +3804,7 @@ class GenerationMixin:
             beams.append(path.unsqueeze(0))
         input_path = torch.cat(beams, dim=0)
 
-        if synced_gpus:
+        if params["synced_gpus"]:
             # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
             # The following logic allows an early break if all peers finished generating their sequence
             this_peer_finished_flag = torch.tensor(0.0 if params["this_peer_finished"] else 1.0).to(input_path.device)
@@ -3807,6 +3815,7 @@ class GenerationMixin:
                 # TODO FT finish procedure
                 print("SELESAI")
 
+        print("EXPFT input path ", input_path)
         model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
         
         # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
@@ -3825,8 +3834,7 @@ class GenerationMixin:
         # odict_keys(['logits', 'past_key_values', 'encoder_last_hidden_state'])
         if params["cur_len"] < 5:
             print("EXPFT OUTPUT: ", outputs['logits'])
-        # exit()
-        if synced_gpus and params["this_peer_finished"]:
+        if params["synced_gpus"] and params["this_peer_finished"]:
             params["cur_len"] = params["cur_len"] + 1
             return "TODO FT"
             # continue  # don't waste resources running the code we don't need
@@ -3840,11 +3848,11 @@ class GenerationMixin:
             next_token_logits, dim=-1
         )  # (batch_size * params["num_beams"], vocab_size)
 
-        next_token_scores_processed = logits_processor(input_path, params["next_token_scores"])
+        next_token_scores_processed = params["logits_processor"](input_path, params["next_token_scores"])
         params["next_token_scores"] = next_token_scores_processed + params["beam_scores"][:, None].expand_as(params["next_token_scores"])
 
         # Store scores, attentions and hidden_states when required
-        if return_dict_in_generate:
+        if params["return_dict_in_generate"]:
             if params["output_scores"]:
                 params["scores"] += (next_token_scores_processed,)
             if params["output_attentions"]:
@@ -3878,8 +3886,8 @@ class GenerationMixin:
             params["next_token_scores"],
             params["next_tokens"],
             params["next_indices"],
-            pad_token_id=pad_token_id,
-            eos_token_id=eos_token_id,
+            pad_token_id=params["pad_token_id"],
+            eos_token_id=params["eos_token_id"],
             beam_indices=params["beam_indices"],
         )
 
@@ -3887,8 +3895,11 @@ class GenerationMixin:
         beam_next_tokens = beam_outputs["next_beam_tokens"]
         beam_idx = beam_outputs["next_beam_indices"]
 
+        # print("EXPFT beam_scores ", params["beam_scores"])
         print("EXPFT beam_scores ", params["beam_scores"])
-        print("EXPFT beam_scores grad_fn ", params["beam_scores"].grad_fn)
+        print("EXPFT beam_idx: ", beam_idx)
+        print("EXPFT beam_next_tokens: ", beam_next_tokens)
+            
 
         input_path = torch.cat([input_path[beam_idx, :], beam_next_tokens.unsqueeze(-1)], dim=-1)
         # TODO FT tiruin yg simpelnya
@@ -3899,7 +3910,7 @@ class GenerationMixin:
         if model_kwargs["past"] is not None:
             model_kwargs["past"] = self._reorder_cache(model_kwargs["past"], beam_idx)
 
-        if return_dict_in_generate and output_scores:
+        if params["return_dict_in_generate"] and params["output_scores"]:
             params["beam_indices"] = tuple((params["beam_indices"][beam_idx[ix]] + (beam_idx[i],) for i in range(len(params["beam_indices"]))))
 
         # print("EXPFT model_kwargs: ", model_kwargs["past"])
@@ -3921,11 +3932,11 @@ class GenerationMixin:
         # print("habis kelar: ", new_paths)
         paths = new_paths
 
-        if params["beam_scorer"].is_done or stopping_criteria(input_path, params["scores"]):
+        if params["beam_scorer"].is_done or params["stopping_criteria"](input_path, params["scores"]):
             # for ins in input_path:
             #     print("[DEBUG FT]: ", tokenizer.decode(ins, skip_special_tokens=True))
 
-            if not synced_gpus:
+            if not params["synced_gpus"]:
                 params["this_peer_finished"] = True
                 return paths, params, model_kwargs
             else:

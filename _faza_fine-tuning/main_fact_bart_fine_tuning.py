@@ -272,9 +272,9 @@ print("========")
 
 # print("ORIGINAL SEQS =>")
 # print(ori_seqs)
-# for i, ori_seq in enumerate(ori_seqs):
-#     scores = rouge.get_scores(ori_seq, summaries, avg=True)
-#     print(i, ". Rouge: ", scores)
+for i, ori_seq in enumerate(ori_seqs):
+    scores = rouge.get_scores(ori_seq, summaries, avg=True)
+    print(i, ". Rouge: ", scores)
 
 
 
@@ -340,8 +340,15 @@ for step in range(max_pred_len):
         summ_paths = new_paths # summ_paths = sorted(new_paths, reverse=True, key=lambda x: x[1][0])
         summ_paths = summ_paths[:beam_size]
         total_summ_paths = total_summ_paths + summ_paths
-        
+    
+    print("***")
+    print("new_all_paths ", new_all_paths)
+    print("total_summ_paths ", total_summ_paths)    
+    print("***")
+
     summ_paths = total_summ_paths
+    # TODO use above
+    # summ_paths = new_all_paths
 
 summ_result = {}
 for idx in range(beam_size):
@@ -354,3 +361,5 @@ for idx in range(beam_size):
 for i in range(beam_size):
     scores = rouge.get_scores(summ_result[i], summaries, avg=True)
     print("Yg ke -", i, ": ", scores)
+
+print("AWS")
