@@ -1847,10 +1847,10 @@ class GenerationMixin:
             )
             # print("BEAM PARAMS: ", beam_params)[]
             # print("----------")
-            print("reg PARAMS: ", params)
+            # print("reg PARAMS: ", params)
             
             # print("=================")
-            # print("all params: ", {**beam_params, **params})
+            print("all params: ", {**beam_params, **params})
             return {**beam_params, **params}, model_kwargs
 
     def greedy_search(
@@ -2521,6 +2521,8 @@ class GenerationMixin:
         tokenizer = AutoTokenizer.from_pretrained("facebook/bart-large-xsum")
 
         while True:
+            print("curlen ", cur_len)
+
             if synced_gpus:
                 # Under synced_gpus the `forward` call must continue until all gpus complete their sequence.
                 # The following logic allows an early break if all peers finished generating their sequence
@@ -2531,7 +2533,7 @@ class GenerationMixin:
                 if this_peer_finished_flag.item() == 0.0:
                     break
 
-            print("BSFT input path ", input_ids)
+            # print("BSFT input path ", input_ids)
             model_inputs = self.prepare_inputs_for_generation(input_ids, **model_kwargs)
 
             # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
@@ -2547,8 +2549,8 @@ class GenerationMixin:
                 output_hidden_states=output_hidden_states,
             )
             # print("BSFT OUTPUT: ", outputs.keys())
-            if cur_len < 5:
-                print("BSFT OUTPUT: ", outputs['logits'])
+            # if cur_len < 5:
+            #     print("BSFT OUTPUT: ", outputs['logits'])
 
             if synced_gpus and this_peer_finished:
                 cur_len = cur_len + 1
@@ -2619,17 +2621,23 @@ class GenerationMixin:
             print("BSFT beam_scores ", beam_scores)
             print("BSFT beam_idx: ", beam_idx)
             print("BSFT beam_next_tokens: ", beam_next_tokens)
+            print("BSFT CAT input path: ", input_ids)
             if model_kwargs["past"] is not None:
                 model_kwargs["past"] = self._reorder_cache(model_kwargs["past"], beam_idx)
 
             # print("BSFT model_kwargs: ", model_kwargs["past"])
-            print("dict_keys(['use_cache', 'attention_mask', 'encoder_outputs', 'past'])")
+            # print("dict_keys(['use_cache', 'attention_mask', 'encoder_outputs', 'past'])"))
             # print(model_kwargs['use_cache'], " ", model_kwargs['attention_mask'], " ", model_kwargs['encoder_outputs'])
             
             if return_dict_in_generate and output_scores:
                 beam_indices = tuple((beam_indices[beam_idx[i]] + (beam_idx[i],) for i in range(len(beam_indices))))
 
-            print("curlen ", cur_len)
+            
+            
+            #TODO FT remove below
+            # if cur_len > 15:
+            #     this_peer_finished = True
+            #     break
             
             # increase cur_len
             cur_len = cur_len + 1
@@ -2646,14 +2654,7 @@ class GenerationMixin:
                 else:
                     this_peer_finished = True
 
-        # # print("LAST: ")
-        # for i, (ins,bs) in enumerate(zip(input_ids, beam_scores)):
-        #     print('.')
-        #     print("batch ", int(i/num_beams)+1,": ",)
-        #     print(tokenizer.decode(ins, skip_special_tokens=True))
-        #     print("beam sc ", bs)
-
-
+        print("LAST: ", input_ids)
         sequence_outputs = beam_scorer.finalize(
             input_ids,
             beam_scores,
@@ -2665,12 +2666,13 @@ class GenerationMixin:
             beam_indices=beam_indices,
         )
         
+        # TODO FT remove below
+        return sequence_outputs["sequences"], sequence_outputs["original_sequences"]
+        
         # print("seq_outputs: ")
         # for i, ins in enumerate(sequence_outputs['sequences']):
         #     print("batch ", i,": ", tokenizer.decode(ins, skip_special_tokens=True))
             
-
-
         if return_dict_in_generate:
             if not output_scores:
                 sequence_outputs["sequence_scores"] = None
@@ -3761,7 +3763,7 @@ class GenerationMixin:
         # if model is an encoder-decoder, retrieve encoder attention weights and hidden states
         if return_dict_in_generate and self.config.is_encoder_decoder:
             params["encoder_attentions"] = model_kwargs["encoder_outputs"].get("attentions") if output_attentions else None
-            encoder_hidden_states = (
+            params["encoder_hidden_states"] = (
                 model_kwargs["encoder_outputs"].get("hidden_states") if output_hidden_states else None
             )
 
@@ -3819,8 +3821,8 @@ class GenerationMixin:
         model_inputs = self.prepare_inputs_for_generation(input_path, **model_kwargs)
         
         # dict_keys(['input_ids', 'encoder_outputs', 'past_key_values', 'decoder_input_ids', 'attention_mask', 'head_mask', 'decoder_head_mask', 'cross_attn_head_mask', 'use_cache'])
-        if params["cur_len"] < 5:
-            print("EXPFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
+        # if params["cur_len"] < 5:
+        #     print("EXPFT model_inputs: ", model_inputs['input_ids'], " ", model_inputs['encoder_outputs'], " ", model_inputs['attention_mask'], " ", model_inputs['head_mask'], " ", model_inputs['decoder_head_mask'], " ", model_inputs['cross_attn_head_mask'], " ", model_inputs['use_cache'], " ")
         
         # print("EXPFT output_attentions ", params["output_attentions"])
         # print("EXPFT output_hidden_states: ", params["output_hidden_states"])
@@ -3931,6 +3933,11 @@ class GenerationMixin:
 
         # print("habis kelar: ", new_paths)
         paths = new_paths
+
+        # TODO FT Remove below
+        # if (params['cur_len'] > 15):
+        #     params["this_peer_finished"] = True
+        #     return paths, params, model_kwargs
 
         if params["beam_scorer"].is_done or params["stopping_criteria"](input_path, params["scores"]):
             # for ins in input_path:

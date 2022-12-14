@@ -100,7 +100,17 @@ def beam_search_expand_single_bart(summ_model, summ_paths, beam_size, input_para
 
     return updated_summ_paths, return_params, model_kwargs
 
-def finalize_beam_search_expand_single_bart(summ_model, params):
+def finalize_beam_search_expand_single_bart(summ_model, summ_paths, params):
+    print("input_ids: ", params['input_ids'])
+    print("summ_paths: ", summ_paths)
+    
+    inp_ids = []
+    for _, path in summ_paths:
+        inp_ids.append(path.unsqueeze(0))
+    input_path = torch.cat(inp_ids, dim=0)
+    print(input_path)
+
+    params["input_ids"] = input_path
     result = summ_model.finalize_beam_search_expand_single(
         params["beam_scorer"],
         params["input_ids"],
@@ -147,7 +157,6 @@ model_name = "facebook/bart-large-xsum"
 if (dataset_name=='xsum'):
     model_name = "facebook/bart-large-xsum"
     
-
     language = 'english'
     train_data = datasets.load_dataset(dataset_name, name=language, split="train[:2000]")
     test_data = datasets.load_dataset(dataset_name, name=language, split="test")
@@ -211,10 +220,7 @@ validation_data = validation_data_txt.map(
 # Borrowed from https://github.com/huggingface/transformers/blob/master/examples/seq2seq/run_summarization.py
 # nltk.download("punkt", quiet=True)
 
-
 rouge = Rouge()
-
-
 
 test_samples = validation_data_txt.select(range(3))
 summaries = test_samples["summary"]
@@ -317,7 +323,9 @@ for step in range(max_pred_len):
             beam_search_expand_single_bart(summ_model, summ_paths, beam_size, params, **model_kwargs)
 
     if (params['this_peer_finished']):
-        sequence_output = finalize_beam_search_expand_single_bart(summ_model, params)
+        sequence_output = finalize_beam_search_expand_single_bart(summ_model, summ_paths, params)
+        print("input_ids: ", )
+        print("summ_paths")
 
         print("****************")
         print("SEQ OUT 2 BEAM EXPFT: ")
@@ -361,5 +369,4 @@ for idx in range(beam_size):
 for i in range(beam_size):
     scores = rouge.get_scores(summ_result[i], summaries, avg=True)
     print("Yg ke -", i, ": ", scores)
-
 print("AWS")

@@ -1,0 +1,27 @@
+SEQ OUT 1 BSFT ori_seqs:                                                                                                                                                                                                                      
+---                                                                                                                                                                                                                                           
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud charges.                                                                                                                                                           
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering.                                                                                                                                              
+Former Premier League footballer Sam Sodje has pleaded not guilty to fraud and money laundering charges.                                                                                                                                      
+---                                                                                                                                                                                                                                           
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee injury.                                                                                                                                                
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a hamstring injury.                                                                                                                                           
+Middlesex batsman Adam Voges has been ruled out for the rest of the season with a knee ligament injury.                                                                                                                                       
+---                                                                                                                                                                                                                                           
+The Duchess of Cambridge has been photographed for British Vogue.                                                                                                                                                                             
+The Duchess of Cambridge has been photographed for the first time for British Vogue.                                                                                                                                                          
+The Duchess of Cambridge has been photographed for British Vogue's 100th anniversary issue.  
+
+SEQ OUT 2 BEAM EXPFT: 
+---
+Ex Premier footballer footballer Sam Sod has pleaded pleaded not to fraud a and.
+Ex Premier footballer footballer Sam Sod has pleaded pleaded not to fraud a and.-.
+Former England League Sam Sodjeje has not guilty guilty to fraud £ money laundering charges.
+---
+Middlesex batsman Adam Voges will been ruled out for the season after a a injury.
+Middlesex batsman Adam Voges will been ruled out for the season after a a injury..
+Former Australia batsman Adam Voges will has miss the rest of the rest with suffering knee hamstring injury.
+---
+The Vogue Cambridge has been photographed for British Vogue.
+The Vogue Cambridge has been photographed for British Vogue. British V anniversary issue.
+British Duchess of has published a first in the first time for 100th issue..
