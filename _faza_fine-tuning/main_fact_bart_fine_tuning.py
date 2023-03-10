@@ -154,7 +154,7 @@ print("dev ",device)
 # tokenization
 encoder_max_length = 256  # demo
 decoder_max_length = 64
-dataset_name = 'xsum'
+dataset_name = 'cnn_dailymail'
 model_name = "facebook/bart-large-xsum"
 
 if (dataset_name=='xsum'):

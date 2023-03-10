@@ -2641,7 +2641,7 @@ class GenerationMixin:
             if return_dict_in_generate and output_scores:
                 beam_indices = tuple((beam_indices[beam_idx[i]] + (beam_idx[i],) for i in range(len(beam_indices))))
 
-            print("cur_len : ", cur_len)
+            # print("cur_len : ", cur_len)
             # print("BSFT params['indices'] ", beam_indices)
 
             # increase cur_len
@@ -2652,7 +2652,7 @@ class GenerationMixin:
 
             # print("beam_scorer.is_done: ", beam_scorer.is_done)
             if beam_scorer.is_done or stopping_criteria(input_ids, scores):
-                print("LAST input_ids: ", input_ids)
+                # print("LAST input_ids: ", input_ids)
                 if not synced_gpus:
                     break
                 else:
@@ -3932,7 +3932,7 @@ class GenerationMixin:
         final_path = []
         for i, updated_path in enumerate(copy_path):
             # final_path.append((paths[i][0] + params["beam_scores"][i].item(), updated_path, params["beam_scores"][i]))
-            final_path.append((params["beam_scores"][i].item(), updated_path, params["beam_scores"][i]))
+            final_path.append((paths[i][0] + params["beam_scores"][i].item(), updated_path, params["beam_scores"][i]))
         
         paths = final_path
 
@@ -3963,13 +3963,13 @@ class GenerationMixin:
         output_scores
     ):
         # TODO atur beam_scores and next_tokens dsb
-        # inp_ids = []
-        # beam_scores_ori = []
-        # for _, path, beam_score in paths:
-        #     inp_ids.append(path.unsqueeze(0))
-        #     beam_scores_ori.append(beam_score.unsqueeze(0))
-        # input_ids_ori = torch.cat(inp_ids, dim=0)
-        # beam_scores_ori =  torch.cat(beam_scores_ori, dim=0)
+        inp_ids = []
+        beam_scores_ori = []
+        for _, path, beam_score in paths:
+            inp_ids.append(path.unsqueeze(0))
+            beam_scores_ori.append(beam_score.unsqueeze(0))
+        input_ids_ori = torch.cat(inp_ids, dim=0)
+        beam_scores_ori =  torch.cat(beam_scores_ori, dim=0)
 
         # # assign all here
         # input_ids = input_ids_ori
@@ -3977,12 +3977,12 @@ class GenerationMixin:
         # next_tokens
         # next_indices
         # beam_indices
-        # print("beam_scores: \n", beam_scores)
-        # print("ORI beam_scores_ORI: \n", beam_scores_ori)
+        print("beam_scores: \n", beam_scores)
+        print("ORI beam_scores_ORI: \n", beam_scores_ori)
         
-        # print("next_indices: ", next_indices)
-        # print("next_tokens: ", next_tokens)
-        # print("beam_indices: ", beam_indices)
+        print("next_indices: ", next_indices)
+        print("next_tokens: ", next_tokens)
+        print("beam_indices: ", beam_indices)
 
         sequence_outputs = beam_scorer.finalize(
             input_ids,

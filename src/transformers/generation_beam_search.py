@@ -315,7 +315,7 @@ class BeamSearchScorer(BeamScorer):
         eos_token_id: Optional[int] = None,
         beam_indices: Optional[torch.LongTensor] = None,
     ) -> Tuple[torch.LongTensor]:
-        print("[DEBUG FT] finalize beam")
+        # print("[DEBUG FT] finalize beam")
         batch_size = len(self._beam_hyps)
 
         # finalize all open beam hypotheses and add to generated hypotheses
